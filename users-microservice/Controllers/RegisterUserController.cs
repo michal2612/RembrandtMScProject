@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using users_microservice.ViewModels;
 
@@ -8,6 +9,7 @@ namespace users_microservice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RegisterUserController : ControllerBase
     {
         static string Encrypt(string value)

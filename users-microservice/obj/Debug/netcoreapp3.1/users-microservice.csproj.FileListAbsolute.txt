@@ -102,5 +102,12 @@ C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcorea
 C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Michal\source\repos\MasterProject\users-microservice\obj\Debug\netcoreapp3.1\users-microservice.csproj.CoreCompileInputs.cache
 C:\Users\Michal\source\repos\MasterProject\users-microservice\obj\Debug\netcoreapp3.1\users-microservice.MvcApplicationPartsAssemblyInfo.cache
