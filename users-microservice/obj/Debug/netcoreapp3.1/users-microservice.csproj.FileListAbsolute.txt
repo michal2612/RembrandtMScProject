@@ -109,5 +109,3 @@ C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcorea
 C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Michal\source\repos\MasterProject\users-microservice\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\Michal\source\repos\MasterProject\users-microservice\obj\Debug\netcoreapp3.1\users-microservice.csproj.CoreCompileInputs.cache
-C:\Users\Michal\source\repos\MasterProject\users-microservice\obj\Debug\netcoreapp3.1\users-microservice.MvcApplicationPartsAssemblyInfo.cache
