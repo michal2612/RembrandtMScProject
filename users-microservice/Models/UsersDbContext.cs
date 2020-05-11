@@ -6,7 +6,7 @@ namespace users_microservice.Models
     {
         public DbSet<TestClass> TestClass { get; set; }
 
-        public UsersDbContext(DbContextOptions db)
+        public UsersDbContext(DbContextOptions db):base(db)
         {
 
         }

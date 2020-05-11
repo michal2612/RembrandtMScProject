@@ -40,7 +40,7 @@ namespace users_microservice
                 }
                 );
             services.AddControllers();
-            services.AddDbContext<UsersDbContext>(options => options.UseSqlServer);
+            services.AddDbContext<UsersDbContext>(options => options.UseSqlServer("Data Source=192.168.99.100,1433;Initial Catalog=MasterProjectDb;User ID=sa;Password=Password1!;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
