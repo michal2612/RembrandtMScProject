@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace user_microservice.Models
 {
@@ -24,6 +19,12 @@ namespace user_microservice.Models
 
         public string LastName { get; set; }
 
+        [Required]
         public Roles Role { get; set; }
+
+        public User()
+        {
+
+        }
     }
 }
