@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace user_microservice.Models
 {
-    public class TestClass
+    public class Roles
     {
         public int Id { get; set; }
-        public string Value1 { get; set; }
-        public string Value2 { get; set; }
-        public Roles Role { get; set; }
+        public string RoleName { get; set; }
+        public bool EditPrivilege { get; set; }
     }
 }
