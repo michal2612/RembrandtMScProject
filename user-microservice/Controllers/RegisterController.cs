@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using user_microservice.Models;
@@ -23,15 +24,31 @@ namespace user_microservice.Controllers
 
         //METHODS
         [HttpGet]
+        [Authorize]
         public List<User> ListOfUsers()
         {
             return _context.Users.ToList();
         }
 
-        [HttpPost]
-        public User AddUserToDb(User user)
+        [HttpGet("{id}")]
+        public User ReturnUserOfId(int id)
         {
-            return user;
+            if (_context.Users.Where(c => c.Id == id).SingleOrDefault() != null)
+                return _context.Users.Where(c => c.Id == id).SingleOrDefault();
+            else
+                return new User() { Id = id};
+        }
+        [HttpPost]
+        public string AddUserToDb(User user)
+        {
+            if (CheckUser(user))
+            {
+                user.Role = new Roles() { Id = 1};
+                _context.Users.Add(user);
+                return "User has been added successfully to database";
+            }
+            else
+                throw new Exception("User has not been added to database");
         }
 
         public bool CheckUser(User user)
