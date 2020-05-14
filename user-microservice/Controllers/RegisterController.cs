@@ -24,7 +24,6 @@ namespace user_microservice.Controllers
 
         //METHODS
         [HttpGet]
-        [Authorize]
         public List<User> ListOfUsers()
         {
             return _context.Users.ToList();

@@ -23,6 +23,7 @@ namespace MasterProject.Controllers
             return View();
         }
 
+        //[TokenAuthorize]
         public IActionResult Privacy()
         {
             return View("IndexNotLogged");
