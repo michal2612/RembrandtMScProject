@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MasterProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MasterProject.Controllers
 {
@@ -23,7 +24,6 @@ namespace MasterProject.Controllers
             return View();
         }
 
-        //[TokenAuthorize]
         public IActionResult Privacy()
         {
             return View("IndexNotLogged");

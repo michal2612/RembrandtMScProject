@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -26,7 +23,7 @@ namespace MasterProject.Controllers
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
             //create token
             var token = new JwtSecurityToken(
-                issuer: "smesdk.in",
+                issuer: "smesk.in",
                 audience: "readers",
                 expires: DateTime.Now.AddHours(1),
                 signingCredentials: signingCredentials
