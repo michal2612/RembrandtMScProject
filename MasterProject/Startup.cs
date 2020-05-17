@@ -23,7 +23,6 @@ namespace MasterProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string securityKey = System.IO.File.ReadAllLines(@"C:\Users\Michal\source\repos\MasterProject\securityKey.txt").First();
 
             services.AddControllersWithViews();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -38,7 +37,7 @@ namespace MasterProject
                         //setup validate data
                         ValidIssuer = "smesk.in",
                         ValidAudience = "readers", //may be anything
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Models.SecurityKey.ReturnSecurityKey()))
                 };
                 });
         }

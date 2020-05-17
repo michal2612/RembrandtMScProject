@@ -15,10 +15,8 @@ namespace MasterProject.Controllers
         [HttpGet("token")]
         public ActionResult GetToken()
         {
-            //security key
-            string securityKey = System.IO.File.ReadAllLines(@"C:\Users\Michal\source\repos\MasterProject\securityKey.txt").First();
             //symetric security key
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
+            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Models.SecurityKey.ReturnSecurityKey()));
             //signing credentials
             var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
             //create token
