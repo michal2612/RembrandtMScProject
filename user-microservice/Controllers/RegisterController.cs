@@ -50,6 +50,15 @@ namespace user_microservice.Controllers
                 throw new Exception("User has not been added to database");
         }
 
+        [HttpPut]
+        public User UpdateUser(User user)
+        {
+            var userInDb = _context.Users.Where(u => u.Id == user.Id).SingleOrDefault();
+            if (userInDb == null)
+                throw new Exception("There is no user with that username in database");
+            return userInDb;
+        }
+        //NO API METHODS
         public bool CheckUser(User user)
         {
             if (String.IsNullOrWhiteSpace(user.Username) || String.IsNullOrWhiteSpace(user.EmailAddress))
