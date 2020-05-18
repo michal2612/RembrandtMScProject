@@ -15,10 +15,8 @@ namespace MasterProject.Controllers
         [HttpGet("token")]
         public ActionResult GetToken()
         {
-            //symetric security key
-            var symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Models.SecurityKey.ReturnSecurityKey()));
             //signing credentials
-            var signingCredentials = new SigningCredentials(symmetricSecurityKey, SecurityAlgorithms.HmacSha256Signature);
+            var signingCredentials = new SigningCredentials(Models.SecurityKey.ReturnSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256Signature);
             //create token
             var token = new JwtSecurityToken(
                 issuer: "smesk.in",
