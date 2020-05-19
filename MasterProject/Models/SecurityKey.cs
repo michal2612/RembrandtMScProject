@@ -6,9 +6,11 @@ namespace MasterProject.Models
 {
     public static class SecurityKey
     {
+        private static readonly string securityKeyPath = @"C:\Users\Michal\source\repos\MasterProject\securityKey.txt";
+
         public static string ReturnSecurityKey()
         {
-            return System.IO.File.ReadAllLines(@"C:\Users\Michal\source\repos\MasterProject\securityKey.txt").First();
+            return System.IO.File.ReadAllLines(securityKeyPath).First();
         }
 
         public static SymmetricSecurityKey ReturnSymmetricSecurityKey()
