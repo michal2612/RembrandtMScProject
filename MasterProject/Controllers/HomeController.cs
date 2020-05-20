@@ -24,23 +24,26 @@ namespace MasterProject.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            try {
+                if (!String.IsNullOrWhiteSpace(Request.Cookies["username"].ToString()))
+                    return View();
+            }
+            catch (Exception) { 
+            }
+            return View("IndexNotLogged");
         }
-
+        //[Authorize]
         public IActionResult Privacy()
         {
-            if (String.IsNullOrWhiteSpace(Request.Cookies["username"]))
-                return Content("Not access");
-            return View("IndexNotLogged");
+            return Content("Dupa");
         }
 
         //TEST ONLY
-        public IActionResult GenerateToken()
+        public void GenerateToken()
         {
             var client = new WebClient();
             client.Headers[HttpRequestHeader.ContentType] = "application/json";
             Response.Cookies.Append("username", client.DownloadString("https://localhost:44363/api/auth/token"));
-            return Content(Request.Cookies["username"].ToString());
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

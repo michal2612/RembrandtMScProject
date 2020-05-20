@@ -1,4 +1,5 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
@@ -106,12 +107,13 @@ nav {
 .menu a:hover {
     color: #1861ac;
 }
+
 .main-footer {
     background-color: #F6F6F6;
     width: 100%;
     min-height: 100px;
+    bottom: 0;
     position: relative;
-    margin-top: 30px;
     display: flex;
 }
 .main-footer div {

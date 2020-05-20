@@ -106,7 +106,6 @@ C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\Michal\source\repos\MasterProject\MasterProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\NotLogged\_Layout.cshtml.g.cs
 C:\Users\Michal\source\repos\MasterProject\MasterProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\IndexNotLogged.cshtml.g.cs
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\EntityFramework.dll

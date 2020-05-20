@@ -1,48 +1,89 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MasterProject</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MasterProject</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewData["Title"] - MasterProject</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">Master Project MS Services</h1>
+            <nav class="navbar navbar-dark bg-primary navbar-expand-md" id="navbar">
+                <a class="navbar-brand" href="/Home">Master Project</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Navigation switcher">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="navbar-collapse collapse" id="mainmenu" style="position:relative">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a class="nav-link" href="/Home">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <li>
+                            @Html.ActionLink("Get Data", "Privacy", "Home", null, new { @class = "nav-link"})
+                        </li>
+                        <li>
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button">Data mining</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Option 1</a>
+                                <a class="dropdown-item" href="#">Option 2</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="#">Stats</a>
                         </li>
                     </ul>
                 </div>
+            </nav>
+        </header>
+        <aside>
+            <div class="path">
+                &spades; > Controler > Site
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - MasterProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </aside>
+        <div class="main-container">
+            <main>
+                <article>
+                    <header>
+                        <h2>@ViewData["Title"]</h2>
+                    </header>
+                    <div id="body-element">
+                        @RenderBody()
+                    </div>
+                </article>
+            </main>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
-</body>
+        <footer>
+            <div class="main-footer">
+                <div>
+                    <div class="section-header">Credits</div>
+                    &copy; Michal Domanski
+                </div>
+                <div>
+                    <div class="section-header">Navigation</div>
+                    <ul class="footer-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Get data</a></li>
+                        <li><a href="#">Data mining</a></li>
+                        <li><a href="#">Stats</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script>
+            window.onscroll = function () { myFunction() };
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        </script>
+    </body>
 </html>
