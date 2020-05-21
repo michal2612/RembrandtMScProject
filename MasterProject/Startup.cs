@@ -38,6 +38,7 @@ namespace MasterProject
                         ValidIssuer = "smesk.in",
                         ValidAudience = "readers", //may be anything
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Models.SecurityKey.ReturnSecurityKey()))
+                        //jwt
                 };
                 });
         }
