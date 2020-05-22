@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Linq;
 using System.Text;
 
@@ -39,7 +40,7 @@ namespace MasterProject
                         ValidAudience = "readers", //may be anything
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Models.SecurityKey.ReturnSecurityKey()))
                         //jwt
-                };
+                    };
                 });
         }
 
