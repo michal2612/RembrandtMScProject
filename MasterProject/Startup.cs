@@ -31,7 +31,7 @@ namespace MasterProject
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
-                        //what to validate
+                        //what to validate 25.05.2020
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateIssuerSigningKey = true,

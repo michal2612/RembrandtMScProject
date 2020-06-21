@@ -31,7 +31,7 @@ namespace MasterProject.Models
                 .WithAlgorithm(new HMACSHA256Algorithm())
                 .WithSecret(Encoding.UTF8.GetBytes(ReturnSecurityKey()))
                 .AddClaim("exp", DateTime.Now.AddHours(1))
-                .AddClaim("username", "dupsko")
+                .AddClaim("username", "dupa")
                 //.addClaim("role", user.Role)
                 .Encode(); //generates and return token
         }

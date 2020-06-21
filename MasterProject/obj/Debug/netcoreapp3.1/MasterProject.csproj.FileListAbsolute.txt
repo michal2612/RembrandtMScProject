@@ -126,3 +126,6 @@ C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Michal\source\repos\MasterProject\MasterProject\bin\Debug\netcoreapp3.1\JWT.dll
+C:\Users\Michal\source\repos\MasterProject\MasterProject\obj\Debug\netcoreapp3.1\MasterProject.csproj.CoreCompileInputs.cache
+C:\Users\Michal\source\repos\MasterProject\MasterProject\obj\Debug\netcoreapp3.1\MasterProject.MvcApplicationPartsAssemblyInfo.cache
