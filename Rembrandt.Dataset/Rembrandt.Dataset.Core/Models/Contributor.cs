@@ -14,6 +14,11 @@ namespace Rembrandt.Dataset.Core.Models
         public bool NatureOriented { get; set; }
         public bool WithChildren { get; set; }
         public Activities Activities { get; set; }
-        
+
+        protected Contributor()
+        {
+            
+        }
+
     }
 }
