@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MScProject.Tests
+namespace Rembrandt.Dataset.Infrastructure
 {
     public class Class1
     {

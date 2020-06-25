@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "UEXhKD1RHAg5uhbHG/aRrIFdhU4Xk4DU4pVwksAY1ZkQzn0sTbjbcBraic6O/+ULJL0PP0S0D1ejDRG/4ec0Ew==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Michal\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

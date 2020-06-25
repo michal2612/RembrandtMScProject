@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f1Kof50Mj8rCYnMKk+DxjbckontstgmQniEsVjunzKs78inhIrBnxs+yPHduV+Tz86LMRgRSgQx9ac40O0DlEg==",
+  "dgSpecHash": "sfNYIYeL3nzyC66F8gsqyNPLYpuoPyb+51rRZOYQr6ddDZteifbX6rDXWeDqo6cUJYfCizJpMLaCes47TBA7GA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\MScProject.Tests.csproj",
+  "projectFilePath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michal\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"

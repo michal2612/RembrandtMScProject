@@ -185,11 +185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\MScProject.Tests.csproj",
-      "projectName": "MScProject.Tests",
-      "projectPath": "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\MScProject.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Infrastructure\\Rembrandt.Dataset.Infrastructure.csproj",
+      "projectName": "Rembrandt.Dataset.Infrastructure",
+      "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Infrastructure\\Rembrandt.Dataset.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\obj\\",
+      "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\MScProject.Tests.csproj": {}
+    "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\MScProject.Tests.csproj": {
+    "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\MScProject.Tests.csproj",
-        "projectName": "MScProject.Tests",
-        "projectPath": "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\MScProject.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj",
+        "projectName": "Rembrandt.Dataset.Core",
+        "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj",
         "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Michal\\source\\repos\\MasterProject\\MScProject.Tests\\obj\\",
+        "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

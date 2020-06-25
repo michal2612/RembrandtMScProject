@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "vMoKgKFtiWeMq7u3CPHuQo708K7ZT617KzWHh0wuuILBBLshUOOcuvcDV9vBAHg4sJUg20xe1Sh1gYkaGhJcPQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Michal\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
