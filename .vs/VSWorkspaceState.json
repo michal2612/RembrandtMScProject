@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Rembrandt.Dataset",
+    "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core",
+    "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Models",
+    "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Repositories"
+  ],
+  "SelectedNode": "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Models\\Park.cs",
+  "PreviewInSolutionExplorer": false
+}
