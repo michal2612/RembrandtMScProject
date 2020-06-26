@@ -71,7 +71,7 @@ namespace Rembrandt.Dataset.Core.Models
                     if(exceptionProperties.Contains(prop.Name))
                     {
                         if((int)prop.GetValue(attributes) < minValueException || (int)prop.GetValue(attributes) > maxValueException)
-                            throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
+                            throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValueException} and {maxValueException}!");
                     }
                     else if((int)prop.GetValue(attributes) < minValue || (int)prop.GetValue(attributes) > maxValue)
                             throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
