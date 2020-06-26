@@ -13,6 +13,11 @@ namespace Rembrandt.Dataset.Core.Models
 
         }
 
+        protected Location(float longitude, float latitude)
+        {
+            Longitude = SetLongitude(longitude);
+            Latitude = SetLatitude(latitude);
+        }
         protected Location(int gpsAccuracy, float longitude, float latitude)
         {
             GpsAccuracy = SetGpsAccuracy(gpsAccuracy);
