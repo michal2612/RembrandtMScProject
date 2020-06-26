@@ -1,6 +1,4 @@
-
 using System;
-using System.Threading.Tasks;
 using Rembrandt.Dataset.Core.Helpers;
 
 namespace Rembrandt.Dataset.Core.Models
@@ -12,16 +10,15 @@ namespace Rembrandt.Dataset.Core.Models
         public int? Gender { get; protected set; }
         public bool? DutchNationality { get; protected set; }
         public int? Education { get; protected set; }
-        public bool VisitDaily { get; protected set; }
+        public bool? VisitDaily { get; protected set; }
         public int? VisitFreq { get; protected set; }
         public bool? VisitAlone { get; protected set; }
         public int? VisitOtherParks { get; protected set; }
-        public bool MoreInvolved { get; protected set; }
+        public bool? MoreInvolved { get; protected set; }
         public int? NatureOriented { get; protected set; }
-        public bool WithChildren { get; protected set; }
-        public Activities Activities { get; protected set; }
+        public bool? WithChildren { get; protected set; }
 
-        protected Contributor(string id, int? age, int? gender, bool? dutchNationality, int? education, bool visitDaily, int? visitFrequency, bool? visitAlone, int? visitOtherParks, bool moreInvoled, int? natureOriented, bool withChildren, Activities activities)
+        public Contributor(string id, int? age, int? gender, bool? dutchNationality, int? education, bool? visitDaily, int? visitFrequency, bool? visitAlone, int? visitOtherParks, bool? moreInvoled, int? natureOriented, bool? withChildren)
         {
             Id = id;
             Age = SetAge(age);
@@ -35,7 +32,6 @@ namespace Rembrandt.Dataset.Core.Models
             MoreInvolved = moreInvoled;
             NatureOriented = SetNatureOriented(natureOriented);
             WithChildren = withChildren;
-            Activities = activities;
         }
 
         private static int? SetAge(int? age)
@@ -64,7 +60,7 @@ namespace Rembrandt.Dataset.Core.Models
             bool exists = Enum.IsDefined(enumType, value);
             
             if(exists == false)
-                throw new ArgumentException("Can't find a definition for value value!");
+                throw new ArgumentException($"Can't find a definition for {enumType.Name} value!");
 
             return value;
         }

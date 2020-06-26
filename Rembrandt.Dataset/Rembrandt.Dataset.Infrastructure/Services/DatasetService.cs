@@ -3,35 +3,26 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Rembrandt.Dataset.Core.Models;
+using Rembrandt.Dataset.Core.Repositories;
 
 namespace Rembrandt.Dataset.Infrastructure.Services
 {
     public class DatasetService : IDatasetService
     {
-        public Task AddObservation(Observation observeration)
+        private readonly IObservationRepository _observationRepository;
+
+        public DatasetService(IObservationRepository observationRepository)
         {
-            throw new NotImplementedException();
+            _observationRepository = observationRepository;
         }
 
-        public Task AddObservation(string observation)
-        {
-            var observationToJson = JsonConvert.DeserializeObject(observation);
-            throw new NotImplementedException();
-        }
+        public Task AddObservationAsync(Observation observeration)
+            => _observationRepository.AddObservationAsync(observeration);
 
-        public Task<IEnumerable<Observation>> GetAllObservations()
-        {
-            throw new NotImplementedException();
-        }
+        public Task<IEnumerable<Observation>> GetAllObservationsAsync()
+            => _observationRepository.GetAllObservationsAsync();
 
-        public Task<Observation> GetObservation(Guid guid)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Observation> GetObservation(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public Task<Observation> GetObservationAsync(string id)
+            => _observationRepository.GetObservationAsync(id);
     }
 }

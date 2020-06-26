@@ -6,6 +6,7 @@ namespace Rembrandt.Dataset.Core.Helpers
         From30to39 = 5,
         From40to49 = 6,
         From50to59 = 7,
-        From60to69 = 8
+        From60to69 = 8,
+        Undefined
     }
 }

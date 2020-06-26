@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Rembrandt.Dataset.Core.Repositories;
+using Rembrandt.Dataset.Infrastructure.Repositories;
+using Rembrandt.Dataset.Infrastructure.Services;
 
 namespace Rembrandt.Dataset.Api
 {
@@ -26,6 +29,9 @@ namespace Rembrandt.Dataset.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<IObservationRepository,ObservationRepository>();
+            services.AddScoped<IDatasetService,DatasetService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

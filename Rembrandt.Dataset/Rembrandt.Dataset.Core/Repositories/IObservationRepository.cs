@@ -7,9 +7,8 @@ namespace Rembrandt.Dataset.Core.Repositories
 {
     public interface IObservationRepository
     {
-        Task<IEnumerable<Observation>> GetAllObservations();
-        Task<Observation> GetObservation(Guid guid);
-        Task<Observation> GetObservation(int id);
-        Task AddObservation(Observation observeration);
+        Task AddObservationAsync(Observation observeration);
+        Task<Observation> GetObservationAsync(string id);
+        Task<IEnumerable<Observation>> GetAllObservationsAsync();
     }
 }

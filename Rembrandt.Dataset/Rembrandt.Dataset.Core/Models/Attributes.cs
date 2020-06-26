@@ -28,7 +28,7 @@ namespace Rembrandt.Dataset.Core.Models
         public int? Paths { get; protected set; }
         public int? Facilities { get; protected set; }
         
-        protected Attributes(int? lively, int? relaxing, int? tranquil, int? noisy, int? crowded, int? safe, int? beauty, int? biodiversity, int? trees, int? shrubs, int? lawns, int? flowers, int? natveg, int? benches, int? play, int? sports, int? garbage, int? veget, int? paths, int? facilities)
+        public Attributes(int? lively, int? relaxing, int? tranquil, int? noisy, int? crowded, int? safe, int? beauty, int? biodiversity, int? trees, int? shrubs, int? lawns, int? flowers, int? natveg, int? benches, int? play, int? sports, int? garbage, int? veget, int? paths, int? facilities)
         {
             Lively = lively;
             Relaxing = relaxing;
@@ -75,6 +75,7 @@ namespace Rembrandt.Dataset.Core.Models
                     }
                     else if((int)prop.GetValue(attributes) < minValue || (int)prop.GetValue(attributes) > maxValue)
                             throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
+
         }
     }
 }

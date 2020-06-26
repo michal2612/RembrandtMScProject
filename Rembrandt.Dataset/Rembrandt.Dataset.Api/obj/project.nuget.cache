@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "6zf9lEvlVF7buSNtgQKNAfeFrrBYZOG9GIwXanxjowpZdyT53oY7jnkzJ1VzqK1omcZknwVJjtiioelVlH5AtQ==",
+  "dgSpecHash": "vPk9b/vGq+6VDtEYmI5YR6IsA33LHIFU36nK8VcEaVuQgD6MZhPAGFwr0GuFwHBjkcm5u/DSZSnRGo1mn2LLcA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Api\\Rembrandt.Dataset.Api.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Michal\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
