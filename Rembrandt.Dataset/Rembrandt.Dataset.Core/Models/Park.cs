@@ -5,9 +5,10 @@ namespace Rembrandt.Dataset.Core.Models
         public Location MeasuredLocation { get; protected set; }
         public Location ActualLocation { get; protected set; }
         
-        public Park()
+        public Park(Location measuredLocation, Location actualLocation)
         {
-            
+            MeasuredLocation = measuredLocation;
+            ActualLocation = actualLocation;
         }
     }
 }

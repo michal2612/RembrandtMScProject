@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace Rembrandt.Dataset.Core.Models
@@ -25,11 +27,6 @@ namespace Rembrandt.Dataset.Core.Models
         public int? Veget { get; protected set; }
         public int? Paths { get; protected set; }
         public int? Facilities { get; protected set; }
-
-        private Attributes()
-        {
-
-        }
         
         protected Attributes(int? lively, int? relaxing, int? tranquil, int? noisy, int? crowded, int? safe, int? beauty, int? biodiversity, int? trees, int? shrubs, int? lawns, int? flowers, int? natveg, int? benches, int? play, int? sports, int? garbage, int? veget, int? paths, int? facilities)
         {
@@ -58,12 +55,26 @@ namespace Rembrandt.Dataset.Core.Models
 
         private static void CheckValues(Attributes attributes)
         {
+            var exceptionProperties = new List<string>()
+            {
+                "Beauty",
+                "Biodiversity"
+            };
             PropertyInfo[] props = attributes.GetType().GetProperties();
+            const int minValue = 1;
+            const int maxValue = 5;
+            const int minValueException = 1;
+            const int maxValueException = 10;
 
             foreach (var prop in props)
                 if(prop.GetValue(attributes) != null)
-                    if ((int)prop.GetValue(attributes) < 1 || (int)prop.GetValue(attributes) > 5)
-                        throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between 1 and 5!");
+                    if(exceptionProperties.Contains(prop.Name))
+                    {
+                        if((int)prop.GetValue(attributes) < minValueException || (int)prop.GetValue(attributes) > maxValueException)
+                            throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
+                    }
+                    else if((int)prop.GetValue(attributes) < minValue || (int)prop.GetValue(attributes) > maxValue)
+                            throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
         }
     }
 }

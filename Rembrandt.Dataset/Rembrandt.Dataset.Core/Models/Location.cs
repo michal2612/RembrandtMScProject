@@ -7,11 +7,6 @@ namespace Rembrandt.Dataset.Core.Models
         public int GpsAccuracy { get; protected set; }
         public float Longitude { get; protected set; }
         public float Latitude { get; protected set; }
-        
-        protected Location()
-        {
-
-        }
 
         protected Location(float longitude, float latitude)
         {
