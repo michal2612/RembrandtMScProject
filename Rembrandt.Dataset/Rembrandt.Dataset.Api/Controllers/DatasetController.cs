@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Infrastructure.Services;
 using System.Linq;
+using Rembrandt.Dataset.Infrastructure.DTO;
 
 namespace Rembrandt.Dataset.Api.Controllers
 {
@@ -20,7 +21,7 @@ namespace Rembrandt.Dataset.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Observation>> GetAsync()
+        public async Task<IEnumerable<ObservationDto>> GetAsync()
         {
             var dataset = await _datasetService.GetAllObservationsAsync();
 
@@ -28,9 +29,11 @@ namespace Rembrandt.Dataset.Api.Controllers
         }
 
         [HttpPost]
-        public async Task PostAsync(Observation observation)
+        public async Task<IActionResult> PostAsync(ObservationDto observation)
         {
-            
+            await _datasetService.AddObservationAsync(observation);
+
+            return Ok(observation);
         }
     }
 }

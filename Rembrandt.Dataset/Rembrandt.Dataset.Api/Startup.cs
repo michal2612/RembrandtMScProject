@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Rembrandt.Dataset.Core.Repositories;
+using Rembrandt.Dataset.Infrastructure.Mappers;
 using Rembrandt.Dataset.Infrastructure.Repositories;
 using Rembrandt.Dataset.Infrastructure.Services;
 
@@ -28,10 +29,12 @@ namespace Rembrandt.Dataset.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
-
             services.AddScoped<IObservationRepository,ObservationRepository>();
             services.AddScoped<IDatasetService,DatasetService>();
+
+            services.AddSingleton(AutoMapperConfig.Initialize());
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
