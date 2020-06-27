@@ -25,13 +25,17 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
                         longitude: 14f,
                         latitude: 50f
                     ),
-                    new Location(
+                    actualLocation: new Location(
                         longitude: 40f,
                         latitude: 13f
                     )
                 ),
                 activities : new Activities(
-                    true, true, false,true,false
+                    walking: true,
+                    jogging: null,
+                    biking: true,
+                    relaxing: true,
+                    socialising: true
                 ),
                 contributor : new Contributor(
                     id: "valie",

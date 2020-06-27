@@ -20,11 +20,17 @@ namespace Rembrandt.Dataset.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Observation>> Get()
+        public async Task<IEnumerable<Observation>> GetAsync()
         {
             var dataset = await _datasetService.GetAllObservationsAsync();
 
             return dataset;
+        }
+
+        [HttpPost]
+        public async Task PostAsync(Observation observation)
+        {
+            
         }
     }
 }
