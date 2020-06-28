@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Rembrandt.Dataset.Core.Models;
@@ -6,9 +5,10 @@ using Rembrandt.Dataset.Infrastructure.DTO;
 
 namespace Rembrandt.Dataset.Infrastructure.Services
 {
-    public interface IDatasetService
+    public interface IAddDataService
     {
-        Task<ObservationDto> GetObservationAsync(int id);
-        Task<IEnumerable<ObservationDto>> GetAllObservationsAsync();
+        Task AddObservationDtoAsync(ObservationDto observationDto);
+
+        Task AddObservationsDtoAsync(IEnumerable<ObservationDto> observationsDto);
     }
 }

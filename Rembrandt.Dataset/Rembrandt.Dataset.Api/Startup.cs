@@ -31,9 +31,9 @@ namespace Rembrandt.Dataset.Api
         {
             services.AddScoped<IObservationRepository,ObservationRepository>();
             services.AddScoped<IDatasetService,DatasetService>();
+            services.AddScoped<IAddDataService, AddDataService>();
 
             services.AddSingleton(AutoMapperConfig.Initialize());
-
             services.AddControllers();
         }
 

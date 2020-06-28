@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using Newtonsoft.Json;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Core.Repositories;
 using Rembrandt.Dataset.Infrastructure.DTO;
@@ -20,12 +19,6 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task AddObservationAsync(ObservationDto observeration)
-        {
-            var observationCore = _mapper.Map<ObservationDto, Observation>(observeration);
-            await _observationRepository.AddObservationAsync(observationCore);
-        }
-
         public async Task<IEnumerable<ObservationDto>> GetAllObservationsAsync()
         {
             var observationsCore = await _observationRepository.GetAllObservationsAsync();
@@ -37,7 +30,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             return observationsDto;
         }
 
-        public async Task<ObservationDto> GetObservationAsync(string id)
+        public async Task<ObservationDto> GetObservationAsync(int id)
         {
             var observationCore = await _observationRepository.GetObservationAsync(id);
 
