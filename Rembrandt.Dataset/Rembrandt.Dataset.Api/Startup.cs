@@ -29,7 +29,7 @@ namespace Rembrandt.Dataset.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IObservationRepository,ObservationRepository>();
+            services.AddSingleton<IObservationRepository,ObservationRepository>();
             services.AddScoped<IDatasetService,DatasetService>();
             services.AddScoped<IAddDataService, AddDataService>();
 

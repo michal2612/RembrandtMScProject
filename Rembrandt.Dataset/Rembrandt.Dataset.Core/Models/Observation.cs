@@ -15,7 +15,11 @@ namespace Rembrandt.Dataset.Core.Models
         public Park Park { get; protected set; }
         public Activities Activities { get; protected set; }
         public Contributor Contributor { get; protected set; }
-
+        
+        public Observation()
+        {
+            
+        }
         public Observation(int id, string skipReason, DateTime timeSubmitted, int siteId, string photoAddress, int photoTowardsPointCompass, Attributes attributes, Park park, Activities activities, Contributor contributor)
         {
             Id = id;

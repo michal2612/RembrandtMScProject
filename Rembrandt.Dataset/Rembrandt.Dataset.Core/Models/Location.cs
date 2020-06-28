@@ -22,7 +22,7 @@ namespace Rembrandt.Dataset.Core.Models
 
         private int SetGpsAccuracy(int gpsAccuracy)
         {
-            if(gpsAccuracy == 0)
+            if(gpsAccuracy < 0)
                 throw new ArgumentException("GPS Accuracy should not be equal to 0!");
 
             return gpsAccuracy;

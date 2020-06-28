@@ -44,11 +44,24 @@ namespace Rembrandt.Dataset.Api.Controllers
             await _addDataService.AddObservationsDtoAsync(observations);
             return Ok(observations);
         }
+        
+        [HttpPost("MultipleDefaultObservations")]
+        public async Task<IActionResult> PostMultipleDefaultObservationsAsync(IEnumerable<DefaultObservation> defaultObservations)
+        {
+            var observationsDto = new List<ObservationDto>();
+
+            foreach(var defaultObservation in defaultObservations)
+                observationsDto.Add(DefaultToObservationDto.ConvertDefaultToObservationDto(defaultObservation));
+            await _addDataService.AddObservationsDtoAsync(observationsDto);
+
+            return Ok(observationsDto);
+        }
 
         [HttpPost("DefaultObservation")]
         public async Task<IActionResult> PostDefaultObservation(DefaultObservation defaultObservation)
         {
             var observationDto = DefaultToObservationDto.ConvertDefaultToObservationDto(defaultObservation);
+            await _addDataService.AddObservationDtoAsync(observationDto);
             return Ok(observationDto);
         }
     }

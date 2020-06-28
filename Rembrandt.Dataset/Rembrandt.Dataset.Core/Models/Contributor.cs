@@ -18,6 +18,11 @@ namespace Rembrandt.Dataset.Core.Models
         public int? NatureOriented { get; protected set; }
         public bool? WithChildren { get; protected set; }
 
+        protected Contributor()
+        {
+            
+        }
+
         public Contributor(string id, int? age, int? gender, bool? dutchNationality, int? education, bool? visitDaily, int? visitFrequency, bool? visitAlone, int? visitOtherParks, bool? moreInvoled, int? natureOriented, bool? withChildren)
         {
             Id = id;

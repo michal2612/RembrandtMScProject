@@ -67,10 +67,11 @@ namespace Rembrandt.Dataset.Core.Models
             const int maxValueException = 10;
 
             foreach (var prop in props)
-                if(exceptionProperties.Contains(prop.Name))
+                if(!exceptionProperties.Contains(prop.Name))
                     if((int)prop.GetValue(attributes) < minValueException || (int)prop.GetValue(attributes) > maxValueException)
                         throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValueException} and {maxValueException}!");
-                else if((int)prop.GetValue(attributes) < minValue || (int)prop.GetValue(attributes) > maxValue)
+                else
+                    if((int)prop.GetValue(attributes) < minValue || (int)prop.GetValue(attributes) > maxValue)
                         throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
 
         }
