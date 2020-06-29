@@ -30,7 +30,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             return observationsDto;
         }
 
-        public async Task<ObservationDto> GetObservationAsync(int id)
+        public async Task<ObservationDto> GetObservationAsync(string id)
         {
             var observationCore = await _observationRepository.GetObservationAsync(id);
 

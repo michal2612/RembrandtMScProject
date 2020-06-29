@@ -8,6 +8,11 @@ namespace Rembrandt.Dataset.Core.Models
         public bool? Relaxing { get; protected set; }
         public bool? Socialising { get; protected set; }
 
+        protected Activities()
+        {
+            
+        }
+        
         public Activities(bool? walking, bool? jogging, bool? biking, bool? relaxing, bool? socialising)
         {
             Walking = walking;

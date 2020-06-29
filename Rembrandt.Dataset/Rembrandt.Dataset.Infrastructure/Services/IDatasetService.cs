@@ -8,7 +8,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 {
     public interface IDatasetService
     {
-        Task<ObservationDto> GetObservationAsync(int id);
+        Task<ObservationDto> GetObservationAsync(string id);
         Task<IEnumerable<ObservationDto>> GetAllObservationsAsync();
     }
 }

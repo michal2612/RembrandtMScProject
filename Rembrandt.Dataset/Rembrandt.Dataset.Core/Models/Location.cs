@@ -8,6 +8,11 @@ namespace Rembrandt.Dataset.Core.Models
         public float Longitude { get; protected set; }
         public float Latitude { get; protected set; }
 
+        protected Location()
+        {
+            
+        }
+
         public Location(float longitude, float latitude)
         {
             Longitude = SetLongitude(longitude);

@@ -1,10 +1,13 @@
 using System;
 using System.Runtime.Serialization;
+using Rembrandt.Dataset.Infrastructure.DTO;
+using Rembrandt.Dataset.Infrastructure.IoC;
+using Rembrandt.Dataset.Infrastructure.Mappers;
 
 namespace Rembrandt.Dataset.Core.Helpers
 {
    [DataContract()]
-   public class DefaultObservation
+   public class DefaultObservation : IObservationDto, IObservation
     {
         public string Contributor { get; set; }
         public float Site_id { get; set; }
@@ -53,5 +56,8 @@ namespace Rembrandt.Dataset.Core.Helpers
         public string Socialising { get; set; }
         public string Children { get; set; }
         public string Photos { get; set; }
+
+        public ObservationDto ObservationDto()
+            => DefaultToObservationDto.ConvertDefaultToObservationDto(this);
     }
 }

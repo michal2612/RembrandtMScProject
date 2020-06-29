@@ -7,6 +7,11 @@ namespace Rembrandt.Dataset.Core.Models
         public Location MeasuredLocation { get; protected set; }
         public Location ActualLocation { get; protected set; }
         
+        protected Park()
+        {
+            
+        }
+
         public Park(Location measuredLocation, Location actualLocation)
         {
             MeasuredLocation = CheckForNullable(measuredLocation);

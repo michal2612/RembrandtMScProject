@@ -1,8 +1,9 @@
 using System;
+using Rembrandt.Dataset.Infrastructure.IoC;
 
 namespace Rembrandt.Dataset.Infrastructure.DTO
 {
-    public class ObservationDto
+    public class ObservationDto : IObservationDto, IObservation
     {
         public string SkipReason { get;  set; }
         
@@ -22,5 +23,6 @@ namespace Rembrandt.Dataset.Infrastructure.DTO
 
         public ContributorDto Contributor { get;  set; }
 
+        ObservationDto IObservationDto.ObservationDto() => this;
     }
 }

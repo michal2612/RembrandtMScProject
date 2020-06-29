@@ -5,6 +5,7 @@ using Rembrandt.Dataset.Infrastructure.Services;
 using Rembrandt.Dataset.Infrastructure.DTO;
 using Rembrandt.Dataset.Core.Helpers;
 using Rembrandt.Dataset.Infrastructure.Mappers;
+using Rembrandt.Dataset.Infrastructure.IoC;
 
 namespace Rembrandt.Dataset.Api.Controllers
 {
@@ -22,47 +23,40 @@ namespace Rembrandt.Dataset.Api.Controllers
             _addDataService = addDataService;
         }
 
-        [HttpGet("{id}")]
-        public async Task<ObservationDto> GetSingleObservationDtoAsync(int id)
-            => await _datasetService.GetObservationAsync(id);
-
         [HttpGet]
         public async Task<IEnumerable<ObservationDto>> PostObservationDtoCollectionAsync()
             => await _datasetService.GetAllObservationsAsync();
 
+        [HttpGet("{id}")]
+        public async Task<ObservationDto> GetSingleObservationDtoAsync(string id)
+            => await _datasetService.GetObservationAsync(id);
 
-        [HttpPost("singleObservation")]
+        [HttpPost("single")]
         public async Task<IActionResult> PostSingleObservationJsonAsync(ObservationDto observation)
         {
             await _addDataService.AddObservationDtoAsync(observation);
             return Ok(observation);
         }
         
-        [HttpPost("MultipleObservattions")]
+        [HttpPost("multiple")]
         public async Task<IActionResult> PostMultipleObservationsAsync(IEnumerable<ObservationDto> observations)
         {
             await _addDataService.AddObservationsDtoAsync(observations);
             return Ok(observations);
         }
         
-        [HttpPost("MultipleDefaultObservations")]
-        public async Task<IActionResult> PostMultipleDefaultObservationsAsync(IEnumerable<DefaultObservation> defaultObservations)
-        {
-            var observationsDto = new List<ObservationDto>();
-
-            foreach(var defaultObservation in defaultObservations)
-                observationsDto.Add(DefaultToObservationDto.ConvertDefaultToObservationDto(defaultObservation));
-            await _addDataService.AddObservationsDtoAsync(observationsDto);
-
-            return Ok(observationsDto);
-        }
-
-        [HttpPost("DefaultObservation")]
+        [HttpPost("defaultSingle")]
         public async Task<IActionResult> PostDefaultObservation(DefaultObservation defaultObservation)
         {
-            var observationDto = DefaultToObservationDto.ConvertDefaultToObservationDto(defaultObservation);
-            await _addDataService.AddObservationDtoAsync(observationDto);
-            return Ok(observationDto);
+            await _addDataService.AddObservationDtoAsync(defaultObservation);
+            return Ok(defaultObservation);
+        }
+
+        [HttpPost("defaultMultiple")]
+        public async Task<IActionResult> PostMultipleDefaultObservationsAsync(IEnumerable<DefaultObservation> defaultObservations)
+        {
+            await _addDataService.AddObservationsDtoAsync(defaultObservations);
+            return Ok(defaultObservations);
         }
     }
 }

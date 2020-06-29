@@ -12,7 +12,7 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
         private ISet<Observation> _values = new HashSet<Observation>()
         {
             new Observation(
-                id : 1,
+                id : "id-asddsa",
                 skipReason: null,
                 timeSubmitted: DateTime.UtcNow,
                 siteId: 15,
@@ -54,7 +54,7 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
                 )
             ),
             new Observation(
-                id : 15,
+                id : "asdsa",
                 skipReason: null,
                 timeSubmitted: DateTime.UtcNow,
                 siteId: 15,
@@ -100,8 +100,8 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
         public async Task AddObservationAsync(Observation observeration)
             => await Task.FromResult(_values.Add(observeration));
 
-        public async Task<Observation> GetObservationAsync(int id)
-            => await Task.FromResult(_values.SingleOrDefault(x => x.Id== id));
+        public async Task<Observation> GetObservationAsync(string id)
+            => await Task.FromResult(_values.SingleOrDefault(x => x.Id == id));
             
         public async Task<IEnumerable<Observation>> GetAllObservationsAsync()
             => await Task.FromResult(_values.ToList());

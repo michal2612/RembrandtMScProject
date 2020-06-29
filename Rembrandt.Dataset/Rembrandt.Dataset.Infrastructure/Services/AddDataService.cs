@@ -2,9 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using Rembrandt.Dataset.Core.Helpers;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Core.Repositories;
 using Rembrandt.Dataset.Infrastructure.DTO;
+using Rembrandt.Dataset.Infrastructure.IoC;
+using Rembrandt.Dataset.Infrastructure.Mappers;
 
 namespace Rembrandt.Dataset.Infrastructure.Services
 {
@@ -19,21 +22,21 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task AddObservationDtoAsync(ObservationDto observationDto)
+        public async Task AddObservationDtoAsync(IObservationDto observation)
         {
-            if (observationDto == null)
+            if (observation == null)
                 throw new ArgumentNullException("Json object can not be null!");
 
-            await _observationRepository.AddObservationAsync(_mapper.Map<ObservationDto, Observation>(observationDto));
+            await _observationRepository.AddObservationAsync(_mapper.Map<ObservationDto, Observation>(observation.ObservationDto()));
         }
 
-        public async Task AddObservationsDtoAsync(IEnumerable<ObservationDto> observationsDto)
+        public async Task AddObservationsDtoAsync(IEnumerable<IObservationDto> observations)
         {
-            if (observationsDto == null)
+            if (observations == null)
                 throw new ArgumentNullException("Json object can not be null!");
 
-            foreach(var observation in observationsDto)
-                await _observationRepository.AddObservationAsync(_mapper.Map<ObservationDto, Observation>(observation));
+            foreach(var observation in observations)
+                await _observationRepository.AddObservationAsync(_mapper.Map<ObservationDto, Observation>(observation.ObservationDto()));
         }
     }
 }

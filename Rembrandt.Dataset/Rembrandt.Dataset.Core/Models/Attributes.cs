@@ -28,6 +28,10 @@ namespace Rembrandt.Dataset.Core.Models
         public int Paths { get; protected set; }
         public int Facilities { get; protected set; }
         
+        protected Attributes()
+        {
+            
+        }
         public Attributes(int lively, int relaxing, int tranquil, int noisy, int crowded, int safe, int beauty, int biodiversity, int trees, int shrubs, int lawns, int flowers, int natveg, int benches, int play, int sports, int garbage, int veget, int paths, int facilities)
         {
             Lively = lively;
