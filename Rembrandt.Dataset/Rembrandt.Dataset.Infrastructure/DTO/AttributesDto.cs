@@ -22,5 +22,34 @@ namespace Rembrandt.Dataset.Infrastructure.DTO
         public int? Veget { get; set; }
         public int? Paths { get; set; }
         public int? Facilities { get; set; }
+
+        public AttributesDto()
+        {
+            
+        }
+
+        public AttributesDto(int? lively, int? relaxing, int? tranquil, int? noisy, int? crowded, int? safe, int? beauty, int? biodiversity, int? trees, int? shrubs, int? lawns, int? flowers, int? natveg, int? benches, int? play,  int? sports, int? garbage, int? veget, int? paths, int? facilities)
+        {
+            Lively = lively;
+            Relaxing = relaxing;
+            Tranquil = tranquil;
+            Noisy = noisy;
+            Crowded = crowded;
+            Safe = safe;
+            Beauty = beauty;
+            Biodiversity = biodiversity;
+            Trees = trees;
+            Shrubs = shrubs;
+            Lawns = lawns;
+            Flowers = flowers;
+            Natveg = natveg;
+            Benches = benches;
+            Play = play;
+            Sports = sports;
+            Garbage = garbage;
+            Veget = veget;
+            Paths = paths;
+            Facilities = facilities;
+        }
     }
 }
