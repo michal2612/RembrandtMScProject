@@ -2,6 +2,7 @@ namespace Rembrandt.Dataset.Core.Models
 {
     public class Activities
     {
+        public int Id { get; set; }
         public bool? Walking { get; protected set; }
         public bool? Jogging { get; protected set; }
         public bool? Biking { get; protected set; }

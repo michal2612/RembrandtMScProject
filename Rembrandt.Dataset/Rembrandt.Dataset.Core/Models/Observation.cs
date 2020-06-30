@@ -5,7 +5,6 @@ namespace Rembrandt.Dataset.Core.Models
 {
     public class Observation 
     {
-        public string Id { get; set; }
         public string SkipReason { get; protected set; }
         public DateTime TimeSubmitted { get; protected set; }
         public int SiteId { get; protected set; }
@@ -20,9 +19,8 @@ namespace Rembrandt.Dataset.Core.Models
         {
             
         }
-        public Observation(string id, string skipReason, DateTime timeSubmitted, int siteId, string photoAddress, int photoTowardsPointCompass, Attributes attributes, Park park, Activities activities, Contributor contributor)
+        public Observation(string skipReason, DateTime timeSubmitted, int siteId, string photoAddress, int photoTowardsPointCompass, Attributes attributes, Park park, Activities activities, Contributor contributor)
         {
-            Id = id;
             SkipReason = SetSkipReason(skipReason);
             TimeSubmitted = timeSubmitted;
             SiteId = siteId;

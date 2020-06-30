@@ -66,7 +66,7 @@ namespace Rembrandt.Dataset.Tests
             var mapperMock = new Mock<IMapper>();
 
             var addDataService = new DatasetService(observationRepositoryMock.Object, mapperMock.Object);
-            await addDataService.GetObservationAsync("sample");
+            await addDataService.GetObservationAsync("value");
 
             observationRepositoryMock.Verify(x => x.GetObservationAsync(It.IsAny<string>()), Times.Once);
         }
