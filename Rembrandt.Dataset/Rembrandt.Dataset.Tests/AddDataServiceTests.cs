@@ -58,6 +58,31 @@ namespace Rembrandt.Dataset.Tests
                 WithChildren = false
             }
         };
+
+        [Fact]
+        public async Task get_observation_async_should_return_observation_dto()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+
+            var addDataService = new DatasetService(observationRepositoryMock.Object, mapperMock.Object);
+            await addDataService.GetObservationAsync("sample");
+
+            observationRepositoryMock.Verify(x => x.GetObservationAsync(It.IsAny<string>()), Times.Once);
+        }
+
+        [Fact]
+        public async Task get_multiple_observations_async_should_return_observations_dto()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+
+            var addDataService = new DatasetService(observationRepositoryMock.Object, mapperMock.Object);
+            await addDataService.GetAllObservationsAsync();
+
+            observationRepositoryMock.Verify(x => x.GetAllObservationsAsync(), Times.Once);
+        }
+
         [Fact]
         public async Task add_observation_async_should_invoke_add_async_on_repository()
         {
@@ -68,6 +93,32 @@ namespace Rembrandt.Dataset.Tests
             await addDataService.AddObservationDtoAsync(ObservationDto);
 
             observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Once);
+        }
+
+        [Fact]
+        public async Task add_null_observation_should_return_exception()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+
+            var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
+
+            await Assert.ThrowsAsync<ArgumentNullException>( async () => await addDataService.AddObservationDtoAsync(null));
+
+            observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Never);
+        }
+
+        [Fact]
+        public async Task add_multiple_observations_should_return_exception()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+
+            var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
+
+            await Assert.ThrowsAsync<ArgumentNullException>( async () => await addDataService.AddObservationsDtoAsync(null));
+
+            observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Never);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
                 )
             ),
             new Observation(
-                id : "asdsa",
+                id : "sample",
                 skipReason: null,
                 timeSubmitted: DateTime.UtcNow,
                 siteId: 15,

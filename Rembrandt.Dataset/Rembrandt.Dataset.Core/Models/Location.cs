@@ -15,38 +15,29 @@ namespace Rembrandt.Dataset.Core.Models
 
         public Location(float longitude, float latitude)
         {
-            Longitude = SetLongitude(longitude);
-            Latitude = SetLatitude(latitude);
+            Longitude = SetCoordinates(longitude);
+            Latitude = SetCoordinates(latitude);
         }
+        
         public Location(int gpsAccuracy, float longitude, float latitude)
         {
             GpsAccuracy = SetGpsAccuracy(gpsAccuracy);
-            Longitude = SetLongitude(longitude);
-            Latitude = SetLatitude(latitude);
+            Longitude = SetCoordinates(longitude);
+            Latitude = SetCoordinates(latitude);
         }
 
         private int SetGpsAccuracy(int gpsAccuracy)
         {
             if(gpsAccuracy < 0)
-                throw new ArgumentException("GPS Accuracy should not be equal to 0!");
-
+                throw new ArgumentException("GPS Accuracy should not be below 0!");
             return gpsAccuracy;
         }
 
-        private float SetLongitude(float longitude)
+        private float SetCoordinates(float coordinate)
         {
-            if(longitude == 0)
-                throw new ArgumentNullException("Longitude should not equal to 0!");
-
-            return longitude;
-        }
-
-        private float SetLatitude(float latitude)
-        {
-            if(latitude == 0)
-                throw new ArgumentNullException("Latitude should not equal to 0!");
-
-            return latitude;
+            if(coordinate == 0)
+                throw new ArgumentNullException("Coordinates should not be below 0!");
+            return coordinate;
         }
     }
 }
