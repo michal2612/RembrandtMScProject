@@ -5,6 +5,7 @@ namespace Rembrandt.Dataset.Core.Models
 {
     public class Observation 
     {
+        public int Id { get; set; }
         public string SkipReason { get; protected set; }
         public DateTime TimeSubmitted { get; protected set; }
         public int SiteId { get; protected set; }
