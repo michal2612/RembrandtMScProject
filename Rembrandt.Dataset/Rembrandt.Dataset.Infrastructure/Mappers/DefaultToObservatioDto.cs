@@ -43,7 +43,7 @@ namespace Rembrandt.Dataset.Infrastructure.Mappers
                     {
                         Longitude = defaultObservation.Long_site,
                         Latitude = defaultObservation.Lat_site,
-                        GpsAccuracy = (int)defaultObservation.Gps_accuracy
+                        GpsAccuracy = (int?)defaultObservation.Gps_accuracy
                     },
                     ActualLocation = new LocationDto()
                     {

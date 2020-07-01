@@ -35,10 +35,6 @@ namespace Rembrandt.Dataset.Core.Models
         }
 
         private float SetCoordinates(float coordinate)
-        {
-            if(coordinate == 0)
-                throw new ArgumentNullException("Coordinates should not be below 0!");
-            return coordinate;
-        }
+            => coordinate;
     }
 }

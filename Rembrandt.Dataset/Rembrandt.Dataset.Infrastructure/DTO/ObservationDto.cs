@@ -1,4 +1,5 @@
 using System;
+using Newtonsoft.Json;
 using Rembrandt.Dataset.Infrastructure.IoC;
 
 namespace Rembrandt.Dataset.Infrastructure.DTO
@@ -20,7 +21,6 @@ namespace Rembrandt.Dataset.Infrastructure.DTO
         public ParkDto Park { get;  set; }
 
         public ActivitiesDto Activities { get;  set; }
-
         public ContributorDto Contributor { get;  set; }
 
         ObservationDto IObservationDto.ObservationDto() => this;

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
+using Newtonsoft.Json.Linq;
 using Rembrandt.Dataset.Core.Helpers;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Core.Repositories;
@@ -37,6 +39,20 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 
             foreach(var observation in observations)
                 await _observationRepository.AddObservationAsync(_mapper.Map<ObservationDto, Observation>(observation.ObservationDto()));
+        }
+
+        public async Task AddMultipleDefaultListAsync(JsonElement defaultMultipleList)
+        {
+            var jObjectFeatures = (JArray)JObject.Parse(defaultMultipleList.ToString())["features"];
+            var objects = new List<JToken>();
+            var observationsDto = new List<ObservationDto>();
+
+            foreach(var objectJ in jObjectFeatures)
+                objects.Add(objectJ["properties"]);
+
+            foreach(var observation in objects)
+                await _observationRepository
+                    .AddObservationAsync(_mapper.Map<ObservationDto, Observation>(observation.ToObject<DefaultObservation>().ObservationDto()));
         }
     }
 }

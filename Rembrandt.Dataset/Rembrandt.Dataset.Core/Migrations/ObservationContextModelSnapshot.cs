@@ -115,8 +115,9 @@ namespace Rembrandt.Dataset.Core.Migrations
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Contributor", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("PrimaryKey")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("Age")
                         .HasColumnType("INTEGER");
@@ -129,6 +130,9 @@ namespace Rembrandt.Dataset.Core.Migrations
 
                     b.Property<int?>("Gender")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("Id")
+                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("MoreInvolved")
                         .HasColumnType("INTEGER");
@@ -151,7 +155,7 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<bool?>("WithChildren")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("PrimaryKey");
 
                     b.ToTable("Contributor");
                 });
@@ -188,8 +192,8 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<int?>("AttributesId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("ContributorId")
-                        .HasColumnType("TEXT");
+                    b.Property<int?>("ContributorPrimaryKey")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int?>("ParkId")
                         .HasColumnType("INTEGER");
@@ -215,7 +219,7 @@ namespace Rembrandt.Dataset.Core.Migrations
 
                     b.HasIndex("AttributesId");
 
-                    b.HasIndex("ContributorId");
+                    b.HasIndex("ContributorPrimaryKey");
 
                     b.HasIndex("ParkId");
 
@@ -255,7 +259,7 @@ namespace Rembrandt.Dataset.Core.Migrations
 
                     b.HasOne("Rembrandt.Dataset.Core.Models.Contributor", "Contributor")
                         .WithMany()
-                        .HasForeignKey("ContributorId");
+                        .HasForeignKey("ContributorPrimaryKey");
 
                     b.HasOne("Rembrandt.Dataset.Core.Models.Park", "Park")
                         .WithMany()

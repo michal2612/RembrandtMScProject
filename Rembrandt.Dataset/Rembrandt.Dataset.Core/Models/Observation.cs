@@ -27,14 +27,10 @@ namespace Rembrandt.Dataset.Core.Models
             SiteId = siteId;
             PhotoAddress = photoAddress;
             PhotoTowardsPointCompass = photoTowardsPointCompass;
-            //Attributes = CheckForNullable<Attributes>(attributes);
-            Attributes = attributes;
-            Park = park;
-            //Park = CheckForNullable<Park>(park);
-            //Activities = CheckForNullable<Activities>(activities);
-            Activities = activities;
-            //Contributor = CheckForNullable<Contributor>(contributor);
-            Contributor = contributor;
+            Attributes = CheckForNullable<Attributes>(attributes);
+            Park = CheckForNullable<Park>(park);
+            Activities = CheckForNullable<Activities>(activities);
+            Contributor = CheckForNullable<Contributor>(contributor);
         }
 
         private static T CheckForNullable<T>(T obj)

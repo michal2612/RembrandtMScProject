@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 
 namespace Rembrandt.Dataset.Infrastructure.DTO
 {

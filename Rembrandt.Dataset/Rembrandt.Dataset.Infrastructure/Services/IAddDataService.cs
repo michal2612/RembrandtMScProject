@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Rembrandt.Dataset.Core.Helpers;
 using Rembrandt.Dataset.Core.Models;
@@ -11,5 +12,6 @@ namespace Rembrandt.Dataset.Infrastructure.Services
     {
         Task AddObservationDtoAsync(IObservationDto observation);
         Task AddObservationsDtoAsync(IEnumerable<IObservationDto> observations);
+        Task AddMultipleDefaultListAsync(JsonElement defaultMultipleList);
     }
 }

@@ -6,6 +6,11 @@ using Rembrandt.Dataset.Infrastructure.DTO;
 using Rembrandt.Dataset.Core.Helpers;
 using Rembrandt.Dataset.Infrastructure.Mappers;
 using Rembrandt.Dataset.Infrastructure.IoC;
+using Newtonsoft.Json.Linq;
+using System.Text.Json;
+using Rembrandt.Dataset.Core.Models;
+using Newtonsoft.Json;
+using System;
 
 namespace Rembrandt.Dataset.Api.Controllers
 {
@@ -57,6 +62,13 @@ namespace Rembrandt.Dataset.Api.Controllers
         {
             await _addDataService.AddObservationsDtoAsync(defaultObservations);
             return Ok(defaultObservations);
+        }
+
+        [HttpPost("defaultMultipleList")]
+        public async Task<IActionResult> PostMultipleDefaultListAsync(JsonElement defaultMultipleList)
+        {
+            await _addDataService.AddMultipleDefaultListAsync(defaultMultipleList);
+            return Ok(defaultMultipleList);
         }
     }
 }

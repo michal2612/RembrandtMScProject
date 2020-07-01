@@ -14,9 +14,7 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
         private readonly ObservationContext _observationContext;
 
         public ObservationRepository()
-        {
-            _observationContext = new ObservationContext();
-        }
+            => _observationContext = new ObservationContext();
 
         public async Task AddObservationAsync(Observation observeration)
         {
@@ -25,14 +23,9 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
         }
 
         public async Task<Observation> GetObservationAsync(string id)
-        {
-            var result = await Task.FromResult(_observationContext.Observations.SingleOrDefault(x => x.Contributor.Id == id));
-            return result;
-        }
+            => await Task.FromResult(_observationContext.Observations.SingleOrDefault(x => x.Contributor.Id == id));
             
         public async Task<IEnumerable<Observation>> GetAllObservationsAsync()
-        {
-            return await Task.FromResult(_observationContext.Observations.ToList());
-        }
+            => await Task.FromResult(_observationContext.Observations.ToList());
     }
 }

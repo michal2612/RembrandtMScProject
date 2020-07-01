@@ -1,10 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Rembrandt.Dataset.Core.Helpers;
 
 namespace Rembrandt.Dataset.Core.Models
 {
     public class Contributor
     {
+        [Key]
+        public int PrimaryKey { get; set; }
         public string Id { get; protected set; }
         public int? Age { get; protected set; }
         public int? Gender { get; protected set; }

@@ -60,7 +60,9 @@ namespace Rembrandt.Dataset.Core.Migrations
                 name: "Contributor",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
+                    PrimaryKey = table.Column<int>(nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Id = table.Column<string>(nullable: true),
                     Age = table.Column<int>(nullable: true),
                     Gender = table.Column<int>(nullable: true),
                     DutchNationality = table.Column<bool>(nullable: true),
@@ -75,7 +77,7 @@ namespace Rembrandt.Dataset.Core.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Contributor", x => x.Id);
+                    table.PrimaryKey("PK_Contributor", x => x.PrimaryKey);
                 });
 
             migrationBuilder.CreateTable(
@@ -133,7 +135,7 @@ namespace Rembrandt.Dataset.Core.Migrations
                     AttributesId = table.Column<int>(nullable: true),
                     ParkId = table.Column<int>(nullable: true),
                     ActivitiesId = table.Column<int>(nullable: true),
-                    ContributorId = table.Column<string>(nullable: true)
+                    ContributorPrimaryKey = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -151,10 +153,10 @@ namespace Rembrandt.Dataset.Core.Migrations
                         principalColumn: "AttributesId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Observations_Contributor_ContributorId",
-                        column: x => x.ContributorId,
+                        name: "FK_Observations_Contributor_ContributorPrimaryKey",
+                        column: x => x.ContributorPrimaryKey,
                         principalTable: "Contributor",
-                        principalColumn: "Id",
+                        principalColumn: "PrimaryKey",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Observations_Park_ParkId",
@@ -175,9 +177,9 @@ namespace Rembrandt.Dataset.Core.Migrations
                 column: "AttributesId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Observations_ContributorId",
+                name: "IX_Observations_ContributorPrimaryKey",
                 table: "Observations",
-                column: "ContributorId");
+                column: "ContributorPrimaryKey");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Observations_ParkId",

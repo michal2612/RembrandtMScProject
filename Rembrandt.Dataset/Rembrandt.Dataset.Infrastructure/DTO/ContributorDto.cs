@@ -1,8 +1,11 @@
 
+using Newtonsoft.Json;
+
 namespace Rembrandt.Dataset.Infrastructure.DTO
 {
     public class ContributorDto
     {
+        [JsonProperty("contributor")]
         public string Id { get; set; }
         public int? Age { get; set; }
         public int? Gender { get; set; }
