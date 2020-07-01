@@ -3,9 +3,8 @@
     "",
     "\\Rembrandt.Dataset",
     "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core",
-    "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Models",
     "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Repositories"
   ],
-  "SelectedNode": "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Models\\Park.cs",
+  "SelectedNode": "\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\observationDb.db",
   "PreviewInSolutionExplorer": false
 }

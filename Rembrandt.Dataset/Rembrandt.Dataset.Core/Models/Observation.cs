@@ -5,7 +5,7 @@ namespace Rembrandt.Dataset.Core.Models
 {
     public class Observation 
     {
-        public string Id { get; set; }
+        public int ObservationId { get; set; }
         public string SkipReason { get; protected set; }
         public DateTime TimeSubmitted { get; protected set; }
         public int SiteId { get; protected set; }
@@ -20,18 +20,21 @@ namespace Rembrandt.Dataset.Core.Models
         {
             
         }
-        public Observation(string id, string skipReason, DateTime timeSubmitted, int siteId, string photoAddress, int photoTowardsPointCompass, Attributes attributes, Park park, Activities activities, Contributor contributor)
+        public Observation(string skipReason, DateTime timeSubmitted, int siteId, string photoAddress, int photoTowardsPointCompass, Attributes attributes, Park park, Activities activities, Contributor contributor)
         {
-            Id = id;
             SkipReason = SetSkipReason(skipReason);
             TimeSubmitted = timeSubmitted;
             SiteId = siteId;
             PhotoAddress = photoAddress;
             PhotoTowardsPointCompass = photoTowardsPointCompass;
-            Attributes = CheckForNullable<Attributes>(attributes);
-            Park = CheckForNullable<Park>(park);
-            Activities = CheckForNullable<Activities>(activities);
-            Contributor = CheckForNullable<Contributor>(contributor);
+            //Attributes = CheckForNullable<Attributes>(attributes);
+            Attributes = attributes;
+            Park = park;
+            //Park = CheckForNullable<Park>(park);
+            //Activities = CheckForNullable<Activities>(activities);
+            Activities = activities;
+            //Contributor = CheckForNullable<Contributor>(contributor);
+            Contributor = contributor;
         }
 
         private static T CheckForNullable<T>(T obj)
