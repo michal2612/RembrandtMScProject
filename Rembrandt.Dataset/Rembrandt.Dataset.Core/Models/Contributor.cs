@@ -5,7 +5,6 @@ namespace Rembrandt.Dataset.Core.Models
 {
     public class Contributor
     {
-        public int ContributorPrimaryKey { get; set; }
         public string Id { get; protected set; }
         public int? Age { get; protected set; }
         public int? Gender { get; protected set; }

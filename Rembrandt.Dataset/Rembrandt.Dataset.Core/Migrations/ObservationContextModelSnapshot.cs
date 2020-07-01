@@ -3,7 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Rembrandt.Dataset.Core.ContextFiles;
+using Rembrandt.Dataset.Core.Context;
 
 namespace Rembrandt.Dataset.Core.Migrations
 {
@@ -18,7 +18,7 @@ namespace Rembrandt.Dataset.Core.Migrations
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Activities", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ActivitiesId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -37,14 +37,14 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<bool?>("Walking")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("ActivitiesId");
 
                     b.ToTable("Activities");
                 });
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Attributes", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AttributesId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -108,16 +108,15 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<int>("Veget")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("AttributesId");
 
                     b.ToTable("Attributes");
                 });
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Contributor", b =>
                 {
-                    b.Property<int>("ContributorPrimaryKey")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Id")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("Age")
                         .HasColumnType("INTEGER");
@@ -130,9 +129,6 @@ namespace Rembrandt.Dataset.Core.Migrations
 
                     b.Property<int?>("Gender")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
 
                     b.Property<bool?>("MoreInvolved")
                         .HasColumnType("INTEGER");
@@ -155,14 +151,14 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<bool?>("WithChildren")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ContributorPrimaryKey");
+                    b.HasKey("Id");
 
-                    b.ToTable("Contributors");
+                    b.ToTable("Contributor");
                 });
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Location", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("LocationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -175,14 +171,14 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<float>("Longitude")
                         .HasColumnType("REAL");
 
-                    b.HasKey("Id");
+                    b.HasKey("LocationId");
 
-                    b.ToTable("Locations");
+                    b.ToTable("Location");
                 });
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Observation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ObservationId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -192,8 +188,8 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<int?>("AttributesId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ContributorPrimaryKey")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("ContributorId")
+                        .HasColumnType("TEXT");
 
                     b.Property<int?>("ParkId")
                         .HasColumnType("INTEGER");
@@ -213,13 +209,13 @@ namespace Rembrandt.Dataset.Core.Migrations
                     b.Property<DateTime>("TimeSubmitted")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("ObservationId");
 
                     b.HasIndex("ActivitiesId");
 
                     b.HasIndex("AttributesId");
 
-                    b.HasIndex("ContributorPrimaryKey");
+                    b.HasIndex("ContributorId");
 
                     b.HasIndex("ParkId");
 
@@ -228,23 +224,23 @@ namespace Rembrandt.Dataset.Core.Migrations
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Park", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ParkId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ActualLocationId")
+                    b.Property<int?>("ActualLocationLocationId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("MeasuredLocationId")
+                    b.Property<int?>("MeasuredLocationLocationId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.HasKey("ParkId");
 
-                    b.HasIndex("ActualLocationId");
+                    b.HasIndex("ActualLocationLocationId");
 
-                    b.HasIndex("MeasuredLocationId");
+                    b.HasIndex("MeasuredLocationLocationId");
 
-                    b.ToTable("Parks");
+                    b.ToTable("Park");
                 });
 
             modelBuilder.Entity("Rembrandt.Dataset.Core.Models.Observation", b =>
@@ -259,7 +255,7 @@ namespace Rembrandt.Dataset.Core.Migrations
 
                     b.HasOne("Rembrandt.Dataset.Core.Models.Contributor", "Contributor")
                         .WithMany()
-                        .HasForeignKey("ContributorPrimaryKey");
+                        .HasForeignKey("ContributorId");
 
                     b.HasOne("Rembrandt.Dataset.Core.Models.Park", "Park")
                         .WithMany()
@@ -270,11 +266,11 @@ namespace Rembrandt.Dataset.Core.Migrations
                 {
                     b.HasOne("Rembrandt.Dataset.Core.Models.Location", "ActualLocation")
                         .WithMany()
-                        .HasForeignKey("ActualLocationId");
+                        .HasForeignKey("ActualLocationLocationId");
 
                     b.HasOne("Rembrandt.Dataset.Core.Models.Location", "MeasuredLocation")
                         .WithMany()
-                        .HasForeignKey("MeasuredLocationId");
+                        .HasForeignKey("MeasuredLocationLocationId");
                 });
 #pragma warning restore 612, 618
         }

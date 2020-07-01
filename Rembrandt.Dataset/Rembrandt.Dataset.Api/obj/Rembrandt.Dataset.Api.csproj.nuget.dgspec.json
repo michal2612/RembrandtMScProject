@@ -86,7 +86,6 @@
         "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\obj\\",
         "projectStyle": "PackageReference",
-        "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
@@ -95,8 +94,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1",
-          "netstandard2.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -105,9 +103,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
-          },
-          "netstandard2.0": {
             "projectReferences": {}
           }
         },
@@ -120,17 +115,13 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "EntityFramework": {
+            "Microsoft.Data.Sqlite.Core": {
               "target": "Package",
-              "version": "[6.4.4, )"
+              "version": "[3.1.5, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.5, )"
             },
@@ -154,45 +145,6 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
-        },
-        "netstandard2.0": {
-          "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
-              "target": "Package",
-              "version": "[3.1.5, )"
-            },
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
         }
       }
@@ -206,7 +158,6 @@
         "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "crossTargeting": true,
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
@@ -215,8 +166,7 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1",
-          "netstandard2.1"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -225,13 +175,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {
-              "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj": {
-                "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj"
-              }
-            }
-          },
-          "netstandard2.1": {
             "projectReferences": {
               "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj": {
                 "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Core\\Rembrandt.Dataset.Core.csproj"
@@ -269,34 +212,6 @@
           "warn": true,
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
-        },
-        "netstandard2.1": {
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[12.0.3, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "NETStandard.Library": {
               "privateAssets": "all"
             }
           },

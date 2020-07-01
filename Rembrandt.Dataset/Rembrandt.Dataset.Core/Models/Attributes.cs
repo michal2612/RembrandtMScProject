@@ -7,7 +7,7 @@ namespace Rembrandt.Dataset.Core.Models
 {
     public class Attributes
     {
-        public int Id { get; set; }
+        public int AttributesId { get; set; }
         public int Lively { get; protected set; }
         public int Relaxing { get; protected set; }
         public int Tranquil { get; protected set; }
@@ -72,7 +72,7 @@ namespace Rembrandt.Dataset.Core.Models
             const int maxValueException = 10;
 
             foreach (var prop in props)
-                if(prop.Name == "Id")
+                if(prop.Name == "AttributesId")
                     return;
                 else if(!exceptionProperties.Contains(prop.Name))
                     if((int)prop.GetValue(attributes) < minValueException || (int)prop.GetValue(attributes) > maxValueException)

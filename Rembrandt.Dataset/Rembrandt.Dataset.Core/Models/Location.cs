@@ -4,7 +4,7 @@ namespace Rembrandt.Dataset.Core.Models
 {
     public class Location
     {
-        public int Id { get; set; }
+        public int LocationId { get; set; }
         public int GpsAccuracy { get; protected set; }
         public float Longitude { get; protected set; }
         public float Latitude { get; protected set; }
