@@ -5,7 +5,7 @@ namespace Rembrandt.Users.Infrastructure.Services
 {
     public interface IUserService
     {
-        Task RegisterAsync(string email, string username, string password);
+        Task RegisterAsync(string email, string password);
         Task<UserDto> GetUserAsync(string email);
         Task LoginAsync(string email, string password);
     }

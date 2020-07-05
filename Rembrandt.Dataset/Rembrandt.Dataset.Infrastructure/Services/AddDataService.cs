@@ -43,6 +43,9 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 
         public async Task AddMultipleDefaultListAsync(JsonElement defaultMultipleList)
         {
+            if(String.IsNullOrWhiteSpace(defaultMultipleList.GetRawText()))
+                throw new ArgumentNullException("Json object can not be null!");
+
             var jObjectFeatures = (JArray)JObject.Parse(defaultMultipleList.ToString())["features"];
             var objects = new List<JToken>();
             var observationsDto = new List<ObservationDto>();

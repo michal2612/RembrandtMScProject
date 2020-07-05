@@ -11,9 +11,9 @@ namespace Rembrandt.Users.Infrastructure.Services
 {
     public class JwtHandler : IJwtHandler
     {
-        private readonly JwtSettings _settings;
+        private readonly Settings.Settings _settings;
 
-        public JwtHandler(JwtSettings settings)
+        public JwtHandler(Settings.Settings settings)
         {
             _settings = settings;
         }
@@ -30,7 +30,7 @@ namespace Rembrandt.Users.Infrastructure.Services
             };
 
             var expiries = now.AddMinutes(_settings.ExpiryMinutes);
-            var signingCredentialsValues = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.Key)),SecurityAlgorithms.HmacSha256);
+            var signingCredentialsValues = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.IssuerSigningKey)),SecurityAlgorithms.HmacSha256);
 
             var jwt = new JwtSecurityToken(
                 issuer: _settings.Issuer,

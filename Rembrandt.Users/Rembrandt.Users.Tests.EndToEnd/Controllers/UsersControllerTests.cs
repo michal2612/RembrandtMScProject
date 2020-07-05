@@ -20,7 +20,7 @@ namespace Rembrandt.Users.Tests.EndToEnd.Controllers
         [Fact]
         public async Task given_valid_email_should_exist()
         {
-            var email = "email";
+            var email = "emailaddress1@test.com";
             var response = await _factory.CreateClient().GetAsync($"users/{email}");
             response.EnsureSuccessStatusCode();
 

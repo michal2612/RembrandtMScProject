@@ -10,7 +10,15 @@ namespace Rembrandt.Users.Infrastructure.Services
 
         public string GetHash(string value, string salt)
         {
-            throw new System.NotImplementedException();
+            if(String.IsNullOrWhiteSpace(value))
+                throw new ArgumentNullException("Value should not be null!");
+
+            if(String.IsNullOrWhiteSpace(salt))
+                throw new ArgumentNullException("Salt should not be null!");
+
+            var pbkdf2 = new Rfc2898DeriveBytes(value, GetBytes(salt), DeriveBytesIterationsCount);
+
+            return Convert.ToBase64String(pbkdf2.GetBytes(SaltSize));
         }
 
         public string GetSalt()
@@ -21,19 +29,6 @@ namespace Rembrandt.Users.Infrastructure.Services
             rng.GetBytes(saltBytes);
 
             return Convert.ToBase64String(saltBytes);
-        }
-
-        public string GetHashValue(string value, string salt)
-        {
-            if(String.IsNullOrWhiteSpace(value))
-                throw new ArgumentNullException("Value should not be null!");
-
-            if(String.IsNullOrWhiteSpace(salt))
-                throw new ArgumentNullException("Salt should not be null!");
-
-            var pbkdf2 = new Rfc2898DeriveBytes(value, GetBytes(salt), DeriveBytesIterationsCount);
-
-            return Convert.ToBase64String(pbkdf2.GetBytes(SaltSize));
         }
 
         private static byte[] GetBytes(string value)

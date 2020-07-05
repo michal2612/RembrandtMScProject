@@ -39,22 +39,22 @@ namespace Rembrandt.Users.Infrastructure.Services
             if(user == null)
                 throw new ArgumentNullException($"Invalid credentials!");
 
-            var hash = _encrypter.GetHashValue(user.Password, user.Salt);
+            var hash = _encrypter.GetHash(user.Password, user.Salt);
             if(user.Password == hash)
                 return;
 
             throw new ArgumentNullException("Invalid credentials!");
         }
 
-        public async Task RegisterAsync(string email, string username, string password)
+        public async Task RegisterAsync(string email, string password)
         {
             if(await _userRepository.GetUserAsync(email) != null)
                 throw new Exception("User already exists!");
 
             var salt = _encrypter.GetSalt();
-            var hashPassowrd = _encrypter.GetHashValue(password, salt);
+            var hashPassowrd = _encrypter.GetHash(password, salt);
 
-            await _userRepository.AddUserAsync(new User(email, username, hashPassowrd, salt));
+            await _userRepository.AddUserAsync(new User(email, hashPassowrd, salt));
         }
     }
 }

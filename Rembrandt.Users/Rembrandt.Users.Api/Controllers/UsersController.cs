@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Rembrandt.Users.Infrastructure.DTO;
 using Rembrandt.Users.Infrastructure.Services;
 
 namespace Rembrandt.Users.Api.Controllers
@@ -24,6 +18,7 @@ namespace Rembrandt.Users.Api.Controllers
         }
 
         [HttpGet("{email}")]
+        //[Authorize]
         public async Task<IActionResult> Get(string email)
         {
             var user =  await _userService.GetUserAsync(email);
@@ -34,11 +29,11 @@ namespace Rembrandt.Users.Api.Controllers
         }
 
         [HttpPost("addUser")]
-        public async Task<IActionResult> AddUser(string email, string username, string password)
+        public async Task<IActionResult> AddUser(string email, string password)
         {
-            await _userService.RegisterAsync(email, username, password);
+            await _userService.RegisterAsync(email, password);
 
-            return Ok();
+            return Ok(_jwtHandler.CreateToken(email, "admin"));
         }
     }
 }

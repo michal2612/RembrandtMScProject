@@ -16,10 +16,10 @@ namespace Rembrandt.Users.Tests
         {
             var userRepositoryMock = new Mock<IUserRepository>();
             var mapperMock = new Mock<IMapper>();
-            var encryperMock = new Mock<IEncrypter>();
-            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object, encryperMock.Object);
+            var encrypterMock = new Mock<Encrypter>();
+            var userService = new UserService(userRepositoryMock.Object, mapperMock.Object, encrypterMock.Object);
 
-            await userService.RegisterAsync("asd","dsa","asd");
+            await userService.RegisterAsync("veruprofession@email.com","sercretPassword!");
 
             userRepositoryMock.Verify(x => x.AddUserAsync(It.IsAny<User>()), Times.Once);
         }

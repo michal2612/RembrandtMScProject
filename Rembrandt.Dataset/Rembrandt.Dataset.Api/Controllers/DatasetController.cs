@@ -27,8 +27,8 @@ namespace Rembrandt.Dataset.Api.Controllers
             => await _datasetService.GetAllObservationsAsync();
 
         [HttpGet("{id}")]
-        public async Task<ObservationDto> GetSingleObservationDtoAsync(string id)
-            => await _datasetService.GetObservationAsync(id);
+        public async Task<IEnumerable<ObservationDto>> GetSingleObservationDtoAsync(string id)
+            => await _datasetService.GetObservationsAsync(id);
 
         [HttpPost("single")]
         public async Task<IActionResult> PostSingleObservationJsonAsync(ObservationDto observation)

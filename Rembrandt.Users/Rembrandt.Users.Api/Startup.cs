@@ -1,4 +1,5 @@
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,9 +8,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Rembrandt.Users.Core.Repositories;
+using Rembrandt.Users.Infrastructure.Commands;
 using Rembrandt.Users.Infrastructure.Mappers;
 using Rembrandt.Users.Infrastructure.Repositories;
 using Rembrandt.Users.Infrastructure.Services;
+using Rembrandt.Users.Infrastructure.Services.Users;
 using Rembrandt.Users.Infrastructure.Settings;
 
 namespace Rembrandt.Users.Api
@@ -26,22 +29,29 @@ namespace Rembrandt.Users.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMemoryCache();
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
 
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddSingleton<IEncrypter, Encrypter>();
+
+            services.AddTransient<ILoginService, LoginService>();
             services.AddScoped<IJwtHandler, JwtHandler>();
-            services.AddSingleton<JwtSettings>();
+            
+            var Settings = new Settings();
+            Configuration.Bind("Settings", Settings);
+            services.AddSingleton(Settings);
 
             services.AddAuthentication(o =>
             {
                 o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             }).AddJwtBearer(o => {
-                o.TokenValidationParameters.ValidIssuer = "http://localhost:5000";
-                o.TokenValidationParameters.ValidateAudience = false;
-                o.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("supercsecroiekeyn12yearsyouneed-tasdkz"));
+                o.TokenValidationParameters.ValidIssuer = Settings.Issuer;
+                o.TokenValidationParameters.ValidateAudience = Settings.ValidateAudience;
+                o.TokenValidationParameters.IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.IssuerSigningKey));
             });
 
             services.AddControllers();

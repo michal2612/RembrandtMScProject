@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Rembrandt.Users.Core.Models;
 using Rembrandt.Users.Core.Repositories;
 
@@ -9,12 +10,11 @@ namespace Rembrandt.Users.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private static readonly ISet<User> _users = new HashSet<User>()
+        private static ISet<User> _users = new HashSet<User>()
         {
-            new User("properlo21@email.com", "michal2612", "secre1Passwor!1", "salt")
+            new User($"emailaddress1@test.com", "secretPass1word", "secretSalt")
         };
 
-        
         public async Task AddUserAsync(User user)
         {
             await Task.FromResult(_users.Add(user));

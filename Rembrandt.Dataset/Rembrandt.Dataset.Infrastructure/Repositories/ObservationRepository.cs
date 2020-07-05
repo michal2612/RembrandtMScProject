@@ -22,10 +22,27 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
             await _observationContext.SaveChangesAsync();
         }
 
-        public async Task<Observation> GetObservationAsync(string id)
-            => await Task.FromResult(_observationContext.Observations.SingleOrDefault(x => x.Contributor.Id == id));
+        public async Task<IEnumerable<Observation>> GetObservationsAsync(string id)
+            => await _observationContext.Observations
+                .Include(obs => obs.Activities)
+                .Include(obs => obs.Attributes)
+                .Include(obs => obs.Contributor)
+                .Include(obs => obs.Park)
+                    .ThenInclude(loc => loc.MeasuredLocation)
+                .Include(obs => obs.Park)
+                    .ThenInclude(loc => loc.ActualLocation)
+                .Where(c => c.Contributor.Id == id)
+                .ToListAsync();
             
         public async Task<IEnumerable<Observation>> GetAllObservationsAsync()
-            => await Task.FromResult(_observationContext.Observations.ToList());
+            => await _observationContext.Observations
+                .Include(obs => obs.Activities)
+                .Include(obs => obs.Attributes)
+                .Include(obs => obs.Contributor)
+                .Include(obs => obs.Park)
+                    .ThenInclude(loc => loc.MeasuredLocation)
+                .Include(obs => obs.Park)
+                    .ThenInclude(loc => loc.ActualLocation)
+                .ToListAsync();
     }
 }
