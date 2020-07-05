@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
+      "projectUniqueName": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
       "projectName": "Rembrandt.Web",
-      "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
+      "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
       "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\obj\\",
+      "outputPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

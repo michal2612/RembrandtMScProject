@@ -3,6 +3,6 @@ namespace Rembrandt.Users.Infrastructure.Services
     public interface IEncrypter
     {
         string GetSalt();
-        string GetHashValue(string value, string salt);
+        string GetHash(string value, string salt);
     }
 }

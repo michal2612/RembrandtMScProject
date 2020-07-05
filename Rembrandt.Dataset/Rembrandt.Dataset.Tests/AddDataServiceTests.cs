@@ -1,10 +1,14 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
 using Moq;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Core.Repositories;
 using Rembrandt.Dataset.Infrastructure.DTO;
+using Rembrandt.Dataset.Infrastructure.IoC;
 using Rembrandt.Dataset.Infrastructure.Services;
 using Xunit;
 
@@ -59,30 +63,7 @@ namespace Rembrandt.Dataset.Tests
             }
         };
 
-        [Fact]
-        public async Task get_observation_async_should_return_observation_dto()
-        {
-            var observationRepositoryMock = new Mock<IObservationRepository>();
-            var mapperMock = new Mock<IMapper>();
-
-            var addDataService = new DatasetService(observationRepositoryMock.Object, mapperMock.Object);
-            await addDataService.GetObservationAsync("value");
-
-            observationRepositoryMock.Verify(x => x.GetObservationAsync(It.IsAny<string>()), Times.Once);
-        }
-
-        [Fact]
-        public async Task get_multiple_observations_async_should_return_observations_dto()
-        {
-            var observationRepositoryMock = new Mock<IObservationRepository>();
-            var mapperMock = new Mock<IMapper>();
-
-            var addDataService = new DatasetService(observationRepositoryMock.Object, mapperMock.Object);
-            await addDataService.GetAllObservationsAsync();
-
-            observationRepositoryMock.Verify(x => x.GetAllObservationsAsync(), Times.Once);
-        }
-
+        // public async Task AddObservationDtoAsync(IObservationDto observation)
         [Fact]
         public async Task add_observation_async_should_invoke_add_async_on_repository()
         {
@@ -94,7 +75,7 @@ namespace Rembrandt.Dataset.Tests
 
             observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Once);
         }
-
+        
         [Fact]
         public async Task add_null_observation_should_return_exception()
         {
@@ -102,10 +83,22 @@ namespace Rembrandt.Dataset.Tests
             var mapperMock = new Mock<IMapper>();
 
             var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
-
             await Assert.ThrowsAsync<ArgumentNullException>( async () => await addDataService.AddObservationDtoAsync(null));
 
             observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Never);
+        }
+
+        // public async Task AddObservationsDtoAsync(IEnumerable<IObservationDto> observations)
+        [Fact]
+        public async Task add_observation_async_should_invoke_add_async_on_repository_more_than_once()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+
+            var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
+            await addDataService.AddObservationsDtoAsync(new List<IObservationDto>() {ObservationDto, ObservationDto});
+
+            observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Exactly(2));
         }
 
         [Fact]
@@ -115,8 +108,34 @@ namespace Rembrandt.Dataset.Tests
             var mapperMock = new Mock<IMapper>();
 
             var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
-
             await Assert.ThrowsAsync<ArgumentNullException>( async () => await addDataService.AddObservationsDtoAsync(null));
+
+            observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Never);
+        }
+
+        // public async Task AddMultipleDefaultListAsync(JsonElement defaultMultipleList)
+        [Fact]
+        public async Task add_multiple_observations_should_invoke_add_async_on_repository_more_than_once()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+            var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
+
+            var observationList = JsonDocument.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, @"..\..\..\.\observations.json")));
+            await addDataService.AddMultipleDefaultListAsync(observationList.RootElement);
+
+            observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.AtLeast(2));
+        }
+
+        [Fact]
+        public async Task add_multiple_observations_should_not_invoke_add_async()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+            var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
+
+            var observationList = JsonDocument.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, @"..\..\..\.\observationsEmpty.json")));
+            await addDataService.AddMultipleDefaultListAsync(observationList.RootElement);
 
             observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Never);
         }

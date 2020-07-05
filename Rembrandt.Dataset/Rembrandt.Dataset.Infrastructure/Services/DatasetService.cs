@@ -30,11 +30,15 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             return observationsDto;
         }
 
-        public async Task<ObservationDto> GetObservationAsync(string id)
+        public async Task<IEnumerable<ObservationDto>> GetObservationsAsync(string id)
         {
-            var observationCore = await _observationRepository.GetObservationAsync(id);
+            var observationsCore = await _observationRepository.GetObservationsAsync(id);
+            var observationsDto = new List<ObservationDto>();
 
-            return _mapper.Map<Observation,ObservationDto>(observationCore);
+            foreach(var observation in observationsCore)
+                observationsDto.Add(_mapper.Map<Observation, ObservationDto>(observation));
+
+            return observationsDto;
         }
     }
 }
