@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -10,24 +9,23 @@ namespace Rembrandt.Users.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LoginController : ControllerBase
+    public class RegisterController : ControllerBase
     {
         private readonly IMemoryCache _memoryCache;
-        private readonly ILoginService _loginService;
+        private readonly IRegisterService _registerService;
 
-        public LoginController(IMemoryCache memoryCache, ILoginService loginService)
+        public RegisterController(IMemoryCache memoryCache, IRegisterService registerService)
         {
             _memoryCache = memoryCache;
-            _loginService = loginService;
+            _registerService = registerService;
         }
 
-        public async Task<IActionResult> Post(Login login)
+        public async Task<IActionResult> Register(Register register)
         {
-            login.TokenId = Guid.NewGuid();
-            await _loginService.Login(login);
-            var jwt = _memoryCache.GetJwt(login.TokenId);
+            await _registerService.Register(register);
+            var jwt = _memoryCache.GetJwt(register.Guid);
 
-            return Ok(jwt);
+            return Content(jwt.Token);
         }
     }
-}   
+}
