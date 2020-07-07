@@ -17,7 +17,6 @@ namespace Rembrandt.Users.Infrastructure.Services.Users
             _userService = userSerivce;
             _jwtHandler = jwtHandler;
             _memoryCache = memoryCache;
-            
         }
         public async Task Register(Register register)
         {
