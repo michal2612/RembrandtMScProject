@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Rembrandt.Users.Infrastructure.Services;
+using Rembrandt.Users.Infrastructure.Settings;
 
 namespace Rembrandt.Users.Api.Controllers
 {
@@ -34,6 +35,13 @@ namespace Rembrandt.Users.Api.Controllers
             await _userService.RegisterAsync(email, password);
 
             return Ok(_jwtHandler.CreateToken(email, "admin"));
+        }
+
+        [HttpGet("settings")]
+        public IActionResult CheckSettings()
+        {
+            var settings = new Settings();
+            return Content(settings.IssuerSigningKey);
         }
     }
 }

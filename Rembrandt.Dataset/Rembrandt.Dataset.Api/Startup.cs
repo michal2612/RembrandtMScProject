@@ -29,6 +29,11 @@ namespace Rembrandt.Dataset.Api
 
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddControllers();
+            services.AddMvc()
+                .AddJsonOptions(options =>
+                {               
+                    options.JsonSerializerOptions.WriteIndented = true;    
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

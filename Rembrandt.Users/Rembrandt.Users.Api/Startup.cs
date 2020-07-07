@@ -38,12 +38,14 @@ namespace Rembrandt.Users.Api
             services.AddSingleton<IEncrypter, Encrypter>();
 
             services.AddTransient<ILoginService, LoginService>();
-            services.AddScoped<IJwtHandler, JwtHandler>();
+            services.AddTransient<IRegisterService, RegisterService>();
             
+            services.AddScoped<IJwtHandler, JwtHandler>();
+
             var Settings = new Settings();
             Configuration.Bind("Settings", Settings);
             services.AddSingleton(Settings);
-
+            
             services.AddAuthentication(o =>
             {
                 o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -55,6 +57,10 @@ namespace Rembrandt.Users.Api
             });
 
             services.AddControllers();
+            services.AddMvc()
+                .AddJsonOptions(options => {
+                    options.JsonSerializerOptions.WriteIndented = true;
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

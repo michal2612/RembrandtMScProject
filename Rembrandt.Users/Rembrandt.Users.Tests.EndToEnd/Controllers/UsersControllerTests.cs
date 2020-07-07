@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Newtonsoft.Json;
 using Rembrandt.Users.Infrastructure.DTO;
+using Rembrandt.Users.Infrastructure.Settings;
 using Xunit;
 
 namespace Rembrandt.Users.Tests.EndToEnd.Controllers
@@ -20,6 +21,7 @@ namespace Rembrandt.Users.Tests.EndToEnd.Controllers
         [Fact]
         public async Task given_valid_email_should_exist()
         {
+            
             var email = "emailaddress1@test.com";
             var response = await _factory.CreateClient().GetAsync($"users/{email}");
             response.EnsureSuccessStatusCode();
