@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Rembrandt.Dataset.Core.Helpers;
-using Rembrandt.Dataset.Core.Models;
-using Rembrandt.Dataset.Infrastructure.DTO;
-using Rembrandt.Dataset.Infrastructure.IoC;
+using Rembrandt.Contracts.IoC;
 
 namespace Rembrandt.Dataset.Infrastructure.Services
 {

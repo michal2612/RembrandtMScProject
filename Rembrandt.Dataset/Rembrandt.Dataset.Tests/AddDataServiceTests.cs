@@ -5,10 +5,10 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
 using Moq;
+using Rembrandt.Contracts.Classes.Dataset;
+using Rembrandt.Contracts.IoC;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Core.Repositories;
-using Rembrandt.Dataset.Infrastructure.DTO;
-using Rembrandt.Dataset.Infrastructure.IoC;
 using Rembrandt.Dataset.Infrastructure.Services;
 using Xunit;
 

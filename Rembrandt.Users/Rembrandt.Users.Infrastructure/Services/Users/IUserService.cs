@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Rembrandt.Users.Infrastructure.DTO;
+using Rembrandt.Contracts.Classes.Jwt;
 
 namespace Rembrandt.Users.Infrastructure.Services
 {

@@ -1,8 +1,8 @@
 using System;
 using Newtonsoft.Json;
-using Rembrandt.Dataset.Infrastructure.IoC;
+using Rembrandt.Contracts.IoC;
 
-namespace Rembrandt.Dataset.Infrastructure.DTO
+namespace Rembrandt.Contracts.Classes.Dataset
 {
     public class ObservationDto : IObservationDto
     {

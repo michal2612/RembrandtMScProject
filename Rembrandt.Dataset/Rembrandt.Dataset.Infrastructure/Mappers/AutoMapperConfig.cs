@@ -1,6 +1,6 @@
 using AutoMapper;
+using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Dataset.Core.Models;
-using Rembrandt.Dataset.Infrastructure.DTO;
 
 namespace Rembrandt.Dataset.Infrastructure.Mappers
 {

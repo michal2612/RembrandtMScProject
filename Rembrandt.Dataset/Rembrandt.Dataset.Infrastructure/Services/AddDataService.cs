@@ -4,12 +4,10 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
 using Newtonsoft.Json.Linq;
-using Rembrandt.Dataset.Core.Helpers;
+using Rembrandt.Contracts.Classes.Dataset;
+using Rembrandt.Contracts.IoC;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Core.Repositories;
-using Rembrandt.Dataset.Infrastructure.DTO;
-using Rembrandt.Dataset.Infrastructure.IoC;
-using Rembrandt.Dataset.Infrastructure.Mappers;
 
 namespace Rembrandt.Dataset.Infrastructure.Services
 {

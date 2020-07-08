@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using Rembrandt.Users.Infrastructure.DTO;
+using Rembrandt.Contracts.Classes.Jwt;
 using Rembrandt.Users.Infrastructure.Extensions;
 using Rembrandt.Users.Infrastructure.Settings;
 

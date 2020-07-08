@@ -1,6 +1,6 @@
 using System;
 using Microsoft.Extensions.Caching.Memory;
-using Rembrandt.Users.Infrastructure.DTO;
+using Rembrandt.Contracts.Classes.Jwt;
 
 namespace Rembrandt.Users.Infrastructure.Extensions
 {

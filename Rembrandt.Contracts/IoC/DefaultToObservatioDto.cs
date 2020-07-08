@@ -1,8 +1,7 @@
 using System;
-using Rembrandt.Dataset.Core.Helpers;
-using Rembrandt.Dataset.Infrastructure.DTO;
+using Rembrandt.Contracts.Classes.Dataset;
 
-namespace Rembrandt.Dataset.Infrastructure.Mappers
+namespace Rembrandt.Contracts.IoC
 {
     public static class DefaultToObservationDto
     {

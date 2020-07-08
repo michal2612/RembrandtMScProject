@@ -21,6 +21,7 @@ namespace Rembrandt.Dataset.Api
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:5001/", "http://*:5000");
                 });
     }
 }

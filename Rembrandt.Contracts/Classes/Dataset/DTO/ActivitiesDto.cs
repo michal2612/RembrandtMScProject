@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Rembrandt.Dataset.Infrastructure.DTO
+namespace Rembrandt.Contracts.Classes.Dataset
 {
     public class ActivitiesDto
     {

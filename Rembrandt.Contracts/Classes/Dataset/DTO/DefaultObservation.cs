@@ -1,11 +1,9 @@
 using System;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
-using Rembrandt.Dataset.Infrastructure.DTO;
-using Rembrandt.Dataset.Infrastructure.IoC;
-using Rembrandt.Dataset.Infrastructure.Mappers;
+using Rembrandt.Contracts.IoC;
 
-namespace Rembrandt.Dataset.Core.Helpers
+namespace Rembrandt.Contracts.Classes.Dataset
 {
    [DataContract()]
    public class DefaultObservation : IObservationDto

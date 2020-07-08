@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Dataset.Core.Models;
 using Rembrandt.Dataset.Core.Repositories;
-using Rembrandt.Dataset.Infrastructure.DTO;
 
 namespace Rembrandt.Dataset.Infrastructure.Services
 {
