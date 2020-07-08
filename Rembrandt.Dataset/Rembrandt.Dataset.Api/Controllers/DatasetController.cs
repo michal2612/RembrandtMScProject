@@ -2,9 +2,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Rembrandt.Dataset.Infrastructure.Services;
-using Rembrandt.Dataset.Infrastructure.DTO;
-using Rembrandt.Dataset.Core.Helpers;
 using System.Text.Json;
+using Rembrandt.Contracts.Classes.Dataset;
 
 namespace Rembrandt.Dataset.Api.Controllers
 {
@@ -22,6 +21,10 @@ namespace Rembrandt.Dataset.Api.Controllers
             _addDataService = addDataService;
         }
 
+        [HttpGet("test")]
+        public IActionResult Test()
+            => Content("It's working!");
+            
         [HttpGet]
         public async Task<IEnumerable<ObservationDto>> PostObservationDtoCollectionAsync()
             => await _datasetService.GetAllObservationsAsync();

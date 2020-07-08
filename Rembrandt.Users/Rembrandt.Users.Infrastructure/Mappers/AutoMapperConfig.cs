@@ -1,6 +1,6 @@
 using AutoMapper;
+using Rembrandt.Contracts.Classes.Jwt;
 using Rembrandt.Users.Core.Models;
-using Rembrandt.Users.Infrastructure.DTO;
 
 namespace Rembrandt.Users.Infrastructure.Mappers
 {

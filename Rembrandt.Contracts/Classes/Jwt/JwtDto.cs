@@ -1,4 +1,4 @@
-namespace Rembrandt.Users.Infrastructure.DTO
+namespace Rembrandt.Contracts.Classes.Jwt
 {
     public class JwtDto
     {

@@ -4,6 +4,7 @@
     <ProjectReference Include="..\Rembrandt.Users.Core\Rembrandt.Users.Core.csproj" />
     <ProjectReference Include="..\Rembrandt.Users.Infrastructure\Rembrandt.Users.Infrastructure.csproj" />
     <ProjectReference Include="..\Rembrandt.Users.Api\Rembrandt.Users.Api.csproj" />
+    <ProjectReference Include="..\..\Rembrandt.Contracts\Rembrandt.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rembrandt.Users.Core\Rembrandt.Users.Core.csproj" />
+    <ProjectReference Include="..\..\Rembrandt.Contracts\Rembrandt.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -11,7 +12,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
 </Project>

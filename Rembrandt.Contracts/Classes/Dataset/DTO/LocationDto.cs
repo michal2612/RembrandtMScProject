@@ -1,4 +1,4 @@
-namespace Rembrandt.Dataset.Infrastructure.DTO
+namespace Rembrandt.Contracts.Classes.Dataset
 {
     public class LocationDto
     {

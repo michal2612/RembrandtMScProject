@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rembrandt.Dataset.Core\Rembrandt.Dataset.Core.csproj" />
+    <ProjectReference Include="..\..\Rembrandt.Contracts\Rembrandt.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>

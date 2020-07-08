@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 using Newtonsoft.Json;
-using Rembrandt.Users.Infrastructure.DTO;
+using Rembrandt.Contracts.Classes.Jwt;
 using Rembrandt.Users.Infrastructure.Settings;
 using Xunit;
 

@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
-using Rembrandt.Dataset.Infrastructure.DTO;
+using Rembrandt.Contracts.Classes.Dataset;
 using Xunit;
 
 namespace Rembrandt.Dataset.Tests.EndToEnd
