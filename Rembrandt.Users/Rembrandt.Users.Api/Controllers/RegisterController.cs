@@ -1,9 +1,9 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using Rembrandt.Users.Infrastructure.Commands.Classes;
 using Rembrandt.Users.Infrastructure.Services.Users;
 using Rembrandt.Users.Infrastructure.Extensions;
+using Rembrandt.Contracts.Classes.User;
 
 namespace Rembrandt.Users.Api.Controllers
 {

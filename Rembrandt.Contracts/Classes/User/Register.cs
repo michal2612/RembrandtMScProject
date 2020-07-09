@@ -1,6 +1,6 @@
 using System;
 
-namespace Rembrandt.Users.Infrastructure.Commands.Classes
+namespace Rembrandt.Contracts.Classes.User
 {
     public class Register
     {
