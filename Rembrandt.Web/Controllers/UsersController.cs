@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Rembrandt.Users.Infrastructure.Commands.Classes;
+using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Users.Infrastructure.Services;
 
 namespace Rembrandt.Web.Controllers

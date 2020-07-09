@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Rembrandt.Users.Infrastructure.Commands.Classes;
+using Rembrandt.Contracts.Classes.User;
 
 namespace Rembrandt.Users.Infrastructure.Services.Users
 {

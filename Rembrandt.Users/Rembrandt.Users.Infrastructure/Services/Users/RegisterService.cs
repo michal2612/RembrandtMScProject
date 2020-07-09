@@ -1,7 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
-using Rembrandt.Users.Infrastructure.Commands.Classes;
+using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Users.Infrastructure.Extensions;
 
 namespace Rembrandt.Users.Infrastructure.Services.Users

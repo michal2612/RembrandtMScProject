@@ -2,23 +2,7 @@ version: "3.8"
 
 services:
     rembrandt-dataset:
-        build: "./Rembrandt.Dataset.Api/Rembrandt.Dataset.Api"
-        volumes:
-            - ./Rembrandt.Dataset.Api/Rembrandt.Dataset.Api:app
-        port:
-            - 5001:5001
-    rembrandt-users:
-        build: "./Rembrandt.Users.Api/Rembrandt.Users.Api"
-        volumes:
-            - ./Rembrandt.Users.Api/Rembrandt.Users.Api:app
-        port:
-            - 5002:5002
-    rembrandt-web:
-        build: "./Rembrandt.Web"
-        volumes: 
-            - "./Rembrandt.Web:app"
-        port: 5003:5003
-        depends_on: 
-            - rembrandt-dataset
-            - rembrandt-users
+        build: "./Rembrandt.Dataset/Rembrandt.Dataset.Api"
+        ports:
+            - "5001:5001"
     
