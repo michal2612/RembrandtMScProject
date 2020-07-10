@@ -1,8 +1,17 @@
 version: "3.8"
 
 services:
+    rembrandt-dataset-db:
+        image: "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04"
+        ports:
+            - "1433:1433"
+        environment: 
+            SA_PASSWORD: "<YourStrong@Passw0rd>"
+            ACCEPT_EULA: "Y"
     rembrandt-dataset:
-        build: "./Rembrandt.Dataset/Rembrandt.Dataset.Api"
+        build: "./Rembrandt.Dataset"
         ports:
             - "5001:5001"
+        depends_on: 
+            - rembrandt-dataset-db
     
