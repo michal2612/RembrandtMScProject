@@ -1,10 +1,12 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using Rembrandt.Users.Core.Helpers;
 
 namespace Rembrandt.Users.Core.Models
 {
     public class User
     {
+        [Key]
         public int PrimaryKey { get; protected set; }
         public string Key { get; protected set; }
         public string Password { get; protected set; }

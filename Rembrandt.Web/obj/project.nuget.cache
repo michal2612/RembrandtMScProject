@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "q+SIBRDk9ign3L0lhKXnRgxaWW9gENQy3gWBvXz4RVou3GOd7B9axBxgsA2MYFyh8kgfTUcJL5syuWYZ50z5FQ==",
+  "dgSpecHash": "Vns+IfDceyuDe2QbxvxD9+3tm0T/peEaO7jDu2qZjOky5gL6bzx+4C6ib0t9QFPzWk/1T8n2BFDVKtbl8EEugQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
+  "projectFilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michal\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\Michal\\.nuget\\packages\\automatonymous\\5.0.0\\automatonymous.5.0.0.nupkg.sha512",
