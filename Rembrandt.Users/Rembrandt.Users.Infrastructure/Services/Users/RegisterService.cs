@@ -20,6 +20,9 @@ namespace Rembrandt.Users.Infrastructure.Services.Users
         }
         public async Task Register(Register register)
         {
+            if(register.Password != register.RepeatPassword)
+                throw new Exception("Passwords should be the same!");
+                
             await _userService.RegisterAsync(register.Email, register.Password);
             var user = await _userService.GetUserAsync(register.Email);
             var jwt = _jwtHandler.CreateToken(register.Email, user.Role);

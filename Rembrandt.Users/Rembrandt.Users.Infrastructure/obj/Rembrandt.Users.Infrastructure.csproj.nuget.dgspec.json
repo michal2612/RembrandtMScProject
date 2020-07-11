@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj": {}
+    "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
+    "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj",
+        "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj",
         "projectName": "Rembrandt.Contracts",
-        "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj",
+        "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj",
         "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\obj\\",
+        "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -66,14 +66,14 @@
         }
       }
     },
-    "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj": {
+    "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj",
         "projectName": "Rembrandt.Users.Core",
-        "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj",
+        "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj",
         "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\obj\\",
+        "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -93,8 +93,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
-                "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
+              "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
+                "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
               }
             }
           }
@@ -109,6 +109,12 @@
         "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.5, )"
             },
@@ -136,14 +142,14 @@
         }
       }
     },
-    "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj": {
+    "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
         "projectName": "Rembrandt.Users.Infrastructure",
-        "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -163,11 +169,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
-                "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
+              "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
+                "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
               },
-              "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj": {
-                "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj"
+              "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj": {
+                "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj"
               }
             }
           }

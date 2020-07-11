@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Rembrandt.Contracts.Databases;
 using Rembrandt.Users.Core.Models;
 
 namespace Rembrandt.Users.Core.Context
@@ -10,8 +9,7 @@ namespace Rembrandt.Users.Core.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            var database = new DatabaseAccess("User");
-            options.UseSqlServer($"Server={database.Host},{database.Port};Database={database.Database};User Id={database.User};Password={database.Password};");
+            options.UseSqlServer($"Server=51.104.49.19,1434;Database=Users;User Id=SA;Password=<YourStrong@Passw0rd>;");
         }
     }
 }

@@ -28,20 +28,5 @@ namespace Rembrandt.Users.Api.Controllers
 
             return Ok(user);
         }
-
-        [HttpPost("addUser")]
-        public async Task<IActionResult> AddUser(string email, string password)
-        {
-            await _userService.RegisterAsync(email, password);
-
-            return Ok(_jwtHandler.CreateToken(email, "admin"));
-        }
-
-        [HttpGet("settings")]
-        public IActionResult CheckSettings()
-        {
-            var settings = new Settings();
-            return Content(settings.IssuerSigningKey);
-        }
     }
 }

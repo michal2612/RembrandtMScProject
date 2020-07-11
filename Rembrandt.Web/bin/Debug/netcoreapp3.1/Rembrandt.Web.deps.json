@@ -2015,7 +2015,8 @@
         "dependencies": {
           "Microsoft.Data.Sqlite.Core": "3.1.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.5",
-          "Microsoft.EntityFrameworkCore.Sqlite": "3.1.5"
+          "Microsoft.EntityFrameworkCore.Sqlite": "3.1.5",
+          "Rembrandt.Contracts": "1.0.0"
         },
         "runtime": {
           "Rembrandt.Dataset.Core.dll": {}
@@ -2055,6 +2056,11 @@
         }
       },
       "Rembrandt.Users.Core/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.5",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.5",
+          "Rembrandt.Contracts": "1.0.0"
+        },
         "runtime": {
           "Rembrandt.Users.Core.dll": {}
         },
