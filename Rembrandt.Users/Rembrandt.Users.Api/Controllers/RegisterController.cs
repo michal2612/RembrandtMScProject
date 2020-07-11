@@ -20,6 +20,7 @@ namespace Rembrandt.Users.Api.Controllers
             _registerService = registerService;
         }
 
+        [HttpPost]
         public async Task<IActionResult> Register(Register register)
         {
             await _registerService.Register(register);

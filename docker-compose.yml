@@ -12,6 +12,4 @@ services:
         build: "./Rembrandt.Dataset"
         ports:
             - "5001:5001"
-        depends_on: 
-            - rembrandt-dataset-db
     

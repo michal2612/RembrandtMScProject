@@ -20,7 +20,8 @@ namespace Rembrandt.Users.Api.Controllers
             _memoryCache = memoryCache;
             _loginService = loginService;
         }
-
+        
+        [HttpPost]
         public async Task<IActionResult> Post(Login login)
         {
             login.TokenId = Guid.NewGuid();

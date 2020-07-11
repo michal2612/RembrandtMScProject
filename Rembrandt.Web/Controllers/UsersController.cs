@@ -1,8 +1,11 @@
+using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Users.Infrastructure.Services;
+using Rembrandt.Web.ViewModels;
 
 namespace Rembrandt.Web.Controllers
 {
@@ -15,14 +18,14 @@ namespace Rembrandt.Web.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Login(Login login)
+        public  IActionResult Login(Login login)
         {
             return View();
         }
 
-        public IActionResult Register()
+        public IActionResult Register(RegisterViewModel register)
         {
-            return View();
+            return View(register);
         }
     }
 }

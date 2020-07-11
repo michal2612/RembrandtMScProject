@@ -31,14 +31,14 @@ namespace Rembrandt.Users.Api
         {
             services.AddMemoryCache();
 
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
 
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddSingleton<IEncrypter, Encrypter>();
 
-            services.AddTransient<ILoginService, LoginService>();
-            services.AddTransient<IRegisterService, RegisterService>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IRegisterService, RegisterService>();
             
             services.AddScoped<IJwtHandler, JwtHandler>();
 
