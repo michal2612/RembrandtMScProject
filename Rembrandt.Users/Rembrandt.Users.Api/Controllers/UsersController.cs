@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Rembrandt.Users.Infrastructure.Services;
 using Rembrandt.Users.Infrastructure.Settings;
@@ -19,7 +20,7 @@ namespace Rembrandt.Users.Api.Controllers
         }
 
         [HttpGet("{email}")]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> Get(string email)
         {
             var user =  await _userService.GetUserAsync(email);

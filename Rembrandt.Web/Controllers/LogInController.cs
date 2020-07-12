@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Users.Infrastructure.Services.Users;
 using Rembrandt.Web.ViewModels;
+using System.Web;
 
 namespace Rembrandt.Web.Controllers
 {
@@ -21,13 +22,23 @@ namespace Rembrandt.Web.Controllers
         {
             try
             {
-                Int32.Parse(register.Register.RepeatPassword);
+                Response.Cookies.Append("jwtToken", "asdjksajdk2ewkjksac");
             }
             catch(Exception e)
             {
-                return RedirectToAction("Register", "Users", new RegisterViewModel() {Register = register.Register, ExceptionMessage = e.Message});
+                return RedirectToAction("Register", "Users", new RegisterViewModel() {RegisterData = register.RegisterData, ExceptionMessage = e.Message});
             }
-            return Content("hehe");
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Logout()
+        {
+            try
+            {
+                Response.Cookies.Delete("jwtToken");
+            }
+            catch {}
+            return RedirectToAction("Index", "Home");
         }
     }
 }
