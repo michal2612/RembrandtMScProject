@@ -1,4 +1,4 @@
-namespace Rembrandt.Users.Infrastructure.Settings
+namespace Rembrandt.Contracts.Classes.Jwt
 {
     public class Settings
     {

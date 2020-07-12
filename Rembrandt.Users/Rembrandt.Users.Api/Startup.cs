@@ -13,7 +13,7 @@ using Rembrandt.Users.Infrastructure.Mappers;
 using Rembrandt.Users.Infrastructure.Repositories;
 using Rembrandt.Users.Infrastructure.Services;
 using Rembrandt.Users.Infrastructure.Services.Users;
-using Rembrandt.Users.Infrastructure.Settings;
+using Rembrandt.Contracts.Classes.Jwt;
 
 namespace Rembrandt.Users.Api
 {

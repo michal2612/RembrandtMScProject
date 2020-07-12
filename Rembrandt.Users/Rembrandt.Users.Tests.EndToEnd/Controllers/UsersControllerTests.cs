@@ -1,13 +1,9 @@
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
-using Microsoft.AspNetCore.TestHost;
 using Newtonsoft.Json;
 using Rembrandt.Contracts.Classes.Jwt;
-using Rembrandt.Users.Infrastructure.Settings;
 using Xunit;
 
 namespace Rembrandt.Users.Tests.EndToEnd.Controllers

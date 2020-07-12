@@ -24,11 +24,10 @@ namespace Rembrandt.Users.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(Login login)
         {
-            login.TokenId = Guid.NewGuid();
             await _loginService.Login(login);
-            var jwt = _memoryCache.GetJwt(login.TokenId);
+            var jwt = _memoryCache.GetJwt(login.Guid);
 
-            return Ok(jwt);
+            return Content(jwt.Token);
         }
     }
 }   

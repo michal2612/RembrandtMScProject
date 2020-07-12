@@ -11,13 +11,13 @@ namespace Rembrandt.Users.Infrastructure.Commands
     {
         private readonly IUserService _userService;
         private readonly IJwtHandler _jwtHandler;
-        private readonly IMemoryCache _cache;
+        private readonly IMemoryCache _memoryCache;
 
         public LoginService(IUserService userService, IJwtHandler jwtHandler, IMemoryCache memoryCache)
         {
             _userService = userService;
             _jwtHandler = jwtHandler;
-            _cache = memoryCache;
+            _memoryCache = memoryCache;
         }
 
         public async Task Login(Login login)
@@ -26,7 +26,7 @@ namespace Rembrandt.Users.Infrastructure.Commands
             var user = await _userService.GetUserAsync(login.Email);
             var jwt= _jwtHandler.CreateToken(login.Email, user.Role);
 
-            _cache.SetJwt(login.TokenId, jwt);
+            _memoryCache.SetJwt(login.Guid, jwt);
         }
     }
 }
