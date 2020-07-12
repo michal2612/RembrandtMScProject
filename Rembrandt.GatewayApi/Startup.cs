@@ -29,6 +29,14 @@ namespace Rembrandt.GatewayApi
         {
             services.AddControllers();
             services.AddOcelot(Configuration);
+
+            var key = "";
+
+            services.AddAuthentication()
+                .AddJwtBearer(key, x => {
+                    x.Authority = "test";
+                    x.Audience = "key";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

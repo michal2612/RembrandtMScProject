@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{bool isLogged =(HttpContextAccessor.HttpContext.Request.Cookies["jwtToken"] == null ? false : true); }
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,7 +27,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         @{
-                            if(1 > 2)
+                            if(isLogged)
                             {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -38,8 +40,14 @@
                     </ul>
                 </div>
                 <form class="form-inline my-2 my-lg-0">
-                    <button type="button" class="btn btn-secondary my-2 my-sm-0" onclick="location.href='/users/register'">Register</button>
-                    <button type="button"  class="btn btn-secondary my-2 my-sm-0" onclick="location.href='/users/login'">Login</button>
+                    @if(isLogged)
+                    {
+                        <button class="btn btn-secondary my-2 my-sm-0" asp-controller="LogIn" asp-action="Logout">Log out</button>
+                    }
+                    else {
+                        <button type="button" class="btn btn-secondary my-2 my-sm-0" onclick="location.href='/users/register'">Register</button>
+                        <button type="button"  class="btn btn-secondary my-2 my-sm-0" onclick="location.href='/users/login'">Login</button>
+                    }
                 </form>
             </div>
         </nav>

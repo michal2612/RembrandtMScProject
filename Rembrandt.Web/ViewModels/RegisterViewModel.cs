@@ -5,7 +5,7 @@ namespace Rembrandt.Web.ViewModels
 {
     public class RegisterViewModel
     {
-        public Register Register { get; set; }
+        public Register RegisterData { get; set; }
         public string ExceptionMessage { get; set; }
 
         public RegisterViewModel()
