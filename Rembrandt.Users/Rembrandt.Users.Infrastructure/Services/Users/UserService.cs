@@ -39,11 +39,11 @@ namespace Rembrandt.Users.Infrastructure.Services
             if(user == null)
                 throw new ArgumentNullException($"Invalid credentials!");
 
-            var hash = _encrypter.GetHash(user.Password, user.Salt);
+            var hash = _encrypter.GetHash(password, user.Salt);
             if(user.Password == hash)
                 return;
 
-            throw new ArgumentNullException("Invalid credentials!");
+            throw new ArgumentNullException($"Invalid credentials!");
         }
 
         public async Task RegisterAsync(string email, string password)

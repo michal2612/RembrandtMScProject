@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Rembrandt.Contracts.Database;
 using Rembrandt.Dataset.Core.Models;
 
 namespace Rembrandt.Dataset.Core.Context
@@ -8,7 +9,7 @@ namespace Rembrandt.Dataset.Core.Context
         public DbSet<Observation> Observations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer("Server=localhost,1433;Database=Observations;User Id=SA;Password=<YourStrong@Passw0rd>;");
+            => options.UseSqlServer($"Server={DatabaseConfig.Host},{DatabaseConfig.Port};Database=Observations;User Id={DatabaseConfig.User};Password={DatabaseConfig.Password};");
             
     }
 }

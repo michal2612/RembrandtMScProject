@@ -43,7 +43,7 @@ namespace Rembrandt.Users.Core.Models
             if(String.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("Password should not be null!");
 
-            return password.ToLower();
+            return password;
         }
 
         private string GenerateKey()

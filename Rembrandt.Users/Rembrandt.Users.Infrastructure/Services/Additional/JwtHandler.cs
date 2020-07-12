@@ -5,15 +5,14 @@ using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Rembrandt.Contracts.Classes.Jwt;
 using Rembrandt.Users.Infrastructure.Extensions;
-using Rembrandt.Users.Infrastructure.Settings;
 
 namespace Rembrandt.Users.Infrastructure.Services
 {
     public class JwtHandler : IJwtHandler
     {
-        private readonly Settings.Settings _settings;
+        private readonly Settings _settings;
 
-        public JwtHandler(Settings.Settings settings)
+        public JwtHandler(Settings settings)
         {
             _settings = settings;
         }

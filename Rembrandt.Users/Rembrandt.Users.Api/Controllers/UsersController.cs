@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Rembrandt.Users.Infrastructure.Services;
-using Rembrandt.Users.Infrastructure.Settings;
 
 namespace Rembrandt.Users.Api.Controllers
 {
