@@ -9,7 +9,7 @@ namespace Rembrandt.Contracts.Database
         public static string Port { get { return GetPort(); } }
         public static string User { get { return GetUser(); } }
         public static string Password { get { return GetPassword(); } }
-        private static readonly string jsonFile = File.ReadAllText($@"{Directory.GetCurrentDirectory()}\database.json");
+        private static readonly string jsonFile = File.ReadAllText("database.json");
         private static readonly JObject _databaseJson = JObject.Parse(jsonFile);
 
         private static string GetHost()
