@@ -42,11 +42,11 @@
                 <form class="form-inline my-2 my-lg-0">
                     @if(isLogged)
                     {
-                        <button class="btn btn-secondary my-2 my-sm-0" asp-controller="LogIn" asp-action="Logout">Log out</button>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="LogOut">Log Out</a>
                     }
                     else {
-                        <button type="button" class="btn btn-secondary my-2 my-sm-0" onclick="location.href='/users/register'">Register</button>
-                        <button type="button"  class="btn btn-secondary my-2 my-sm-0" onclick="location.href='/users/login'">Login</button>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Login">Login</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="LogIn" asp-action="Register">Register</a>
                     }
                 </form>
             </div>
