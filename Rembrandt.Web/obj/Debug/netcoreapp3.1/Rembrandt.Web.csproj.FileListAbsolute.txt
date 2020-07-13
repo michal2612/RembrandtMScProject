@@ -35,8 +35,6 @@ C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Rem
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Rembrandt.Web.pdb
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Rembrandt.Web.genruntimeconfig.cache
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Rembrandt.Web.csproj.CopyComplete
-C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Users\Login.cshtml.g.cs
-C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Users\Register.cshtml.g.cs
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Rembrandt.Dataset.Api.exe
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Rembrandt.Users.Api.exe
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\AutoMapper.dll
@@ -124,3 +122,5 @@ C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Rem
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Rembrandt.Users.Core.pdb
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Rembrandt.Users.Infrastructure.pdb
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Rembrandt.Web.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Login.cshtml.g.cs
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Register.cshtml.g.cs
