@@ -12,10 +12,6 @@ namespace Rembrandt.Users.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly List<User> Users = new List<User>()
-        {
-            new User("test@gmail.com", "password", "salt")
-        };
         private readonly UserContext _userContext;
 
         public UserRepository()
@@ -23,25 +19,25 @@ namespace Rembrandt.Users.Infrastructure.Repositories
 
         public async Task AddUserAsync(User user)
         {
-            Users.Add(user);
-            //await _userContext.SaveChangesAsync();
+            await _userContext.AddAsync(user);
+            await _userContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<User>> GetAllUsersAsync()
-            => Users;
+            => await _userContext.Users.ToListAsync();
 
         public async Task<User> GetUserAsync(int id)
-            => Users.Where(l => l.PrimaryKey == id).SingleOrDefault();
+            => await _userContext.Users.Where(l => l.PrimaryKey == id).SingleOrDefaultAsync();
 
         public async Task<User> GetUserAsync(string email)
-            => Users.Where(l => l.Email == email).SingleOrDefault();
+            => await _userContext.Users.Where(l => l.Email == email).SingleOrDefaultAsync();
 
         public async Task RemoveAsync(User user)
-            => Users.Where(l => l.Key == user.Key).SingleOrDefault();
+            => await Task.FromResult(_userContext.Remove(_userContext.Users.Where(l => l.Key == user.Key).SingleOrDefault()));
 
         public async Task UpdateAsync(User user)
         {
-            var userInDb = Users.Where(l => l.Key == user.Key).SingleOrDefault();
+            var userInDb = _userContext.Users.Where(l => l.Key == user.Key).SingleOrDefault();
             if(userInDb != null)
             {
                 userInDb = user;

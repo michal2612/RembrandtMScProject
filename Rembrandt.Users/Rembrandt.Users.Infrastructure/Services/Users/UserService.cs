@@ -40,10 +40,10 @@ namespace Rembrandt.Users.Infrastructure.Services
                 throw new ArgumentNullException($"Invalid credentials!");
 
             var hash = _encrypter.GetHash(password, user.Salt);
-            if(user.Password == hash)
+            if(user.Password == hash && email.ToLower() == user.Email)
                 return;
-
-            throw new ArgumentNullException($"Invalid credentials!");
+            else
+                throw new ArgumentNullException($"Invalid credentials Email: {email} Password {password} user.Email {user.Email} user.Password: {user.Password} Hash: {hash} Salt: {user.Salt}!");
         }
 
         public async Task RegisterAsync(string email, string password)
