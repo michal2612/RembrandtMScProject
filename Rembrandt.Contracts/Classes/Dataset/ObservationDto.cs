@@ -4,6 +4,7 @@ using Rembrandt.Contracts.IoC;
 
 namespace Rembrandt.Contracts.Classes.Dataset
 {
+    [Serializable]
     public class ObservationDto : IObservationDto
     {
         public string SkipReason { get;  set; }

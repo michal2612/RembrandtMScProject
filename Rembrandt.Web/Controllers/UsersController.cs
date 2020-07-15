@@ -21,17 +21,17 @@ namespace Rembrandt.Web.Controllers
             _logger = logger;
             _httpClient = new HttpClient()
             {
-                BaseAddress = new Uri("http://localhost:5000")
+                BaseAddress = new Uri("http://51.104.49.19:5000")
             };
         }
 
         public async Task<IActionResult> Login(Login login)
         {
             var loginData = new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json");
-            var responseMessage = await _httpClient.PostAsync("login-gateway", loginData);
+            var responseMessage = await _httpClient.PostAsync("/login-gateway", loginData);
             if(responseMessage.IsSuccessStatusCode)
             {
-                Response.Cookies.Append("jwtToken", responseMessage.Content.ReadAsStringAsync().ToString());
+                Response.Cookies.Append("jwtToken", responseMessage.Content.ReadAsStringAsync().Result);
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Login", "LogIn");
@@ -40,10 +40,10 @@ namespace Rembrandt.Web.Controllers
         public async Task<IActionResult> Register(RegisterViewModel register)
         {
             var registerData = new StringContent(JsonConvert.SerializeObject(register.RegisterData), Encoding.UTF8, "application/json");
-            var responseMessage = await _httpClient.PostAsync("register-gateway", registerData);
+            var responseMessage = await _httpClient.PostAsync("/register-gateway", registerData);
             if(responseMessage.IsSuccessStatusCode)
             {
-                Response.Cookies.Append("jwtToken", responseMessage.Content.ReadAsStringAsync().ToString());
+                Response.Cookies.Append("jwtToken", responseMessage.Content.ReadAsStringAsync().Result);
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Register", "LogIn");

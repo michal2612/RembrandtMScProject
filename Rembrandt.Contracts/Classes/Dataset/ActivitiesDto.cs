@@ -1,7 +1,9 @@
+using System;
 using Newtonsoft.Json;
 
 namespace Rembrandt.Contracts.Classes.Dataset
 {
+    [Serializable]
     public class ActivitiesDto
     {
         public bool? Walking { get; set; }

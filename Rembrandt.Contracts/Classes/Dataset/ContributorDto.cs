@@ -1,8 +1,10 @@
 
+using System;
 using Newtonsoft.Json;
 
 namespace Rembrandt.Contracts.Classes.Dataset
 {
+    [Serializable]
     public class ContributorDto
     {
         [JsonProperty("contributor")]

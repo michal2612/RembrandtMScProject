@@ -5,8 +5,9 @@ using Rembrandt.Contracts.IoC;
 
 namespace Rembrandt.Contracts.Classes.Dataset
 {
-   [DataContract()]
-   public class DefaultObservation : IObservationDto
+    [Serializable]
+    [DataContract()]
+    public class DefaultObservation : IObservationDto
     {
         [JsonProperty("contributor")]
         public string Contributor { get; set; }
