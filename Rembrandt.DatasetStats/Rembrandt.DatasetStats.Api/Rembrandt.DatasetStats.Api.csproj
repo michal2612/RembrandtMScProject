@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rembrandt.DatasetStats.Infrastructure\Rembrandt.DatasetStats.Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Rembrandt.Contracts\Rembrandt.Contracts.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+</Project>
