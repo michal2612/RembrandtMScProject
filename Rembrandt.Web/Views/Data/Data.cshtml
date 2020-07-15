@@ -7,9 +7,17 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     @{
+        var siteItds = new List<int>();
         foreach(var observation in Model.ObservationsDto)
         {
-            <p>@observation.PhotoAddress</p>
+            if(!siteItds.Contains(observation.SiteId))
+            {
+                siteItds.Add(observation.SiteId);
+            }
         }
+    }
+    @foreach(var id in siteItds.OrderBy(c => c))
+    {
+        <p>@id</p>
     }
 </div>

@@ -1,0 +1,53 @@
+@model Rembrandt.Contracts.Classes.Stats.ObservationStatDto
+@{
+    ViewData["Title"] = "Location";
+    const int minGreenValue = 7;
+    const int minOrangeValue = 3;
+}
+<div class="text-center">
+    <h1 class="display-4">LOCATION ID: @Model.SiteId</h1>
+    <div id="location-info" class="well">
+        <a target="_blank" href="https://www.google.com/maps/place/lat+long">
+            <i class="material-icons">my_location</i>
+        </a>
+    </div>
+</div>
+    <div class="container">
+            <div class="jumbotron">
+        <h4>Attributes</h4>
+        <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        @{
+            foreach(var property in Model.Attributes.GetType().GetProperties())
+            {
+                var value = (float)Model.Attributes.GetType().GetProperty(property.Name).GetValue(Model.Attributes);
+                <div class="progress progress-striped">
+                    <div class="progress-bar progress-bar-success" style="width: @(value*10)%; background-color: @(value > minGreenValue ? "#5cb85c" : (value >= minOrangeValue ? "#DF691A" : "#d9534f"))">
+                        @property.Name (@value)
+                    </div>
+                </div>
+                <br />
+            }
+        }
+    </div>
+        <div class="jumbotron">
+            <h3>Activities</h3>
+                @{
+                    foreach(var property in Model.Activities.Activities)
+                    {
+                        if(property.Value)
+                        {
+                            <div class="alert alert-dismissible alert-success">
+                                <p>Area is suitable for <h4><b>@property.Key</b></h4></p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-dismissible alert-danger">
+                                <p>Area is not suitable for <h4><b>@property.Key</b></h4></p>
+                            </div>
+                        }
+                    }
+                }
+        </div>
+    </div>
+</div>
