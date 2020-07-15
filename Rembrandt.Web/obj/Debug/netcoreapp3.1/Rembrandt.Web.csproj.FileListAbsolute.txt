@@ -124,3 +124,4 @@ C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Rem
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Rembrandt.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Login.cshtml.g.cs
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Register.cshtml.g.cs
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Data\Data.cshtml.g.cs

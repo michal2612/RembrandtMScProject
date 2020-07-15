@@ -1,5 +1,8 @@
+using System;
+
 namespace Rembrandt.Contracts.Classes.Dataset
 {
+    [Serializable]
     public class AttributesDto
     {
         public int? Lively { get; set; }

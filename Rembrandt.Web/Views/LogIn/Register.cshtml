@@ -14,7 +14,7 @@
 </div>
 }
 <div id="register-form">
-  @using (Html.BeginForm("Register", "LogIn"))
+  @using (Html.BeginForm("Register", "Users"))
   {
     <div class="form-group">
       @Html.LabelFor(m => m.RegisterData.Email, new {@class = ""})
