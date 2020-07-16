@@ -73,14 +73,11 @@ namespace Rembrandt.Web.Controllers
                 },
                 Activities = new ActivitiesStatDto()
                 {
-                    Activities = new Dictionary<string, bool>()
-                    {
-                        {"Walking", true},
-                        {"Jogging", false},
-                        {"Biking", true},
-                        {"Relaxing", false},
-                        {"Socialising", true}
-                    }
+                    Walking = true,
+                    Jogging = false,
+                    Biking = true,
+                    Relaxing = true,
+                    Socialising = false
                 }
             };
 

@@ -9,7 +9,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
 {
     public interface IStatsService
     {
-        Task<ObservationStatDto> GetObservationStat(int siteId);
-        Task GetObservations(IEnumerable<ObservationDto> observations);
+        Task<ObservationStatDto> GetObservationStatAsync(int siteId);
+        Task<IEnumerable<ObservationStatDto>> GetObservationsStatAsync();
     }
 }
