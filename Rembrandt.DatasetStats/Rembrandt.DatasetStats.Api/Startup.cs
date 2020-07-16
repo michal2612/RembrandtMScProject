@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Rembrandt.DatasetStats.Core.Repository;
+using Rembrandt.DatasetStats.Infrastructure;
+using Rembrandt.DatasetStats.Infrastructure.Mappers;
 using Rembrandt.DatasetStats.Infrastructure.Services;
 
 namespace Rembrandt.DatasetStats.Api
@@ -28,7 +31,12 @@ namespace Rembrandt.DatasetStats.Api
         {
             services.AddControllers();
 
+            services.AddSingleton<IStatsRepository, StatsRepository>();
+            services.AddSingleton(AutoMapperConfig.Initialize());
+            
             services.AddScoped<IStatsService, StatsService>();
+            services.AddScoped<IUpdateObservations, UpdateObservations>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

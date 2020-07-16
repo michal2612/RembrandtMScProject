@@ -32,18 +32,18 @@
         <div class="jumbotron">
             <h3>Activities</h3>
                 @{
-                    foreach(var property in Model.Activities.Activities)
+                    foreach(var property in Model.Activities.GetType().GetProperties())
                     {
-                        if(property.Value)
+                        if((bool)Model.Activities.GetType().GetProperty(property.Name).GetValue(Model.Activities))
                         {
                             <div class="alert alert-dismissible alert-success">
-                                <p>Area is suitable for <h4><b>@property.Key</b></h4></p>
+                                <p>Area is suitable for <h4><b>@property.Name</b></h4></p>
                             </div>
                         }
                         else
                         {
                             <div class="alert alert-dismissible alert-danger">
-                                <p>Area is not suitable for <h4><b>@property.Key</b></h4></p>
+                                <p>Area is not suitable for <h4><b>@property.Name</b></h4></p>
                             </div>
                         }
                     }
