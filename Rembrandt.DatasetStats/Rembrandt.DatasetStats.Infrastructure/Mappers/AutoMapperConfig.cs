@@ -17,6 +17,12 @@ namespace Rembrandt.DatasetStats.Infrastructure.Mappers
 
                 cfg.CreateMap<AttributesStat, AttributesStatDto>();
                 cfg.CreateMap<AttributesStatDto, AttributesStat>();
+
+                cfg.CreateMap<SkipReasons, SkipReasonsDto>();
+                cfg.CreateMap<SkipReasonsDto, SkipReasons>();
+
+                cfg.CreateMap<PhotoAddress, PhotoAddressDto>();
+                cfg.CreateMap<PhotoAddressDto, PhotoAddress>();
             })
             .CreateMapper();
     }

@@ -1,36 +1,35 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using Rembrandt.Contracts.Classes.Dataset;
-using Rembrandt.Contracts.Classes.Stats;
+using Microsoft.EntityFrameworkCore;
+using Rembrandt.DatasetStats.Core.Context;
 using Rembrandt.DatasetStats.Core.Models;
 using Rembrandt.DatasetStats.Core.Repository;
-using Rembrandt.DatasetStats.Infrastructure.Services;
 
 namespace Rembrandt.DatasetStats.Infrastructure
 {
     public class StatsRepository : IStatsRepository
     {
+        private readonly ObservationStatContext _observationStatContext;
         private readonly List<ObservationStat> _observations = new List<ObservationStat>();
-        private readonly IMapper _mapper;
 
-        public StatsRepository(IMapper mapper)
+        public StatsRepository()
         {
-            _mapper = mapper;
+            _observationStatContext = new ObservationStatContext();
         }
 
         public async Task<IEnumerable<ObservationStat>> GetAllObservationsStatAsync()
-            => await Task.FromResult(_observations);
+            => await _observationStatContext.ObservationsStat.ToListAsync();
 
         public async Task<ObservationStat> GetObservationStatByIdAsync(int siteId)
-            => await Task.FromResult(_observations.Where(id => id.SiteId == siteId).SingleOrDefault());
+            => await _observationStatContext.ObservationsStat.Where(id => id.SiteId == siteId).SingleOrDefaultAsync();
 
         public async Task UpdateDatabaseAsync(IEnumerable<ObservationStat> observations)
         {
             foreach(var observation in observations)
-                _observations.Add(observation);
+                await _observationStatContext.ObservationsStat.AddAsync(observation);
+            await _observationStatContext.SaveChangesAsync();
         }
     }
 }

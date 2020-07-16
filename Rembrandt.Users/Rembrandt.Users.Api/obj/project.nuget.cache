@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "juLq+OQBSkIRkTdhNKfxS1JqTEj6Ekloiin0NUnW/hi9yI7IHZ+J/xpd7OYLH8ah4fYC1EzM7bBLntjQ2C/IAg==",
+  "dgSpecHash": "2BFwDvbK70thOAWoeEnk8Mx+aaB5Ueqonl9b7SmQCs6r9iTe0PJo1uAl2w9LuZPai+ACJNB3WL2djYTPr41IsQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Api\\Rembrandt.Users.Api.csproj",
+  "projectFilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Api\\Rembrandt.Users.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michal\\.nuget\\packages\\automapper\\10.0.0\\automapper.10.0.0.nupkg.sha512",
     "C:\\Users\\Michal\\.nuget\\packages\\automatonymous\\5.0.0\\automatonymous.5.0.0.nupkg.sha512",

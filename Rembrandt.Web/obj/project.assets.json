@@ -7932,11 +7932,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
+      "projectUniqueName": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
       "projectName": "Rembrandt.Web",
-      "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
+      "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
       "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\obj\\",
+      "outputPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7956,14 +7956,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
-              "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
+            "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
+              "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
             },
-            "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Api\\Rembrandt.Dataset.Api.csproj": {
-              "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Api\\Rembrandt.Dataset.Api.csproj"
+            "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Api\\Rembrandt.Dataset.Api.csproj": {
+              "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Dataset\\Rembrandt.Dataset.Api\\Rembrandt.Dataset.Api.csproj"
             },
-            "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Api\\Rembrandt.Users.Api.csproj": {
-              "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Api\\Rembrandt.Users.Api.csproj"
+            "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Api\\Rembrandt.Users.Api.csproj": {
+              "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Api\\Rembrandt.Users.Api.csproj"
             }
           }
         }

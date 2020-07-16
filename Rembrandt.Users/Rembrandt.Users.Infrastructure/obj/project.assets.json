@@ -7372,11 +7372,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
+      "projectUniqueName": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
       "projectName": "Rembrandt.Users.Infrastructure",
-      "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
+      "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\Rembrandt.Users.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Michal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\obj\\",
+      "outputPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -7396,11 +7396,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
-              "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
+            "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj": {
+              "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Contracts\\Rembrandt.Contracts.csproj"
             },
-            "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj": {
-              "projectPath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj"
+            "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj": {
+              "projectPath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj"
             }
           }
         }
