@@ -41,27 +41,29 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
 
             foreach(var observation in dictionaryObservations)
             {
-                observationsStat.TimesSubmitted.Add(observation.TimeSubmitted);
-                observationsStat.PhotosAddresses.Add(observation.PhotoAddress);
-                observationsStat.SkipReasons = ModifyObservations(dictionaryObservations, "SkipReason");
+                observationsStat.SkipReasons = ModifyReasons(dictionaryObservations);
                 observationsStat.Attributes = ModifyAttributes(dictionaryObservations.Select(c => c.Attributes));
                 observationsStat.Activities = ModifyActivities(dictionaryObservations.Select(c => c.Activities));
+                observationsStat.PhotosAddresses = ModifyAdresses(dictionaryObservations.Select(c => c.PhotoAddress));
             }
 
             return observationsStat;
         }
 
-        private Dictionary<string, int> ModifyObservations(IEnumerable<object> observationsDto, string propertyName)
+        private List<SkipReasons> ModifyReasons(IEnumerable<ObservationDto> observationsDto)
         {
-            var resultDictionary = new Dictionary<string, int>();
+            var resultDictionary = new List<SkipReasons>();
 
             foreach(var observation in observationsDto)
             {
-                var keyValue = (string)observation.GetType().GetProperty(propertyName).GetValue(observation);
-                if(resultDictionary.ContainsKey(keyValue))
-                    resultDictionary[keyValue]++;
+                if(resultDictionary.Where(c => c.Reason == observation.SkipReason).Count() == 0)
+                    resultDictionary.Add(new SkipReasons()
+                    {
+                        Reason = observation.SkipReason,
+                        ReasonCount = 1
+                    });
                 else
-                    resultDictionary.Add(keyValue, 1);
+                    resultDictionary.Where(c => c.Reason == observation.SkipReason).SingleOrDefault().ReasonCount++;
             }
             return resultDictionary;
         }
@@ -102,6 +104,18 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
                 resultAttributesStat.GetType().GetProperty(property.Name).SetValue(resultAttributesStat, propertyValue);
             }
             return resultAttributesStat;
+        }
+
+        private List<PhotoAddress> ModifyAdresses(IEnumerable<string> addresses)
+        {
+            var addressesList = new List<PhotoAddress>();
+
+            foreach(var address in addresses.ToList())
+            {
+                addressesList.Add(new PhotoAddress() {Address = address});
+            }
+
+            return addressesList;
         }
     }
 }

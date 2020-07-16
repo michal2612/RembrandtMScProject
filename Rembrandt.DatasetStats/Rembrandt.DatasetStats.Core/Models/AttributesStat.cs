@@ -1,7 +1,11 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Rembrandt.DatasetStats.Core.Models
 {
     public class AttributesStat
     {
+        [Key]
+        public int PrimaryKey { get; set; }
         public float Lively { get; set; }
         public float Relaxing { get; set; }
         public float Tranquil { get; set; }

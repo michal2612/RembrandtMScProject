@@ -1,21 +1,22 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Rembrandt.DatasetStats.Core.Models
 {
     public class ObservationStat
     {
-        public Dictionary<string, int> SkipReasons { get; set; }
-        public List<DateTime> TimesSubmitted { get; set; }
+        [Key]
+        public int PrimaryKey { get; set; }
+        public List<SkipReasons> SkipReasons { get; set; }
         public int SiteId { get; set; }
-        public List<string> PhotosAddresses { get; set; }
+        public List<PhotoAddress> PhotosAddresses { get; set; }
         public AttributesStat Attributes { get; set; }
         public ActivitiesStat Activities { get; set; }
 
         public ObservationStat()
         {
-            TimesSubmitted = new List<DateTime>();
-            PhotosAddresses = new List<string>();
         }
     }
 }
