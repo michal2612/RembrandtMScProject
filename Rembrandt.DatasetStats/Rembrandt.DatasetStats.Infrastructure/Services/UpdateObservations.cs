@@ -22,12 +22,10 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             var dictionaryObservations = new Dictionary<int, List<ObservationDto>>();
 
             foreach(var observationDto in observationDtos)
-            {
                 if(!dictionaryObservations.ContainsKey(observationDto.SiteId))
                     dictionaryObservations.Add(observationDto.SiteId, new List<ObservationDto>() {observationDto});
                 else
                     dictionaryObservations[observationDto.SiteId].Add(observationDto);
-            }
 
             foreach(var observation in dictionaryObservations)
                 observationsStat.Add(MapValue(observation.Key, observation.Value));
@@ -35,7 +33,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             await _statsRepository.UpdateDatabaseAsync(observationsStat);
         }
 
-        private ObservationStat MapValue(int sideId, List<ObservationDto> dictionaryObservations)
+        private ObservationStat MapValue(int sideId, IEnumerable<ObservationDto> dictionaryObservations)
         {
             var observationsStat = new ObservationStat() {SiteId = sideId};
 
@@ -55,7 +53,6 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             var resultDictionary = new List<SkipReasons>();
 
             foreach(var observation in observationsDto)
-            {
                 if(resultDictionary.Where(c => c.Reason == observation.SkipReason).Count() == 0)
                     resultDictionary.Add(new SkipReasons()
                     {
@@ -64,7 +61,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
                     });
                 else
                     resultDictionary.Where(c => c.Reason == observation.SkipReason).SingleOrDefault().ReasonCount++;
-            }
+
             return resultDictionary;
         }
 
@@ -111,9 +108,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             var addressesList = new List<PhotoAddress>();
 
             foreach(var address in addresses.ToList())
-            {
                 addressesList.Add(new PhotoAddress() {Address = address});
-            }
 
             return addressesList;
         }
