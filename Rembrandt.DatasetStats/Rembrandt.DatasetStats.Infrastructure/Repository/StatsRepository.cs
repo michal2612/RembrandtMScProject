@@ -20,10 +20,20 @@ namespace Rembrandt.DatasetStats.Infrastructure
         }
 
         public async Task<IEnumerable<ObservationStat>> GetAllObservationsStatAsync()
-            => await _observationStatContext.ObservationsStat.ToListAsync();
+            => await _observationStatContext.ObservationsStat
+                .Include(s => s.Activities)
+                .Include(s => s.Attributes)
+                .Include(s => s.PhotosAddresses)
+                .Include(s => s.SkipReasons)
+                .ToListAsync();
 
         public async Task<ObservationStat> GetObservationStatByIdAsync(int siteId)
-            => await _observationStatContext.ObservationsStat.Where(id => id.SiteId == siteId).SingleOrDefaultAsync();
+            => await _observationStatContext.ObservationsStat
+                .Include(s => s.Activities)
+                .Include(s => s.Attributes)
+                .Include(s => s.PhotosAddresses)
+                .Include(s => s.SkipReasons)
+                .Where(id => id.SiteId == siteId).SingleOrDefaultAsync();
 
         public async Task UpdateDatabaseAsync(IEnumerable<ObservationStat> observations)
         {

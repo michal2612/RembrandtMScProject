@@ -86,3 +86,8 @@ body {
   font-size: 35px;
   margin-bottom: 5vh;
 }
+.svg-map {
+  background-image: url(/Images/map.png);
+  min-width: 445px;
+  min-height: 609px;
+}
