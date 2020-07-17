@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "A6U5/j+gQF8e7r1R5nimcoXVEgE0Nu4RXlpgGPe87Ac5Me4PpZNWzuyYQdPjtEwjdi1nsFvELuH+ldoqvLrgLA==",
+  "dgSpecHash": "zIGDyC5Wb35AAEG0pPjtkMUcAAl+mF62vpv/ghOe6YYTfDRvJIiEJJVxTGrvjLTBW/a2/JcSI7xW5n/iLbImcA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj",
+  "projectFilePath": "C:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Users\\Rembrandt.Users.Core\\Rembrandt.Users.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Michal\\.nuget\\packages\\automatonymous\\5.0.0\\automatonymous.5.0.0.nupkg.sha512",
     "C:\\Users\\Michal\\.nuget\\packages\\greenpipes\\4.0.0\\greenpipes.4.0.0.nupkg.sha512",

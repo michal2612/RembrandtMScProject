@@ -1,8 +1,10 @@
 @model Rembrandt.Contracts.Classes.Stats.ObservationStatDto
 @{
     ViewData["Title"] = "Location";
-    const int minGreenValue = 7;
-    const int minOrangeValue = 3;
+    const float minGreenValue = 7f;
+    const float minOrangeValue = 3f;
+    const float minGreenValueTo5 = 3f;
+    const float minOrangeValueto5 = 2f;
 }
 <div class="text-center">
     <h1 class="display-4">LOCATION ID: @Model.SiteId</h1>
@@ -21,9 +23,19 @@
             {
                 var value = (float)Model.Attributes.GetType().GetProperty(property.Name).GetValue(Model.Attributes);
                 <div class="progress progress-striped">
+                    @if(@property.Name == "Biodiversity" || @property.Name == "Beauty")
+                    {
                     <div class="progress-bar progress-bar-success" style="width: @(value*10)%; background-color: @(value > minGreenValue ? "#5cb85c" : (value >= minOrangeValue ? "#DF691A" : "#d9534f"))">
-                        @property.Name (@value)
+                        @property.Name (@value.ToString("0.00"))
+                    </div>   
+                    }
+                    else
+                    {
+                    <div class="progress-bar progress-bar-success" style="width: @(value*10)%; background-color: @(value > minGreenValueTo5 ? "#5cb85c" : (value >= minOrangeValueto5 ? "#DF691A" : "#d9534f"))">
+                        @property.Name (@value.ToString("0.00"))
                     </div>
+                    }
+
                 </div>
                 <br />
             }

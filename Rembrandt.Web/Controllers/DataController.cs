@@ -29,19 +29,17 @@ namespace Rembrandt.Web.Controllers
 
         public async Task<IActionResult> Data()
         {
-            var datasetViewModel = new DatasetViewModel();
-            var responseMessage = await _httpClient.GetAsync("/dataset-gateway");
-            if(responseMessage.IsSuccessStatusCode)
-                datasetViewModel.ObservationsDto = JsonConvert.DeserializeObject<ObservationDto[]>(responseMessage.Content.ReadAsStringAsync().Result);
-
-            return View(datasetViewModel);
+            return View();
         }
-
-        public IActionResult Location()
+        [Route("{siteId}")]
+        public async Task<IActionResult> Location(int siteId)
         {
-            var observation = new ObservationStatDto();
+            var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
 
-            return View(observation);
+            if(result.IsSuccessStatusCode)
+                return View(JsonConvert.DeserializeObject<ObservationStatDto>(await result.Content.ReadAsStringAsync()));
+
+            return RedirectToAction("Data");
         }
     }
 }
