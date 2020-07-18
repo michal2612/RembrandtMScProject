@@ -1,0 +1,38 @@
+@model Rembrandt.Contracts.Classes.Dataset.ObservationDto
+@{
+    ViewData["Title"] = "Add";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+<form>
+    <div class="form-group">
+        <label>Site ID</label>
+        <select class="form-control">
+            @{
+                for(int i=0; i<=30; i++)
+                {
+                    <option>@i</option>
+                }
+            }
+        </select>
+    </div>
+        @foreach(var property in Model.Activities.GetType().GetProperties())
+        {
+            <div class="form-group">
+                <label class="col-sm-2 col-form-label">@property.Name</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="@property.Name">
+                    <label class="form-check-label" for="inlineRadio1">Suitable</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="@property.Name">
+                    <label class="form-check-label" for="inlineRadio2">Not Suitable</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="@property.Name">
+                    <label class="form-check-label" for="inlineRadio2">No opinion</label>
+                </div>
+            </div>
+        }
+</form>

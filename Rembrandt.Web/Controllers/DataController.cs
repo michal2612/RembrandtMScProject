@@ -29,8 +29,9 @@ namespace Rembrandt.Web.Controllers
 
         public async Task<IActionResult> Data()
         {
-            return View();
+            return await Task.FromResult(View());
         }
+
         [Route("{siteId}")]
         public async Task<IActionResult> Location(int siteId)
         {
@@ -40,6 +41,11 @@ namespace Rembrandt.Web.Controllers
                 return View(JsonConvert.DeserializeObject<ObservationStatDto>(await result.Content.ReadAsStringAsync()));
 
             return RedirectToAction("Data");
+        }
+
+        public async Task<IActionResult> Add()
+        {
+            return await Task.FromResult(View(new ObservationDto() {Activities = new ActivitiesDto()}));
         }
     }
 }
