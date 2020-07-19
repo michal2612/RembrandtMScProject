@@ -88,3 +88,6 @@ body {
   min-width: 445px;
   min-height: 609px;
 }
+.label-property {
+  padding-right: 5vw;
+}

@@ -3,36 +3,66 @@
     ViewData["Title"] = "Add";
 }
 <h1>@ViewData["Title"]</h1>
-
 <p>Use this page to detail your site's privacy policy.</p>
-<form>
-    <div class="form-group">
-        <label>Site ID</label>
-        <select class="form-control">
-            @{
-                for(int i=0; i<=30; i++)
-                {
-                    <option>@i</option>
-                }
-            }
-        </select>
+<div class="row">
+    <div class="col-3">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true">General</a>
+                <a class="nav-link" id="v-pills-attributes-tab" data-toggle="pill" href="#v-pills-attributes" role="tab" aria-controls="v-pills-attributes" aria-selected="false">Attributes</a>
+                <a class="nav-link" id="v-pills-activities-tab" data-toggle="pill" href="#v-pills-activities" role="tab" aria-controls="v-pills-activities" aria-selected="false">Activities</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Additionals</a>
+        </div>
     </div>
-        @foreach(var property in Model.Activities.GetType().GetProperties())
-        {
-            <div class="form-group">
-                <label class="col-sm-2 col-form-label">@property.Name</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="@property.Name">
-                    <label class="form-check-label" for="inlineRadio1">Suitable</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="@property.Name">
-                    <label class="form-check-label" for="inlineRadio2">Not Suitable</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="@property.Name">
-                    <label class="form-check-label" for="inlineRadio2">No opinion</label>
+    <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
+                <div id="general">
+                    <div class="form-group">
+                        <label for="siteId">Select location ID</label>
+                        <select class="form-control" id="siteId">
+                            @for(int i =0; i<= 30; i++)
+                            {
+                                <option>@i</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="PhotoAddress">Photo of location:</label>
+                        <input type="file" class="form-control-file" id="photoLocation">
+                    </div>
                 </div>
             </div>
-        }
-</form>
+            <div class="tab-pane fade" id="v-pills-attributes" role="tabpanel" aria-labelledby="v-pills-attributes-tab">
+                @foreach(var property in @Model.Attributes.GetType().GetProperties())
+                {
+                    <div class="form-group">
+                        <b>@property.Name</b>
+                        <input type="range" class="form-control-range" id="@property.Name" min="0" max="10">
+                    </div>
+                }
+            </div>
+            <div class="tab-pane fade" id="v-pills-activities" role="tabpanel" aria-labelledby="v-pills-activities-tab">
+                @foreach(var property in @Model.Activities.GetType().GetProperties())
+                {
+                <div class="label-property">
+                    <div style="width: 15vw;">@property.Name:</div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" value="option1" name="@property.Name">
+                        <label class="form-check-label" for="@property.Name">No opinion</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" value="option2" name="@property.Name">
+                        <label class="form-check-label" for="@property.Name">Suitable</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" value="option2" name="@property.Name">
+                        <label class="form-check-label" for="@property.Name">Not Suitable</label>
+                    </div>
+                    <br />
+                </div>
+                }
+            </div>
+            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+        </div>
+    </div>
+</div>
