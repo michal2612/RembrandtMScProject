@@ -45,7 +45,7 @@ namespace Rembrandt.Web.Controllers
 
         public async Task<IActionResult> Add()
         {
-            return await Task.FromResult(View(new ObservationDto() {Activities = new ActivitiesDto()}));
+            return await Task.FromResult(View(new ObservationDto() {Activities = new ActivitiesDto(), Attributes = new AttributesDto()}));
         }
     }
 }
