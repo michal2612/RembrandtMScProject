@@ -33,6 +33,10 @@ namespace Rembrandt.Dataset.Api.Controllers
         public async Task<IEnumerable<ObservationDto>> GetSingleObservationDtoAsync(string id)
             => await _datasetService.GetObservationsAsync(id);
 
+        [HttpGet("/sites/{siteId}")]
+        public async Task<IEnumerable<ObservationDto>> GetMultipleObservationsDtobySiteIdAsync(int siteId)
+            => await _datasetService.GetMultipleObservationsDtobySiteIdAsync(siteId);
+
         [HttpPost("single")]
         public async Task<IActionResult> PostSingleObservationJsonAsync(ObservationDto observation)
         {

@@ -91,3 +91,12 @@ body {
 .label-property {
   padding-right: 5vw;
 }
+.contributor-form {
+  margin: auto;
+  width: 70vw;
+}
+.logo {
+  margin-right: 0.5vw;
+  width: 1.4vw;
+  height: 2.5vh;
+}

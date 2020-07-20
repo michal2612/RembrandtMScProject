@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Web.ViewModels;
 
@@ -60,6 +61,11 @@ namespace Rembrandt.Web.Controllers
 
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult Settings()
+        {
+            return View(new ContributorDto());
         }
     }
 }

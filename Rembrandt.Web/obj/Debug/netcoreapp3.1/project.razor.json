@@ -20579,6 +20579,11 @@
       "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\LogIn\\Login.cshtml",
       "TargetPath": "Views\\LogIn\\Login.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Users\\Settings.cshtml",
+      "TargetPath": "Views\\Users\\Settings.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"

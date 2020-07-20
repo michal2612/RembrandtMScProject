@@ -10,7 +10,7 @@
             <a class="nav-link active" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true">General</a>
                 <a class="nav-link" id="v-pills-attributes-tab" data-toggle="pill" href="#v-pills-attributes" role="tab" aria-controls="v-pills-attributes" aria-selected="false">Attributes</a>
                 <a class="nav-link" id="v-pills-activities-tab" data-toggle="pill" href="#v-pills-activities" role="tab" aria-controls="v-pills-activities" aria-selected="false">Activities</a>
-                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Additionals</a>
+                <a class="nav-link" id="v-pills-submit-tab" data-toggle="pill" href="#v-pills-submit" role="tab" aria-controls="v-pills-submit" aria-selected="false" onclick="submit()">Submit</a>
         </div>
     </div>
     <div class="col-9">
@@ -30,6 +30,16 @@
                         <label for="PhotoAddress">Photo of location:</label>
                         <input type="file" class="form-control-file" id="photoLocation">
                     </div>
+                    <div id="map">
+                        <iframe
+                        width="100%"
+                        height="450"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCEP6_DFU2YEd_EhbnTc9bdE0j0qTLAshw
+                            &q=Rembrandt+Park&zoom=15" allowfullscreen>
+                        </iframe>
+                        Choose location: 
+                    </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="v-pills-attributes" role="tabpanel" aria-labelledby="v-pills-attributes-tab">
@@ -37,32 +47,74 @@
                 {
                     <div class="form-group">
                         <b>@property.Name</b>
-                        <input type="range" class="form-control-range" id="@property.Name" min="0" max="10">
+                        <input type="range" class="form-control-range" id="@property.Name" min="0" max="10" value="5" name="attribute">
                     </div>
                 }
             </div>
             <div class="tab-pane fade" id="v-pills-activities" role="tabpanel" aria-labelledby="v-pills-activities-tab">
-                @foreach(var property in @Model.Activities.GetType().GetProperties())
-                {
-                <div class="label-property">
-                    <div style="width: 15vw;">@property.Name:</div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" value="option1" name="@property.Name">
-                        <label class="form-check-label" for="@property.Name">No opinion</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" value="option2" name="@property.Name">
-                        <label class="form-check-label" for="@property.Name">Suitable</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" value="option2" name="@property.Name">
-                        <label class="form-check-label" for="@property.Name">Not Suitable</label>
-                    </div>
-                    <br />
-                </div>
-                }
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <td style="font-size: large">Is this area suitable for:</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    @foreach(var property in @Model.Activities.GetType().GetProperties())
+                    {
+                    <tr>
+                        <td>@property.Name?</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="null" name="@property.Name" checked aria-checked="true">
+                                <label class="form-check-label" for="@property.Name">No opinion</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="true" name="@property.Name">
+                                <label class="form-check-label" for="@property.Name">Suitable</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" value="false" name="@property.Name">
+                                <label class="form-check-label" for="@property.Name">Not Suitable</label>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </table>
             </div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
+            <div class="tab-pane fade" id="v-pills-submit" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Submit</a>
+            </div>
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script>
+        function submit() {
+
+            var observation = new Object();
+
+            //side id
+            observation["siteId"] = document.getElementById("siteId").value;
+
+            //attributes
+            var attributes = document.getElementsByName('attribute');
+            for(var item of attributes) {
+                observation[item.id] = item.value;
+            }
+
+            //activities
+            var activities = document.getElementsByTagName('input');
+            for(i=0; i < activities.length; i++) {
+                if(activities[i].type == 'radio' && activities[i].checked) {
+                    observation[activities[i].name] = activities[i].value;
+                }
+            }
+        }
+    </script>
+
+}
