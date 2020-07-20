@@ -1,4 +1,4 @@
-@model Rembrandt.Contracts.Classes.Stats.ObservationStatDto
+@model Rembrandt.Web.ViewModels.LocationViewModel
 @{
     ViewData["Title"] = "Location";
     const float minGreenValue = 7f;
@@ -7,21 +7,24 @@
     const float minOrangeValueto5 = 2f;
 }
 <div class="text-center">
-    <h1 class="display-4">LOCATION ID: @Model.SiteId</h1>
-    <div id="location-info" class="well">
-        <a target="_blank" href="https://www.google.com/maps/place/lat+long">
+    <div id="map">
+    </div>
+    <div id="location-info" class="d-flex justify-content-center well">
+        <h1 class="display-4">LOCATION ID: @Model.ObservationStatDto.SiteId</h1>
+        <div id="location-coordinates">
             <i class="material-icons">my_location</i>
-        </a>
+            <div id="coordinates-value"></div>
+        </div>
     </div>
 </div>
-    <div class="container">
-            <div class="jumbotron">
+    <div class="d-flex p-2 bd-highlight location-details">
+            <div class="jumbotron attributes">
         <h4>Attributes</h4>
         <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
         @{
-            foreach(var property in Model.Attributes.GetType().GetProperties())
+            foreach(var property in Model.ObservationStatDto.Attributes.GetType().GetProperties())
             {
-                var value = (float)Model.Attributes.GetType().GetProperty(property.Name).GetValue(Model.Attributes);
+                var value = (float)Model.ObservationStatDto.Attributes.GetType().GetProperty(property.Name).GetValue(Model.ObservationStatDto.Attributes);
                 <div class="progress progress-striped">
                     @if(@property.Name == "Biodiversity" || @property.Name == "Beauty")
                     {
@@ -41,12 +44,12 @@
             }
         }
     </div>
-        <div class="jumbotron">
+        <div class="jumbotron activities">
             <h3>Activities</h3>
                 @{
-                    foreach(var property in Model.Activities.GetType().GetProperties())
+                    foreach(var property in Model.ObservationStatDto.Activities.GetType().GetProperties())
                     {
-                        if((bool)Model.Activities.GetType().GetProperty(property.Name).GetValue(Model.Activities))
+                        if((bool)Model.ObservationStatDto.Activities.GetType().GetProperty(property.Name).GetValue(Model.ObservationStatDto.Activities))
                         {
                             <div class="alert alert-dismissible alert-success">
                                 <p>Area is suitable for <h4><b>@property.Name</b></h4></p>
@@ -63,3 +66,32 @@
         </div>
     </div>
 </div>
+
+@section scripts {
+
+    <script>
+    function initMap() {
+        var raw = @Html.Raw(Json.Serialize(Model.ObservationsDto));
+
+        map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: raw[0].park.actualLocation.latitude, lng: raw[0].park.actualLocation.longitude},
+        zoom: 18
+    });
+        
+
+        for(var location of raw) {
+              var marker = new google.maps.Marker({
+              position: {'lat': location.park.actualLocation.latitude, 'lng': location.park.actualLocation.longitude},
+              map: map,
+              title: location.TimeSubmitted
+              });
+        }
+
+        document.getElementById('coordinates-value').innerHTML = raw[0].park.actualLocation.latitude + ' ' + raw[0].park.actualLocation.longitude;
+    }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgpHpnK2Fgy1xVldrfRrcZHds8Yrr-Kik&callback=initMap&libraries=&v=weekly">
+    </script>
+}
