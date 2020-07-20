@@ -31,14 +31,22 @@
                         <input type="file" class="form-control-file" id="photoLocation">
                     </div>
                     <div id="map">
-                        <iframe
-                        width="100%"
-                        height="450"
-                        frameborder="0" style="border:0"
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCEP6_DFU2YEd_EhbnTc9bdE0j0qTLAshw
-                            &q=Rembrandt+Park&zoom=15" allowfullscreen>
-                        </iframe>
-                        Choose location: 
+                    </div>
+                    <div id="coordinates">
+                        <table class="table table-striped table-hover ">
+                            <tr>
+                                <td>Location:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Latitude</td>
+                                <td id="latitude-value"></td>
+                            </tr>
+                            <tr>
+                                <td>Longitude</td>
+                                <td id="longitude-value"></td>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -115,6 +123,42 @@
                 }
             }
         }
-    </script>
 
+        //map
+        let map;
+        var markers = [];
+
+        function addMarker(latLng) {
+            let marker = new google.maps.Marker({
+                map: map,
+                position: latLng,
+                draggable: true
+            });
+            document.getElementById('latitude-value').innerHTML = marker.position.lat().toFixed(6);
+            document.getElementById('longitude-value').innerHTML = marker.position.lng().toFixed(6);
+            markers.push(marker);
+        };
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 52.3633995, lng: 4.8459126},
+            zoom: 15
+        });
+
+        map.addListener('click', function(e) {
+            setMapOnAll(null)
+            addMarker(e.latLng);
+            });
+        }
+
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgpHpnK2Fgy1xVldrfRrcZHds8Yrr-Kik&callback=initMap&libraries=&v=weekly">
+    </script>
 }

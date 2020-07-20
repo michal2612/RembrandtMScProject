@@ -35,10 +35,26 @@ namespace Rembrandt.Web.Controllers
         [Route("{siteId}")]
         public async Task<IActionResult> Location(int siteId)
         {
-            var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
+            try
+            {
+                var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
+                var resultObservations = await _httpClient.GetAsync($"/sites-gateway/{siteId}");
 
-            if(result.IsSuccessStatusCode)
-                return View(JsonConvert.DeserializeObject<ObservationStatDto>(await result.Content.ReadAsStringAsync()));
+                if(result.IsSuccessStatusCode)
+                {
+                    var locationViewModel = new LocationViewModel()
+                    {
+                        ObservationStatDto = JsonConvert.DeserializeObject<ObservationStatDto>(await result.Content.ReadAsStringAsync()),
+                        ObservationsDto = JsonConvert.DeserializeObject<ObservationDto[]>(await resultObservations.Content.ReadAsStringAsync())
+                    };
+                    return View(locationViewModel);
+                }
+            }
+            catch(Exception e)
+            {
+                return View(new ObservationStatDto() {Attributes = new AttributesStatDto(), Activities = new ActivitiesStatDto(), SkipReasons = new List<SkipReasonsDto>(), PhotosAddresses = new List<PhotoAddressDto>()});
+            }
+
 
             return RedirectToAction("Data");
         }

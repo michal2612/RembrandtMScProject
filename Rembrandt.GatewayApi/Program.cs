@@ -20,6 +20,7 @@ namespace Rembrandt.GatewayApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder => {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:5000/");
                     webBuilder.ConfigureAppConfiguration((host, config) => {
                         config.AddJsonFile("ocelot.json");
                     });

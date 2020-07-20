@@ -100,3 +100,20 @@ body {
   width: 1.4vw;
   height: 2.5vh;
 }
+#map {
+  width: 100%;
+  min-height: 60vh;
+}
+.activities {
+  min-width: 15vw;
+  border-left: 5px solid #2B3E50;
+}
+.location-details {
+  width: 100%;
+}
+#location-coordinates {
+  text-align: center;
+  width: 18vw;
+  margin-left: 8.5vw;
+  margin-top: 2.5vh;
+}
