@@ -1,4 +1,4 @@
-namespace Rembrandt.Dataset.Core.Helpers
+namespace Rembrandt.Contracts.Classes.Dataset
 {
     public enum Gender
     {

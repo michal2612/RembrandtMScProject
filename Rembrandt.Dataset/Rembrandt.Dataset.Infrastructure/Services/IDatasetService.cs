@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Rembrandt.Contracts.Classes
 .Dataset;
-using Rembrandt.Dataset.Core.Models;
 
 namespace Rembrandt.Dataset.Infrastructure.Services
 {
@@ -11,5 +9,6 @@ namespace Rembrandt.Dataset.Infrastructure.Services
     {
         Task<IEnumerable<ObservationDto>> GetObservationsAsync(string id);
         Task<IEnumerable<ObservationDto>> GetAllObservationsAsync();
+        Task<IEnumerable<ObservationDto>> GetMultipleObservationsDtobySiteIdAsync(int siteId);
     }
 }

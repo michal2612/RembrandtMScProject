@@ -1,6 +1,6 @@
-namespace Rembrandt.Dataset.Core.Helpers
+namespace Rembrandt.Contracts.Classes.Dataset
 {
-    public enum VisitOtherParks
+    public enum VisitFrequency
     {
         EveryDay = 1,
         SeveralTimesPerWeek = 2,

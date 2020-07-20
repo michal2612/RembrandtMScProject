@@ -1,6 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using Rembrandt.Dataset.Core.Helpers;
+using Rembrandt.Contracts.Classes.Dataset;
 
 namespace Rembrandt.Dataset.Core.Models
 {
