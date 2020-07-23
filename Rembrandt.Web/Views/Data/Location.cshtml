@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-    <div class="d-flex p-2 bd-highlight location-details">
+    <div class="d-flex p-2 bd-highlight location-details attributes">
             <div class="jumbotron attributes">
         <h4>Attributes</h4>
         <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -71,23 +71,23 @@
 
     <script>
     function initMap() {
-        var raw = @Html.Raw(Json.Serialize(Model.ObservationsDto));
+        var raw = @Html.Raw(Json.Serialize(Model.ObservationsDto.Select(c => c.Park.ActualLocation)));
 
         map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: raw[0].park.actualLocation.latitude, lng: raw[0].park.actualLocation.longitude},
+        center: {lat: raw[0].latitude, lng: raw[0].longitude},
         zoom: 18
     });
         
 
         for(var location of raw) {
               var marker = new google.maps.Marker({
-              position: {'lat': location.park.actualLocation.latitude, 'lng': location.park.actualLocation.longitude},
+              position: {'lat': location.latitude, 'lng': location.longitude},
               map: map,
               title: location.TimeSubmitted
               });
         }
 
-        document.getElementById('coordinates-value').innerHTML = raw[0].park.actualLocation.latitude + ' ' + raw[0].park.actualLocation.longitude;
+        document.getElementById('coordinates-value').innerHTML = raw[0].latitude + ' ' + raw[0].longitude;
     }
     </script>
 

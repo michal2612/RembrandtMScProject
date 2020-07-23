@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Users.Core.Helpers;
 
 namespace Rembrandt.Users.Core.Models
@@ -11,9 +12,9 @@ namespace Rembrandt.Users.Core.Models
         public string Key { get; protected set; }
         public string Password { get; protected set; }
         public string Email { get; protected set; }
-        public string Salt { get; protected set; }
         public DateTime RegisteredAt { get; protected set; }
         public string Role { get; protected set; }
+        public string Salt { get; protected set; }
 
         protected User()
         {
@@ -25,7 +26,6 @@ namespace Rembrandt.Users.Core.Models
             Key = GenerateKey();
             Email = SetEmail(email);
             Password = SetPassword(password);
-            Salt = salt;
             RegisteredAt = DateTime.UtcNow;
             Role = SetRole();
         }

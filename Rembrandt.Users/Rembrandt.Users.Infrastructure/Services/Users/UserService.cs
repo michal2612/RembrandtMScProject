@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using AutoMapper;
 using Rembrandt.Contracts.Classes.Jwt;
+using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Users.Core.Models;
 using Rembrandt.Users.Core.Repositories;
 
@@ -56,5 +57,6 @@ namespace Rembrandt.Users.Infrastructure.Services
 
             await _userRepository.AddUserAsync(new User(email, hashPassowrd, salt));
         }
+
     }
 }
