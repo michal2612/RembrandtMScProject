@@ -10,7 +10,8 @@
             <a class="nav-link active" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true">General</a>
                 <a class="nav-link" id="v-pills-attributes-tab" data-toggle="pill" href="#v-pills-attributes" role="tab" aria-controls="v-pills-attributes" aria-selected="false">Attributes</a>
                 <a class="nav-link" id="v-pills-activities-tab" data-toggle="pill" href="#v-pills-activities" role="tab" aria-controls="v-pills-activities" aria-selected="false">Activities</a>
-                <a class="nav-link" id="v-pills-submit-tab" data-toggle="pill" href="#v-pills-submit" role="tab" aria-controls="v-pills-submit" aria-selected="false" onclick="submit()">Submit</a>
+                <a class="nav-link" id="v-pills-contributor-tab" data-toggle="pill" href="#v-pills-contributor" role="tab" aria-controls="v-pills-contributor" aria-selected="false">Contributor</a>
+                <a class="nav-link" id="v-pills-submit-tab" data-toggle="pill" href="#v-pills-submit" role="tab" aria-controls="v-pills-submit" aria-selected="false" onclick="datetime()">Submit</a>
         </div>
     </div>
     <div class="col-9">
@@ -93,8 +94,202 @@
                     }
                 </table>
             </div>
+            <div class="tab-pane fade" id="v-pills-contributor" role="tabpanel" aria-labelledby="v-pills-contributor-tab">
+                <label for="age-range">
+                    To which age group do you belong to?
+                </label>
+                <select class="form-control contributor" id="contributor-Age">
+                    <option value="">Select your age range</option>
+                    <option value="4">Below 29 years old</option>
+                    <option value="5">Between 30 and 39 years old</option>
+                    <option value="6">Between 40 and 49 years old</option>
+                    <option value="7">Between 50 and 59 years old</option>
+                    <option value="8">Above 60 years old</option>
+                </select>
+                <br />
+                <label for="contributor-gender">What is your gender?</label>
+                <select class="form-control contributor" id="contributor-Gender">
+                    <option value="">Select your gender</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+                <br />
+                <label for="contributor-education">What is your education level?</label>
+                <select class="form-control contributor" id="contributor-Education">
+                    <option value="">Select education level</option>
+                    <option value="1">Primary School</option>
+                    <option value="2">High School</option>
+                    <option value="3">Vocational Training</option>
+                    <option value="4">College Or University</option>
+                </select>
+                <br />
+                <label for="contributor-often-visit">How often do you visit Rembrandt Park?</label>
+                <select class="form-control contributor" id="contributor-VisitDaily">
+                    <option value="">Select an option</option>
+                    <option value="1">Every day</option>
+                    <option value="2">Several Times Per Week</option>
+                    <option value="3">Once a week</option>
+                    <option value="4">From 1 to 3 Times A Month</option>
+                    <option value="5">Less Than Once A Month</option>
+                    <option value="6">First Time Here</option>
+                    <option value="7">I do not want to share this information.</option>
+                </select>
+                <br />
+                <label for="contributor-other-parks">How often do you visit other parks?</label>
+                <select class="form-control contributor" id="contributor-VisitOtherParks">
+                    <option value="">Select an option</option>
+                    <option value="1">Every day</option>
+                    <option value="2">Several Times Per Week</option>
+                    <option value="3">Once a week</option>
+                    <option value="4">From 1 to 3 Times A Month</option>
+                    <option value="5">Less Than Once A Month</option>
+                    <option value="6">First Time Here</option>
+                    <option value="7">I do not want to share this information.</option>
+                </select>
+                <br />
+                <label for="contributor-NatureOriented">Are you nature oriented person?</label>
+                <select class="form-control contributor" id="contributor-NatureOriented">
+                    <option value="">Select an option</option>
+                    <option value="1">Disagree</option>
+                    <option value="2">Somewhat</option>
+                    <option value="3">Agree</option>
+                    <option value="4">I do not want to share this information.</option>
+                </select>
+                <br />
+                <hr style="width:100%;text-align:left;margin-left:0">
+                <table class="table table-striped table-hover">
+                <tr>
+                    <th>Please fill information about you:</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        Are you dutch nationality?
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dutchNationality">
+                            <label class="form-check-label" for="dutchNationality">Dutch</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dutchNationality">
+                            <label class="form-check-label" for="dutchNationality">Non-Dutch</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dutchNationality">
+                            <label class="form-check-label" for="dutchNationality">I do not want to share this information.</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Do you visit park daily?
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="VisitDaily">
+                            <label class="form-check-label" for="VisitDaily">Visit Daily</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="VisitDaily">
+                            <label class="form-check-label" for="VisitDaily">Not Visit Daily</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="VisitDaily">
+                            <label class="form-check-label" for="VisitDaily">No opinion</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Do you visit alone?
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="VisitAlone">
+                            <label class="form-check-label" for="VisitAlone">Visit alone</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="VisitAlone">
+                            <label class="form-check-label" for="VisitAlone">Not alone</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="VisitAlone">
+                            <label class="form-check-label" for="VisitAlone">No opinion</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Do you want to be more involved?
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="MoreInvolved">
+                            <label class="form-check-label" for="MoreInvolved">More involved</label>
+                        </div>          
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="MoreInvolved">
+                            <label class="form-check-label" for="MoreInvolved">I don't want to be more involved.</label>
+                        </div>    
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="MoreInvolved">
+                            <label class="form-check-label" for="MoreInvolved">No opinion</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Do you visit with children?
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="WithChildren">
+                            <label class="form-check-label" for="WithChildren">With children</label>
+                        </div>    
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="WithChildren">
+                            <label class="form-check-label" for="WithChildren">No children</label>
+                        </div>    
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="WithChildren">
+                            <label class="form-check-label" for="WithChildren">No opinion</label>
+                        </div>
+                    </td>
+                </tr>
+                </table>
+                --
+            </div>
             <div class="tab-pane fade" id="v-pills-submit" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Submit</a>
+                <div class="form-group row">
+                    <label for="example-datetime-local-input" class="col-2 col-form-label">Observation date and time</label>
+                    <div class="col-10">
+                        <input class="form-control" type="datetime-local" id="datetime-input">
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" onclick="submit()">Submit</a>
             </div>
         </div>
     </div>
@@ -102,26 +297,69 @@
 
 @section scripts {
     <script>
+        function datetime() {
+            var date = new Date();
+            document.getElementById('datetime-input').value = date.getFullYear().toString() + '-0' +date.getMonth().toString() + '-' + date.getDate().toString() + 'T' + date.getHours().toString() + ':' + date.getMinutes().toString() + ':' + date.getSeconds().toString();
+            console.log(date.getFullYear() + '-' +date.getMonth() + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
+        }
+
         function submit() {
 
             var observation = new Object();
 
             //side id
-            observation["siteId"] = document.getElementById("siteId").value;
+            observation["siteId"] = parseInt(document.getElementById("siteId").value);
 
+            //location
+            observation['Park'] = new Object();
+            var measuredLocation = new Object();
+
+            measuredLocation['Longitude'] = markers[0].position.lng();
+            measuredLocation['Latitude'] = markers[0].position.lat();
+
+            observation['Park']['MeasuredLocation'] = measuredLocation;
             //attributes
-            var attributes = document.getElementsByName('attribute');
-            for(var item of attributes) {
-                observation[item.id] = item.value;
+            var attributesValues = document.getElementsByName('attribute');
+            var attributes = new Object();
+            for(var item of attributesValues) {
+                attributes[item.id] = parseInt(item.value);
             }
+            observation['Attributes'] = attributes;
 
             //activities
-            var activities = document.getElementsByTagName('input');
-            for(i=0; i < activities.length; i++) {
-                if(activities[i].type == 'radio' && activities[i].checked) {
-                    observation[activities[i].name] = activities[i].value;
+            var activitiesValues = document.getElementsByTagName('input');
+            var activities = new Object();
+            for(i=0; i < activitiesValues.length; i++) {
+                if(activitiesValues[i].type == 'radio' && activitiesValues[i].checked) {
+                    if(activitiesValues[i].value == 'null') {
+                        activities[activitiesValues[i].name] = null
+                    }
+                    else {
+                        activities[activitiesValues[i].name] = (activitiesValues[i].value == 'true');
+                    }
                 }
             }
+            observation['Activities'] = activities;
+
+            //time
+            observation['TimeSubmitted'] = new Date(document.getElementById('datetime-input').value);
+
+            //contributor
+            var contributorDetails = new Object();
+            var definedClass = 'Contributor';
+            let containers = document.getElementsByClassName(definedClass.toLowerCase());
+
+            for(var item of containers) {
+                if(item.value != '') {
+                    contributorDetails[item.id.substring(definedClass.length + 1)] = parseInt(item.value);
+                }
+                else {
+                    contributorDetails[item.id.substring(definedClass.length + 1)] = null;
+                }
+            }
+            observation[definedClass] = contributorDetails;
+
+            console.log(observation);
         }
 
         //map

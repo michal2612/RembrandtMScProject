@@ -1,5 +1,6 @@
 using AutoMapper;
 using Rembrandt.Contracts.Classes.Jwt;
+using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Users.Core.Models;
 
 namespace Rembrandt.Users.Infrastructure.Mappers
