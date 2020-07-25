@@ -6,14 +6,23 @@ namespace Rembrandt.Dataset.Core.Models
     public class Observation 
     {
         public int ObservationId { get; set; }
+
         public string SkipReason { get; protected set; }
+
         public DateTime TimeSubmitted { get; protected set; }
+
         public int SiteId { get; protected set; }
+
         public string PhotoAddress { get; protected set; }
+
         public int PhotoTowardsPointCompass { get; protected set; }
+
         public Attributes Attributes { get; protected set; }
+
         public Park Park { get; protected set; }
+
         public Activities Activities { get; protected set; }
+        
         public Contributor Contributor { get; protected set; }
         
         protected Observation()

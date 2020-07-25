@@ -41,5 +41,16 @@ namespace Rembrandt.DatasetStats.Infrastructure
                 await _observationStatContext.ObservationsStat.AddAsync(observation);
             await _observationStatContext.SaveChangesAsync();
         }
+
+        public async Task UpdateObservationAsync(int siteId, ObservationStat observationStat) 
+        {
+            var observation = await _observationStatContext.ObservationsStat.Where(c => c.SiteId == siteId).SingleOrDefaultAsync();
+
+            if(observation == null)
+                return;
+
+            observation = observationStat;
+            await _observationStatContext.SaveChangesAsync();
+        }
     }
 }

@@ -8,17 +8,29 @@ namespace Rembrandt.Dataset.Core.Models
     {
         [Key]
         public int PrimaryKey { get; set; }
+
         public string Id { get; protected set; }
+
         public int? Age { get; protected set; }
+
         public int? Gender { get; protected set; }
+
         public bool? DutchNationality { get; protected set; }
+
         public int? Education { get; protected set; }
+
         public bool? VisitDaily { get; protected set; }
+
         public int? VisitFreq { get; protected set; }
+
         public bool? VisitAlone { get; protected set; }
+
         public int? VisitOtherParks { get; protected set; }
+
         public bool? MoreInvolved { get; protected set; }
+
         public int? NatureOriented { get; protected set; }
+        
         public bool? WithChildren { get; protected set; }
 
         protected Contributor()

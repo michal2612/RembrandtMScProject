@@ -1,5 +1,4 @@
 using System;
-using Newtonsoft.Json;
 using Rembrandt.Contracts.IoC;
 
 namespace Rembrandt.Contracts.Classes.Dataset
@@ -22,6 +21,7 @@ namespace Rembrandt.Contracts.Classes.Dataset
         public ParkDto Park { get;  set; }
 
         public ActivitiesDto Activities { get;  set; }
+
         public ContributorDto Contributor { get;  set; }
 
         ObservationDto IObservationDto.ObservationDto() => this;

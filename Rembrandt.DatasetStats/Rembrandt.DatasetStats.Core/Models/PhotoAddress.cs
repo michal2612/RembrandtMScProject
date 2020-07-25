@@ -6,6 +6,7 @@ namespace Rembrandt.DatasetStats.Core.Models
     {
         [Key]
         public int PrimaryKey { get; set; }
+        
         public string Address { get; set; }
     }
 }

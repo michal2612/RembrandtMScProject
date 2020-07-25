@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.DatasetStats.Core.Models;
 using Rembrandt.DatasetStats.Core.Repository;
@@ -10,10 +11,12 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
     public class UpdateObservations : IUpdateObservations
     {
         private readonly IStatsRepository _statsRepository;
+        private readonly IMapper _mapper;
 
-        public UpdateObservations(IStatsRepository statsRepository)
+        public UpdateObservations(IStatsRepository statsRepository, IMapper mapper)
         {
             _statsRepository = statsRepository;
+            _mapper = mapper;
         }
 
         public async Task UpdateObservationsAsync(IEnumerable<ObservationDto> observationDtos)
@@ -31,6 +34,13 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
                 observationsStat.Add(MapValue(observation.Key, observation.Value));
 
             await _statsRepository.UpdateDatabaseAsync(observationsStat);
+        }
+
+        public async Task UpdateSingleObservationAsync(int siteId, IEnumerable<ObservationDto> observationsDto)
+        {
+            var observationStat = MapValue(siteId, observationsDto);
+
+            await _statsRepository.UpdateObservationAsync(siteId, observationStat);
         }
 
         private ObservationStat MapValue(int sideId, IEnumerable<ObservationDto> dictionaryObservations)

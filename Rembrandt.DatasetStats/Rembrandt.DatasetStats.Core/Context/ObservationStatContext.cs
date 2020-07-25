@@ -8,7 +8,9 @@ namespace Rembrandt.DatasetStats.Core.Context
     public class ObservationStatContext : DbContext
     {
         public DbSet<ObservationStat> ObservationsStat { get; set; }
+
         public DbSet<SkipReasons> SkipReasons { get; set; }
+        
         public DbSet<PhotoAddress> PhotoAdresses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
