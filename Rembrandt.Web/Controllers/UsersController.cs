@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -30,9 +31,13 @@ namespace Rembrandt.Web.Controllers
         {
             var loginData = new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json");
             var responseMessage = await _httpClient.PostAsync("/login-gateway", loginData);
+
             if(responseMessage.IsSuccessStatusCode)
             {
-                Response.Cookies.Append("jwtToken", responseMessage.Content.ReadAsStringAsync().Result);
+                var jwtToken = responseMessage.Content.ReadAsStringAsync().Result;
+                Response.Cookies.Append("jwtToken", jwtToken);
+                HttpContext.Session.SetString(jwtToken, login.Email);
+
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Login", "LogIn");
@@ -42,9 +47,13 @@ namespace Rembrandt.Web.Controllers
         {
             var registerData = new StringContent(JsonConvert.SerializeObject(register.RegisterData), Encoding.UTF8, "application/json");
             var responseMessage = await _httpClient.PostAsync("/register-gateway", registerData);
+
             if(responseMessage.IsSuccessStatusCode)
             {
-                Response.Cookies.Append("jwtToken", responseMessage.Content.ReadAsStringAsync().Result);
+                var jwtToken = responseMessage.Content.ReadAsStringAsync().Result;
+                Response.Cookies.Append("jwtToken", jwtToken);
+                HttpContext.Session.SetString(jwtToken, register.RegisterData.Email);
+
                 return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Register", "LogIn");

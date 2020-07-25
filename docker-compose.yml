@@ -1,17 +1,22 @@
-version: "3.8"
+version: '2.0'
 
 services:
-    rembrandt-dataset-db:
-        image: "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04"
+    users-sql-server:
+        ports:
+            - "1434:1433"
+    users-app:
+        ports:
+            - "5002:5002"
+    dataset-sql-server:
         ports:
             - "1433:1433"
-        environment: 
-            SA_PASSWORD: "<YourStrong@Passw0rd>"
-            ACCEPT_EULA: "Y"
-    rembrandt-dataset:
-        build: "./Rembrandt.Dataset"
+    dataset-app:
         ports:
             - "5001:5001"
-        depends_on: 
-            - rembrandt-dataset-db
+    dataset-stats-app:
+        ports:
+            - "5003:5003"
+    gateway-api:
+        ports:
+            - "5000:5000"
     

@@ -13,6 +13,7 @@ namespace Rembrandt.DatasetStats.Api.Controllers
     public class StatsController : ControllerBase
     {
         private readonly IStatsService _statsService;
+        
         private readonly IUpdateObservations _updateObservationsService;
 
         public StatsController(IStatsService statsService, IUpdateObservations updateObservations)

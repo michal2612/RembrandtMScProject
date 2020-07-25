@@ -3,7 +3,13 @@
     ViewData["Title"] = "Add";
 }
 <h1>@ViewData["Title"]</h1>
-<p>Use this page to detail your site's privacy policy.</p>
+<p>Add new observation.</p>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    Fill all forms to add a new record to database!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <div class="row">
     <div class="col-3">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -74,7 +80,7 @@
                         <td>@property.Name?</td>
                         <td>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" value="null" name="@property.Name" checked aria-checked="true">
+                                <input class="form-check-input" type="radio" value="" name="@property.Name" checked aria-checked="true">
                                 <label class="form-check-label" for="@property.Name">No opinion</label>
                             </div>
                         </td>
@@ -124,7 +130,7 @@
                 </select>
                 <br />
                 <label for="contributor-often-visit">How often do you visit Rembrandt Park?</label>
-                <select class="form-control contributor" id="contributor-VisitDaily">
+                <select class="form-control contributor" id="contributor-VisitFreq">
                     <option value="">Select an option</option>
                     <option value="1">Every day</option>
                     <option value="2">Several Times Per Week</option>
@@ -170,20 +176,20 @@
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dutchNationality">
-                            <label class="form-check-label" for="dutchNationality">Dutch</label>
+                            <input class="form-check-input contributor-radios" type="radio" name="DutchNationality" value="true">
+                            <label class="form-check-label" for="DutchNationality">Dutch</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dutchNationality">
-                            <label class="form-check-label" for="dutchNationality">Non-Dutch</label>
+                            <input class="form-check-input contributor-radios" type="radio" name="DutchNationality" value="false">
+                            <label class="form-check-label" for="DutchNationality">Non-Dutch</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dutchNationality">
-                            <label class="form-check-label" for="dutchNationality">I do not want to share this information.</label>
+                            <input class="form-check-input contributor-radios" type="radio" name="DutchNationality" value="" checked>
+                            <label class="form-check-label" for="DutchNationality">I do not want to share this information.</label>
                         </div>
                     </td>
                 </tr>
@@ -193,19 +199,19 @@
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="VisitDaily">
+                            <input class="form-check-input contributor-radios" type="radio" name="VisitDaily" value="true">
                             <label class="form-check-label" for="VisitDaily">Visit Daily</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="VisitDaily">
+                            <input class="form-check-input contributor-radios" type="radio" name="VisitDaily" value="false">
                             <label class="form-check-label" for="VisitDaily">Not Visit Daily</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="VisitDaily">
+                            <input class="form-check-input contributor-radios" type="radio" name="VisitDaily" value="" checked>
                             <label class="form-check-label" for="VisitDaily">No opinion</label>
                         </div>
                     </td>
@@ -216,19 +222,19 @@
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="VisitAlone">
+                            <input class="form-check-input contributor-radios" type="radio" name="VisitAlone" value="true">
                             <label class="form-check-label" for="VisitAlone">Visit alone</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="VisitAlone">
+                            <input class="form-check-input contributor-radios" type="radio" name="VisitAlone" value="false">
                             <label class="form-check-label" for="VisitAlone">Not alone</label>
                         </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="VisitAlone">
+                            <input class="form-check-input contributor-radios" type="radio" name="VisitAlone" value="" checked>
                             <label class="form-check-label" for="VisitAlone">No opinion</label>
                         </div>
                     </td>
@@ -239,19 +245,19 @@
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="MoreInvolved">
+                            <input class="form-check-input contributor-radios" type="radio" name="MoreInvolved" value="true">
                             <label class="form-check-label" for="MoreInvolved">More involved</label>
                         </div>          
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="MoreInvolved">
+                            <input class="form-check-input contributor-radios" type="radio" name="MoreInvolved" value="false">
                             <label class="form-check-label" for="MoreInvolved">I don't want to be more involved.</label>
-                        </div>    
+                        </div>
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="MoreInvolved">
+                            <input class="form-check-input contributor-radios" type="radio" name="MoreInvolved" value="" checked>
                             <label class="form-check-label" for="MoreInvolved">No opinion</label>
                         </div>
                     </td>
@@ -262,25 +268,24 @@
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="WithChildren">
+                            <input class="form-check-input contributor-radios" type="radio" name="WithChildren" value="true">
                             <label class="form-check-label" for="WithChildren">With children</label>
                         </div>    
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="WithChildren">
+                            <input class="form-check-input contributor-radios" type="radio" name="WithChildren" value="false">
                             <label class="form-check-label" for="WithChildren">No children</label>
                         </div>    
                     </td>
                     <td>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="WithChildren">
+                            <input class="form-check-input contributor-radios" type="radio" name="WithChildren" value="" checked>
                             <label class="form-check-label" for="WithChildren">No opinion</label>
                         </div>
                     </td>
                 </tr>
                 </table>
-                --
             </div>
             <div class="tab-pane fade" id="v-pills-submit" role="tabpanel" aria-labelledby="v-pills-settings-tab">
                 <div class="form-group row">
@@ -300,7 +305,6 @@
         function datetime() {
             var date = new Date();
             document.getElementById('datetime-input').value = date.getFullYear().toString() + '-0' +date.getMonth().toString() + '-' + date.getDate().toString() + 'T' + date.getHours().toString() + ':' + date.getMinutes().toString() + ':' + date.getSeconds().toString();
-            console.log(date.getFullYear() + '-' +date.getMonth() + '-' + date.getDate() + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds());
         }
 
         function submit() {
@@ -330,8 +334,8 @@
             var activitiesValues = document.getElementsByTagName('input');
             var activities = new Object();
             for(i=0; i < activitiesValues.length; i++) {
-                if(activitiesValues[i].type == 'radio' && activitiesValues[i].checked) {
-                    if(activitiesValues[i].value == 'null') {
+                if(activitiesValues[i].type == 'radio' && activitiesValues[i].checked && (!activitiesValues[i].classList.contains('contributor-radios'))) {
+                    if(activitiesValues[i].value == '') {
                         activities[activitiesValues[i].name] = null
                     }
                     else {
@@ -357,8 +361,17 @@
                     contributorDetails[item.id.substring(definedClass.length + 1)] = null;
                 }
             }
-            observation[definedClass] = contributorDetails;
 
+            // radios 
+            var radios = document.getElementsByTagName('input')
+            for(var radio of radios) {
+                if(radio.type == 'radio' && radio.classList.contains('contributor-radios')) {
+                    if(radio.checked) {
+                        contributorDetails[radio.name] = radio.value == "" ? null : (radio.value == 'true');
+                    }
+                }
+            }
+            observation[definedClass] = contributorDetails;
             console.log(observation);
         }
 

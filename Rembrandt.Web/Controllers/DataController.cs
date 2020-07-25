@@ -35,33 +35,30 @@ namespace Rembrandt.Web.Controllers
         [Route("{siteId}")]
         public async Task<IActionResult> Location(int siteId)
         {
-            try
+
+        var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
+        var resultObservations = await _httpClient.GetAsync($"/sites-gateway/{siteId}");
+        if (result.IsSuccessStatusCode)
+        {
+            var locationViewModel = new LocationViewModel()
             {
-                var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
-                var resultObservations = await _httpClient.GetAsync($"/sites-gateway/{siteId}");
-
-                if(result.IsSuccessStatusCode)
-                {
-                    var locationViewModel = new LocationViewModel()
-                    {
-                        ObservationStatDto = JsonConvert.DeserializeObject<ObservationStatDto>(await result.Content.ReadAsStringAsync()),
-                        ObservationsDto = JsonConvert.DeserializeObject<ObservationDto[]>(await resultObservations.Content.ReadAsStringAsync())
-                    };
-                    return View(locationViewModel);
-                }
-            }
-            catch(Exception e)
-            {
-                return View(new ObservationStatDto() {Attributes = new AttributesStatDto(), Activities = new ActivitiesStatDto(), SkipReasons = new List<SkipReasonsDto>(), PhotosAddresses = new List<PhotoAddressDto>()});
-            }
-
-
-            return RedirectToAction("Data");
+                ObservationStatDto = JsonConvert.DeserializeObject<ObservationStatDto>(await result.Content.ReadAsStringAsync()),
+                ObservationsDto = JsonConvert.DeserializeObject<ObservationDto[]>(await resultObservations.Content.ReadAsStringAsync())
+            };
+            return View(locationViewModel);
+        }
+        return Content("OK");
         }
 
         public async Task<IActionResult> Add()
         {
             return await Task.FromResult(View(new ObservationDto() {Activities = new ActivitiesDto(), Attributes = new AttributesDto()}));
+        }
+
+        public async Task<IActionResult> Submit(ObservationStatDto observationStatDto)
+        {
+            
+            return await Task.FromResult(View());
         }
     }
 }

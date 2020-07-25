@@ -11,6 +11,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
     public class DatasetService : IDatasetService
     {
         private readonly IObservationRepository _observationRepository;
+        
         private readonly IMapper _mapper;
 
         public DatasetService(IObservationRepository observationRepository, IMapper mapper)

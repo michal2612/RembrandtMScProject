@@ -8,7 +8,9 @@ namespace Rembrandt.Dataset.Infrastructure.Services
     public interface IAddDataService
     {
         Task AddObservationDtoAsync(IObservationDto observation);
+
         Task AddObservationsDtoAsync(IEnumerable<IObservationDto> observations);
+        
         Task AddMultipleDefaultListAsync(JsonElement defaultMultipleList);
     }
 }

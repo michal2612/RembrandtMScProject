@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Rembrandt.Contracts.Classes.Stats
 {
     public class PhotoAddressDto
