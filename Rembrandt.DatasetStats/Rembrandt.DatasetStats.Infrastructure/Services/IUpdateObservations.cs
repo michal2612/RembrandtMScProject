@@ -8,5 +8,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
     public interface IUpdateObservations
     {
         Task UpdateObservationsAsync(IEnumerable<ObservationDto> observationDtos);
+
+        Task UpdateSingleObservationAsync(int siteId, IEnumerable<ObservationDto> observationsDto);
     }
 }
