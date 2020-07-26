@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Contracts.Classes.Stats;
-using Rembrandt.DatasetStats.Core.Models;
 using Rembrandt.DatasetStats.Infrastructure.Services;
 
 namespace Rembrandt.DatasetStats.Api.Controllers
@@ -13,7 +12,7 @@ namespace Rembrandt.DatasetStats.Api.Controllers
     public class StatsController : ControllerBase
     {
         private readonly IStatsService _statsService;
-        
+
         private readonly IUpdateObservations _updateObservationsService;
 
         public StatsController(IStatsService statsService, IUpdateObservations updateObservations)
@@ -37,5 +36,12 @@ namespace Rembrandt.DatasetStats.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<ObservationStatDto>> ReturnStatOfAllLocations()
             => await _statsService.GetObservationsStatAsync();
+
+        [HttpPut("/update")]
+        public async Task UpdateObservationStatAsync(UpdateObservationStatDto updateObservationStatDto)
+        {
+            await _updateObservationsService.UpdateSingleObservationAsync
+                (updateObservationStatDto.SiteId, updateObservationStatDto.Observations);
+        }
     }
 }
