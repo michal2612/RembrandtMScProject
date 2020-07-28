@@ -9,11 +9,17 @@ namespace Rembrandt.Users.Core.Models
     {
         [Key]
         public int PrimaryKey { get; protected set; }
+
         public string Key { get; protected set; }
+
         public string Password { get; protected set; }
+
         public string Email { get; protected set; }
+
         public DateTime RegisteredAt { get; protected set; }
+
         public string Role { get; protected set; }
+        
         public Details Details { get; protected set; }
 
         protected User()
