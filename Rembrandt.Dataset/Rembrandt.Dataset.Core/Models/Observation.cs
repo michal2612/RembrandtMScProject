@@ -24,7 +24,9 @@ namespace Rembrandt.Dataset.Core.Models
         public Activities Activities { get; protected set; }
         
         public Contributor Contributor { get; protected set; }
-        
+
+        public string Source { get; set; }
+
         protected Observation()
         {
             

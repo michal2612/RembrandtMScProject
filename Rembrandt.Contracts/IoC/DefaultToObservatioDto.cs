@@ -72,7 +72,8 @@ namespace Rembrandt.Contracts.IoC
                     MoreInvolved = CheckIfNullForBool(defaultObservation.More_inv),
                     NatureOriented = (int?)defaultObservation.Nature,
                     WithChildren = CheckIfNullForBool(defaultObservation.Children)
-                }
+                },
+                Source = @"https://zenodo.org/record/3688392/#_.XoHitur7S70"
             };
             return observationDto;
         }
