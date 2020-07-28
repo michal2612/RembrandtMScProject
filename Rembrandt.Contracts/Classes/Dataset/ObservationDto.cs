@@ -24,6 +24,8 @@ namespace Rembrandt.Contracts.Classes.Dataset
 
         public ContributorDto Contributor { get;  set; }
 
+        public string Source { get; set; }
+
         ObservationDto IObservationDto.ObservationDto() => this;
     }
 }

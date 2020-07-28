@@ -14,7 +14,7 @@ namespace Rembrandt.Users.Core.Models
         public string Email { get; protected set; }
         public DateTime RegisteredAt { get; protected set; }
         public string Role { get; protected set; }
-        public string Salt { get; protected set; }
+        public Details Details { get; protected set; }
 
         protected User()
         {
@@ -28,6 +28,9 @@ namespace Rembrandt.Users.Core.Models
             Password = SetPassword(password);
             RegisteredAt = DateTime.UtcNow;
             Role = SetRole();
+            Details = new Details() {
+                Salt = salt
+            };
         }
 
         private string SetEmail(string email)
