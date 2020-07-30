@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Rembrandt.Users.Infrastructure.Services;
 
 namespace Rembrandt.Web
 {
@@ -30,6 +31,7 @@ namespace Rembrandt.Web
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddRouting(options => options.LowercaseUrls = true);
         }
 

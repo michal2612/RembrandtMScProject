@@ -1,10 +1,10 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text.Json;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Contracts.Classes.Stats;
@@ -55,10 +55,13 @@ namespace Rembrandt.Web.Controllers
             return await Task.FromResult(View(new ObservationDto() {Activities = new ActivitiesDto(), Attributes = new AttributesDto()}));
         }
 
-        public async Task<IActionResult> Submit(ObservationStatDto observationStatDto)
+        [HttpPost]
+        public async Task Submit(ObservationDto observationDto)
         {
+            var serializeObject = JsonConvert.SerializeObject(observationDto);
+            var data = new StringContent(serializeObject, Encoding.UTF8, "application/json");
             
-            return await Task.FromResult(View());
+            await _httpClient.PostAsync("/dataset-gateway/", data);
         }
     }
 }

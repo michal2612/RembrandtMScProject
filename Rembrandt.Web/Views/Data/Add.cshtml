@@ -373,7 +373,8 @@
             }
             observation[definedClass] = contributorDetails;
             console.log(observation);
-        }
+            $.post("@Url.Action("Submit", "Data")", observation, function(){ alert("OK!")});
+        };
 
         //map
         let map;
