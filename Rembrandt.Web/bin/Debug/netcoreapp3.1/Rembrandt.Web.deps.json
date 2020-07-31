@@ -24,7 +24,10 @@
     ".NETCoreApp,Version=v3.1": {
       "Rembrandt.Web/1.0.0": {
         "dependencies": {
-          "MassTransit.RabbitMQ": "7.0.0",
+          "MassTransit": "7.0.2",
+          "MassTransit.AspNetCore": "7.0.2",
+          "MassTransit.Extensions.DependencyInjection": "7.0.2",
+          "MassTransit.RabbitMQ": "7.0.2",
           "Rembrandt.Contracts": "1.0.0",
           "Rembrandt.Dataset.Api": "1.0.0",
           "Rembrandt.Users.Api": "1.0.0",
@@ -114,14 +117,10 @@
           "Microsoft.Extensions.Configuration.KeyPerFile": "3.1.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "3.1.0.0",
           "Microsoft.Extensions.Configuration.Xml": "3.1.0.0",
-          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "3.1.0.0",
-          "Microsoft.Extensions.Diagnostics.HealthChecks": "3.1.0.0",
-          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Composite": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Embedded": "3.1.0.0",
           "Microsoft.Extensions.FileProviders.Physical": "3.1.0.0",
           "Microsoft.Extensions.FileSystemGlobbing": "3.1.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "3.1.0.0",
           "Microsoft.Extensions.Hosting": "3.1.0.0",
           "Microsoft.Extensions.Http": "3.1.0.0",
           "Microsoft.Extensions.Identity.Core": "3.1.0.0",
@@ -347,7 +346,7 @@
           "lib/netstandard2.0/GreenPipes.dll": {}
         }
       },
-      "MassTransit/7.0.0": {
+      "MassTransit/7.0.2": {
         "dependencies": {
           "Automatonymous": "5.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.5",
@@ -366,23 +365,56 @@
         },
         "runtime": {
           "lib/netstandard2.0/MassTransit.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.0.0"
+            "assemblyVersion": "7.0.2.0",
+            "fileVersion": "7.0.2.0"
           }
         },
         "compile": {
           "lib/netstandard2.0/MassTransit.dll": {}
         }
       },
-      "MassTransit.RabbitMQ/7.0.0": {
+      "MassTransit.AspNetCore/7.0.2": {
         "dependencies": {
-          "MassTransit": "7.0.0",
+          "MassTransit": "7.0.2",
+          "MassTransit.Extensions.DependencyInjection": "7.0.2",
+          "Microsoft.Extensions.DependencyInjection": "3.1.5",
+          "Microsoft.Extensions.Diagnostics.HealthChecks": "3.1.5",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.1.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MassTransit.AspNetCoreIntegration.dll": {
+            "assemblyVersion": "7.0.2.0",
+            "fileVersion": "7.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/MassTransit.AspNetCoreIntegration.dll": {}
+        }
+      },
+      "MassTransit.Extensions.DependencyInjection/7.0.2": {
+        "dependencies": {
+          "MassTransit": "7.0.2",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MassTransit.ExtensionsDependencyInjectionIntegration.dll": {
+            "assemblyVersion": "7.0.2.0",
+            "fileVersion": "7.0.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/MassTransit.ExtensionsDependencyInjectionIntegration.dll": {}
+        }
+      },
+      "MassTransit.RabbitMQ/7.0.2": {
+        "dependencies": {
+          "MassTransit": "7.0.2",
           "RabbitMQ.Client": "6.1.0"
         },
         "runtime": {
           "lib/netstandard2.0/MassTransit.RabbitMqTransport.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.0.0"
+            "assemblyVersion": "7.0.2.0",
+            "fileVersion": "7.0.2.0"
           }
         },
         "compile": {
@@ -682,6 +714,64 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks/3.1.5": {
+        "dependencies": {
+          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions": "3.1.5",
+          "Microsoft.Extensions.Hosting.Abstractions": "3.1.5",
+          "Microsoft.Extensions.Options": "3.1.5"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Diagnostics.HealthChecks.dll": {
+            "assemblyVersion": "3.1.5.0",
+            "fileVersion": "3.100.520.27009"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Diagnostics.HealthChecks.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.1.5": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {
+            "assemblyVersion": "3.1.5.0",
+            "fileVersion": "3.100.520.27009"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.FileProviders.Abstractions/3.1.5": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "3.1.5"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {
+            "assemblyVersion": "3.1.5.0",
+            "fileVersion": "3.100.520.27009"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.FileProviders.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Hosting.Abstractions/3.1.5": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.5",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.5",
+          "Microsoft.Extensions.FileProviders.Abstractions": "3.1.5",
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.5"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Hosting.Abstractions.dll": {
+            "assemblyVersion": "3.1.5.0",
+            "fileVersion": "3.100.520.27009"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.Extensions.Hosting.Abstractions.dll": {}
         }
       },
       "Microsoft.Extensions.Logging/3.1.5": {
@@ -1987,7 +2077,7 @@
       },
       "Rembrandt.Contracts/1.0.0": {
         "dependencies": {
-          "MassTransit.RabbitMQ": "7.0.0"
+          "MassTransit.RabbitMQ": "7.0.2"
         },
         "runtime": {
           "Rembrandt.Contracts.dll": {}
@@ -1999,7 +2089,7 @@
       "Rembrandt.Dataset.Api/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.0.0",
-          "MassTransit.RabbitMQ": "7.0.0",
+          "MassTransit.RabbitMQ": "7.0.2",
           "Newtonsoft.Json": "12.0.3",
           "Rembrandt.Contracts": "1.0.0",
           "Rembrandt.Dataset.Infrastructure": "1.0.0"
@@ -2042,7 +2132,7 @@
       "Rembrandt.Users.Api/1.0.0": {
         "dependencies": {
           "AutoMapper": "10.0.0",
-          "MassTransit.RabbitMQ": "7.0.0",
+          "MassTransit.RabbitMQ": "7.0.2",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.5",
           "Microsoft.Extensions.Caching.Memory": "3.1.5",
           "Rembrandt.Users.Infrastructure": "1.0.0",
@@ -2599,24 +2689,6 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Diagnostics.HealthChecks/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Diagnostics.HealthChecks.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.FileProviders.Abstractions/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.FileProviders.Abstractions.dll": {}
-        },
-        "compileOnly": true
-      },
       "Microsoft.Extensions.FileProviders.Composite/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.FileProviders.Composite.dll": {}
@@ -2638,12 +2710,6 @@
       "Microsoft.Extensions.FileSystemGlobbing/3.1.0.0": {
         "compile": {
           "Microsoft.Extensions.FileSystemGlobbing.dll": {}
-        },
-        "compileOnly": true
-      },
-      "Microsoft.Extensions.Hosting.Abstractions/3.1.0.0": {
-        "compile": {
-          "Microsoft.Extensions.Hosting.Abstractions.dll": {}
         },
         "compileOnly": true
       },
@@ -3714,19 +3780,33 @@
       "path": "greenpipes/4.0.0",
       "hashPath": "greenpipes.4.0.0.nupkg.sha512"
     },
-    "MassTransit/7.0.0": {
+    "MassTransit/7.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5j9zvL7XKSp/8JHk+mvWBAosfFwuqIWY3kS3/cUjG81m8+/4S/hLKCiGIvnSdZiEcXFp8l+TRm/NGW5Uh+2m7A==",
-      "path": "masstransit/7.0.0",
-      "hashPath": "masstransit.7.0.0.nupkg.sha512"
+      "sha512": "sha512-4iMnnKAf0jdQmZgYwQPlIiY2T/58bXknN0UzmG1HRGyOxcVM2VfL8mXwa7jtasT/WrkkHgmTBS1tZyqerxT7kQ==",
+      "path": "masstransit/7.0.2",
+      "hashPath": "masstransit.7.0.2.nupkg.sha512"
     },
-    "MassTransit.RabbitMQ/7.0.0": {
+    "MassTransit.AspNetCore/7.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-mRy0XBJ2If46WsoPKRRFYevJo/XkfBcEYZt9UPggoZNWZ4mytIHsIxufeLfk43BqpC5re/G9tv4Mc//3kiLHCw==",
-      "path": "masstransit.rabbitmq/7.0.0",
-      "hashPath": "masstransit.rabbitmq.7.0.0.nupkg.sha512"
+      "sha512": "sha512-EfaEtq2IKKNSb4iLFSd42QXa0ijJaPo0RTA1fUD85QFOWDh08Bhj5aAT2bGWWsdQl/URdnrdTcFPESaeBZeeYg==",
+      "path": "masstransit.aspnetcore/7.0.2",
+      "hashPath": "masstransit.aspnetcore.7.0.2.nupkg.sha512"
+    },
+    "MassTransit.Extensions.DependencyInjection/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/aeDR11qXeFOv2WhS/AwtDUp+iE4BKXnRSO9mTc/aFeQQWUpJRjgYv7cPIoQgdErrpXDB9b0PiOWr3JZ21+4IA==",
+      "path": "masstransit.extensions.dependencyinjection/7.0.2",
+      "hashPath": "masstransit.extensions.dependencyinjection.7.0.2.nupkg.sha512"
+    },
+    "MassTransit.RabbitMQ/7.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FDNi+853DtM17xL0vc0aGDDUkl5JOLMIIxDvhJVrdtXhUEmM6hAW4XEbA0OHmjoY+un2cY32JUms3/34wIMQbg==",
+      "path": "masstransit.rabbitmq/7.0.2",
+      "hashPath": "masstransit.rabbitmq.7.0.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.5": {
       "type": "package",
@@ -3881,6 +3961,34 @@
       "sha512": "sha512-u1RWQS0ym1USOoRji6MKcka/F/Br18/+1kiUvAcqWeG7v95SejSBXWRuS5eFfk6gCr3ppRxYyfnwUpmXa91ZsA==",
       "path": "microsoft.extensions.dependencymodel/3.1.5",
       "hashPath": "microsoft.extensions.dependencymodel.3.1.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks/3.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P98MGrBlJihhOWL7iseGhF4wDHn+g4xb170fMHUtKUFD0pBUzcz5k9rQxjPmbck7oES77QTNxkG+8YpBVjSlWw==",
+      "path": "microsoft.extensions.diagnostics.healthchecks/3.1.5",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.3.1.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6oo7BLy4cdYGegZJ2d3YXUFT9Pb1Pp2kq8QuTSG7oZOQ6nF0QgHMwJPX/zQqTeWVDbA+UsFaZ4QNyUGHdG5VEg==",
+      "path": "microsoft.extensions.diagnostics.healthchecks.abstractions/3.1.5",
+      "hashPath": "microsoft.extensions.diagnostics.healthchecks.abstractions.3.1.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Abstractions/3.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LrEQ97jhSWw84Y1m+CJfvh9qTUUswt27au54QYn2x5PCMPPgR+yAv/4VTJKMGSSI9T4scSLBXZ/fVhT4fPTCtA==",
+      "path": "microsoft.extensions.fileproviders.abstractions/3.1.5",
+      "hashPath": "microsoft.extensions.fileproviders.abstractions.3.1.5.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Hosting.Abstractions/3.1.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-e57iK9spITqHE7qNgC3IowzK+PK5NC2rmVY4Sz+ZoDNO24nIsgllIRbanSbt2wQz7Iy/N8Jm3C1sXqKc8zEOMQ==",
+      "path": "microsoft.extensions.hosting.abstractions/3.1.5",
+      "hashPath": "microsoft.extensions.hosting.abstractions.3.1.5.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging/3.1.5": {
       "type": "package",
@@ -5229,21 +5337,6 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Diagnostics.HealthChecks/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.FileProviders.Abstractions/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Microsoft.Extensions.FileProviders.Composite/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -5260,11 +5353,6 @@
       "sha512": ""
     },
     "Microsoft.Extensions.FileSystemGlobbing/3.1.0.0": {
-      "type": "referenceassembly",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Microsoft.Extensions.Hosting.Abstractions/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
