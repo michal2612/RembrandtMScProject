@@ -1,13 +1,12 @@
 using System;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Microsoft.JSInterop;
 using Newtonsoft.Json;
 using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Contracts.Classes.Stats;
+using Rembrandt.Web.Services;
 using Rembrandt.Web.ViewModels;
 
 namespace Rembrandt.Web.Controllers
@@ -15,12 +14,15 @@ namespace Rembrandt.Web.Controllers
     [Route("[action]")]
     public class DataController : Controller
     {
-        private ILogger<DataController> _logger;
-        private HttpClient _httpClient;
+        readonly HttpClient _httpClient;
+        
+        readonly IPublishEndpoint _publishEndpoint;
 
-        public DataController(ILogger<DataController> logger)
+
+        public DataController(IPublishEndpoint publishEndpoint)
         {
-            _logger = logger;
+            _publishEndpoint = publishEndpoint;
+
             _httpClient = new HttpClient()
             {
                 BaseAddress = new Uri("http://51.104.49.19:5000")
@@ -36,18 +38,18 @@ namespace Rembrandt.Web.Controllers
         public async Task<IActionResult> Location(int siteId)
         {
 
-        var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
-        var resultObservations = await _httpClient.GetAsync($"/sites-gateway/{siteId}");
-        if (result.IsSuccessStatusCode)
-        {
+            var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
+            var resultObservations = await _httpClient.GetAsync($"/sites-gateway/{siteId}");
+
+            if(!result.IsSuccessStatusCode)
+                return Content("Something went wrong!");
+
             var locationViewModel = new LocationViewModel()
             {
                 ObservationStatDto = JsonConvert.DeserializeObject<ObservationStatDto>(await result.Content.ReadAsStringAsync()),
                 ObservationsDto = JsonConvert.DeserializeObject<ObservationDto[]>(await resultObservations.Content.ReadAsStringAsync())
             };
             return View(locationViewModel);
-        }
-        return Content("OK");
         }
 
         public async Task<IActionResult> Add()
@@ -56,12 +58,17 @@ namespace Rembrandt.Web.Controllers
         }
 
         [HttpPost]
-        public async Task Submit(ObservationDto observationDto)
+        public async Task<IActionResult> Submit(ObservationDto observationDto)
         {
-            var serializeObject = JsonConvert.SerializeObject(observationDto);
-            var data = new StringContent(serializeObject, Encoding.UTF8, "application/json");
-            
-            await _httpClient.PostAsync("/dataset-gateway/", data);
+            //byte[] userName;
+            //var cookie = Request.Cookies["jwtToken"];
+            //var user = HttpContext.Session.TryGetValue(cookie, out userName);
+
+            observationDto.Source = "http://rembrandt-project.ukwest.cloudapp.azure.com/" + "dupa";
+
+            await _publishEndpoint.Publish<ObservationDto>(observationDto);
+
+            return Ok();
         }
     }
 }

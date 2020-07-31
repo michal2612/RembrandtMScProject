@@ -1,15 +1,12 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Rembrandt.Users.Infrastructure.Services;
+using Rembrandt.Web.Services;
 
 namespace Rembrandt.Web
 {
@@ -25,14 +22,28 @@ namespace Rembrandt.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMassTransit(x =>
+            {
+                x.AddConsumer<EventConsumer>();
+                x.UsingRabbitMq((context, cfg) => {
+                    cfg.ReceiveEndpoint("event-listener", e => {
+                        e.ConfigureConsumer<EventConsumer>(context);
+                    });
+                });
+            });
+
+            services.AddMassTransitHostedService();
+
             services.AddSession(options => {
                 options.IdleTimeout = TimeSpan.FromSeconds(3600);
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+
             services.AddRouting(options => options.LowercaseUrls = true);
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
