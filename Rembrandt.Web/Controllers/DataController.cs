@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MassTransit;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Rembrandt.Contracts.Classes.Dataset;
@@ -37,7 +39,6 @@ namespace Rembrandt.Web.Controllers
         [Route("{siteId}")]
         public async Task<IActionResult> Location(int siteId)
         {
-
             var result = await _httpClient.GetAsync($"/stats-gateway/{siteId}");
             var resultObservations = await _httpClient.GetAsync($"/sites-gateway/{siteId}");
 
@@ -60,11 +61,12 @@ namespace Rembrandt.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Submit(ObservationDto observationDto)
         {
-            //byte[] userName;
-            //var cookie = Request.Cookies["jwtToken"];
-            //var user = HttpContext.Session.TryGetValue(cookie, out userName);
+            var cookie = Request.Cookies["jwtToken"];
 
-            observationDto.Source = "http://rembrandt-project.ukwest.cloudapp.azure.com/" + "dupa";
+            if(observationDto == null)
+                throw new ArgumentNullException("Observation can't be null!");
+
+            observationDto.Source = "http://rembrandt-project.ukwest.cloudapp.azure.com/" + HttpContext.Session.GetString(cookie);
 
             await _publishEndpoint.Publish<ObservationDto>(observationDto);
 

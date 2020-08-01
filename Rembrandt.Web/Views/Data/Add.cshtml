@@ -303,8 +303,9 @@
 @section scripts {
     <script>
         function datetime() {
-            var date = new Date();
-            document.getElementById('datetime-input').value = date.getFullYear().toString() + '-0' +date.getMonth().toString() + '-' + date.getDate().toString() + 'T' + date.getHours().toString() + ':' + date.getMinutes().toString() + ':' + date.getSeconds().toString();
+            var today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
+            console.log(today);
+            document.getElementById('datetime-input').value = today;
         }
 
         function submit() {
@@ -322,6 +323,7 @@
             measuredLocation['Latitude'] = markers[0].position.lat();
 
             observation['Park']['MeasuredLocation'] = measuredLocation;
+            observation['Park']['ActualLocation'] = measuredLocation;
             //attributes
             var attributesValues = document.getElementsByName('attribute');
             var attributes = new Object();
@@ -412,5 +414,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgpHpnK2Fgy1xVldrfRrcZHds8Yrr-Kik&callback=initMap&libraries=&v=weekly">
+    </script>
+    <script src="js/moment.min.js">
     </script>
 }

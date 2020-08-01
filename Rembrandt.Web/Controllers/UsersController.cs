@@ -63,6 +63,7 @@ namespace Rembrandt.Web.Controllers
         {
             try
             {
+                HttpContext.Session.Remove(Request.Cookies["jwtToken"]);
                 Response.Cookies.Delete("jwtToken");
             }
             catch
