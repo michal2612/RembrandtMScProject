@@ -24,8 +24,12 @@ namespace Rembrandt.Dataset.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IObservationRepository,ObservationRepository>();
+            services.AddSingleton<IViennaObservationRepository, ViennaObservationRepository>();
+            
             services.AddScoped<IDatasetService,DatasetService>();
             services.AddScoped<IAddDataService, AddDataService>();
+            services.AddScoped<IViennaDatasetService, ViennaDatasetService>();
+            services.AddScoped<IAddViennaService, AddViennaService>();
 
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddControllers();

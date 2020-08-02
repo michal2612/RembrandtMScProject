@@ -1,5 +1,6 @@
 using System;
 using Rembrandt.Contracts.Classes.Dataset;
+using Rembrandt.Contracts.Classes.Dataset.ViennaObservations;
 
 namespace Rembrandt.Contracts.IoC
 {
@@ -78,7 +79,49 @@ namespace Rembrandt.Contracts.IoC
             return observationDto;
         }
 
-        private static bool? CheckIfNullForBool(string value)
+        public static ViennaObservationDto ConvertDefaultToObservationDto(DefaultViennaObservation defaultObservation)
+        {
+            var viennaObservation = new ViennaObservationDto()
+            {
+                User = defaultObservation.User,
+                TimeSubmitted = defaultObservation.TimeSubmitted,
+                PhotoPointUrl = defaultObservation.FotoPointUrl,
+                PhotoNorthUrl = defaultObservation.FotoNorthUrl,
+                PhotoEastUrl = defaultObservation.FotoEastUrl,
+                PhotoSouthUrl = defaultObservation.FotoSouthUrl,
+                PhotoWestUrl = defaultObservation.FotoWestUrl,
+                Location = new LocationDto()
+                {
+                    Latitude = defaultObservation.Latitude,
+                    Longitude = defaultObservation.Longitude
+                },
+                Attributes = new ViennaAttributesDto()
+                {
+                    FeelingWell = defaultObservation.FeelingWell,
+                    Attractive = defaultObservation.Attractive,
+                    Clean = defaultObservation.Clean,
+                    Facilities = defaultObservation.Facilities,
+                    Quiet = defaultObservation.Quiet,
+                    Secure = defaultObservation.Secure,
+                    AnimalsNature = defaultObservation.AnimalsNature,
+                    Playing = defaultObservation.Playing,
+                    ExerciseSport = defaultObservation.ExerciseSport,
+                    SittingLayingDown = defaultObservation.SittingLayingDown,
+                    Winter = defaultObservation.Winter,
+                    Creativity = defaultObservation.Creativity,
+                    Summer = defaultObservation.Summer,
+                    CoolingGreen = ConvertIntTobool(defaultObservation.CoolingGreen),
+                    CoolingWind = ConvertIntTobool(defaultObservation.CoolingWind),
+                    DrikingWater = ConvertIntTobool(defaultObservation.DrinkingWater),
+                    Shadow = ConvertIntTobool(defaultObservation.Shadow),
+                    Water = ConvertIntTobool(defaultObservation.Water)
+                },
+                SubAttributes = GetViennaSubAttributesDto(defaultObservation)
+            };
+            return viennaObservation;
+        }
+
+        static bool? CheckIfNullForBool(string value)
         {
             if(bool.TryParse(value, out bool result))
                 return result;
@@ -86,12 +129,29 @@ namespace Rembrandt.Contracts.IoC
                 return null;
         }
 
-        private static int? CheckIfNUllForInt(string value)
+        static int? CheckIfNUllForInt(string value)
         {
             if(Int32.TryParse(value, out int result))
                 return result;
             else
                 return null;
+        }
+
+        static bool ConvertIntTobool(int? value)
+            => value == null ? false : true;
+
+        static ViennaSubAttributesDto GetViennaSubAttributesDto(DefaultViennaObservation defaultViennaObservation)
+        {
+            var subAttributes = new ViennaSubAttributesDto();
+
+            foreach(var attribute in subAttributes.GetType().GetProperties())
+            {
+                var currentAttribute = defaultViennaObservation.GetType().GetProperty(attribute.Name);
+                if(currentAttribute != null)
+                    subAttributes.GetType().GetProperty(currentAttribute.Name).SetValue(subAttributes, ConvertIntTobool((int?)defaultViennaObservation.GetType().GetProperty(currentAttribute.Name).GetValue(defaultViennaObservation)));
+            }
+
+            return subAttributes;
         }
     }
 }

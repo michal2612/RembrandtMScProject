@@ -11,9 +11,9 @@ namespace Rembrandt.Dataset.Api.Controllers
     [Route("[controller]")]
     public class DatasetController : ControllerBase
     {
-        private readonly IDatasetService _datasetService;
+        readonly IDatasetService _datasetService;
         
-        private readonly IAddDataService _addDataService;
+        readonly IAddDataService _addDataService;
 
 
         public DatasetController(IDatasetService datasetService, IAddDataService addDataService)
@@ -22,10 +22,6 @@ namespace Rembrandt.Dataset.Api.Controllers
             _addDataService = addDataService;
         }
 
-        [HttpGet("test")]
-        public IActionResult Test()
-            => Content("It's working!");
-            
         [HttpGet]
         public async Task<IEnumerable<ObservationDto>> PostObservationDtoCollectionAsync()
             => await _datasetService.GetAllObservationsAsync();
@@ -69,7 +65,6 @@ namespace Rembrandt.Dataset.Api.Controllers
         [HttpPost("defaultMultipleList")]
         public async Task<IActionResult> PostMultipleDefaultListAsync(JsonElement defaultMultipleList)
         {
-            await _addDataService.AddMultipleDefaultListAsync(defaultMultipleList);
             return Ok(defaultMultipleList);
         }
     }
