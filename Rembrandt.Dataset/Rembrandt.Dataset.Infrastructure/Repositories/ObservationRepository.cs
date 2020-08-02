@@ -11,7 +11,7 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
 {
     public class ObservationRepository : IObservationRepository
     {
-        private readonly ObservationContext _observationContext;
+        readonly ObservationContext _observationContext;
 
         public ObservationRepository()
             => _observationContext = new ObservationContext();

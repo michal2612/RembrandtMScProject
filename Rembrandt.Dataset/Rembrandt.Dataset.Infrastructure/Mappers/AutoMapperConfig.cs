@@ -1,6 +1,8 @@
 using AutoMapper;
 using Rembrandt.Contracts.Classes.Dataset;
+using Rembrandt.Contracts.Classes.Dataset.ViennaObservations;
 using Rembrandt.Dataset.Core.Models;
+using Rembrandt.Dataset.Core.Models.ViennaDataset;
 
 namespace Rembrandt.Dataset.Infrastructure.Mappers
 {
@@ -26,6 +28,15 @@ namespace Rembrandt.Dataset.Infrastructure.Mappers
 
                 cfg.CreateMap<Park, ParkDto>();
                 cfg.CreateMap<ParkDto, Park>();
+
+                cfg.CreateMap<ViennaObservationDto, ViennaObservation>();
+                cfg.CreateMap<ViennaObservation, ViennaAttributesDto>();
+
+                cfg.CreateMap<ViennaAttributesDto, ViennaAttributes>();
+                cfg.CreateMap<ViennaAttributes, ViennaAttributesDto>();
+
+                cfg.CreateMap<ViennaSubAttributesDto, ViennaSubAttributes>();
+                cfg.CreateMap<ViennaSubAttributes, ViennaSubAttributesDto>();
             })
             .CreateMapper();
     }
