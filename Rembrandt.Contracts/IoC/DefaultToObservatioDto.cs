@@ -105,6 +105,7 @@ namespace Rembrandt.Contracts.IoC
                     Secure = defaultObservation.Secure,
                     AnimalsNature = defaultObservation.AnimalsNature,
                     Playing = defaultObservation.Playing,
+                    Romance = defaultObservation.Romance,
                     ExerciseSport = defaultObservation.ExerciseSport,
                     SittingLayingDown = defaultObservation.SittingLayingDown,
                     Winter = defaultObservation.Winter,

@@ -17,13 +17,13 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
         
         public async Task AddObservationAsync(ViennaObservation observation)
         {
-            await _observationContext.ViennaObservation.AddAsync(observation);
+            await _observationContext.ViennaObservations.AddAsync(observation);
             await _observationContext.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<ViennaObservation>> GetObservationsAsync(string userId)
         {
-            var observation = await _observationContext.ViennaObservation
+            var observation = await _observationContext.ViennaObservations
                 .Include(obs => obs.Location)
                 .Include(obs => obs.Attributes)
                 .Where(c => c.User == userId)
@@ -36,6 +36,6 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
         }
 
         public async Task<IEnumerable<ViennaObservation>> GetAllObservationsAsync()
-            => await _observationContext.ViennaObservation.ToListAsync();
+            => await _observationContext.ViennaObservations.ToListAsync();
     }
 }

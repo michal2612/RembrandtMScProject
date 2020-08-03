@@ -30,7 +30,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
                 await AddObservationAsync(observation);
         }
 
-        public async Task<IEnumerable<ViennaObservationDto>> AddObservationsJsonAsync(JsonElement defaultMultipleList)
+        public async Task AddObservationsJsonAsync(JsonElement defaultMultipleList)
         {
             var jObject = (JArray)JObject.Parse(defaultMultipleList.ToString())["features"];
             var jObjects = new List<JToken>();
@@ -38,12 +38,8 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             foreach(var objectJ in jObject)
                 jObjects.Add(objectJ["properties"]);
 
-            var myObjects = new List<ViennaObservationDto>();
             foreach(var objectJ in jObjects)
-                //await AddObservationAsync(objectJ.ToObject<DefaultViennaObservation>().ViennaObservationDto());
-                myObjects.Add(objectJ.ToObject<DefaultViennaObservation>().ViennaObservationDto());
-                
-            return myObjects;
+                await AddObservationAsync(objectJ.ToObject<DefaultViennaObservation>().ViennaObservationDto());
         }
     }
 }

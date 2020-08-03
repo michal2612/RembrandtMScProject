@@ -9,7 +9,7 @@ namespace Rembrandt.Dataset.Core.Context
     {
         public DbSet<Observation> Observations { get; set; }
 
-        public DbSet<ViennaObservation> ViennaObservation { get; set; }
+        public DbSet<ViennaObservation> ViennaObservations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer($"Server={DatabaseConfig.Host},{DatabaseConfig.Port};Database=Observations;User Id={DatabaseConfig.User};Password={DatabaseConfig.Password};");

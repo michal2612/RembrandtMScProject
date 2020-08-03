@@ -40,8 +40,8 @@ namespace Rembrandt.Dataset.Api.Controllers
         [HttpPost("multipleDefault")]
         public async Task<IActionResult> AddMultipleObservationsAsync(JsonElement viennaObservations)
         {
-            var lista = await _viennaService.AddObservationsJsonAsync(viennaObservations);
-            return Ok(lista);
+            await _viennaService.AddObservationsJsonAsync(viennaObservations);
+            return Ok();
         }
     }
 }
