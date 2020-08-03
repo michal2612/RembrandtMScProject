@@ -65,6 +65,7 @@ namespace Rembrandt.Dataset.Api.Controllers
         [HttpPost("defaultMultipleList")]
         public async Task<IActionResult> PostMultipleDefaultListAsync(JsonElement defaultMultipleList)
         {
+            await _addDataService.AddMultipleDefaultListAsync(defaultMultipleList);
             return Ok(defaultMultipleList);
         }
     }

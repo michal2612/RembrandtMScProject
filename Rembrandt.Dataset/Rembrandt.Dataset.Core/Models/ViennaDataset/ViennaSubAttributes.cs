@@ -1,7 +1,12 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Rembrandt.Dataset.Core.Models.ViennaDataset
 {
     public class ViennaSubAttributes
     {
+        [Key]
+        public int Id { get; set; }
+
         public bool? AlpineSkiing { get; set; }
 
         public bool? Alternativ { get; set; }

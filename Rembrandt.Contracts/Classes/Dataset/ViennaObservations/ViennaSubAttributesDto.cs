@@ -76,7 +76,7 @@ namespace Rembrandt.Contracts.Classes.Dataset.ViennaObservations
 
         public bool? RidingABoat { get; set; }
 
-        public bool? RomanceSub { get; set; }
+        public bool? Romance { get; set; }
 
         public bool? PlayingWithSand { get; set; }
 

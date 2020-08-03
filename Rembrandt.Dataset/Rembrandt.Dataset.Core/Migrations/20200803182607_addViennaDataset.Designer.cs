@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rembrandt.Dataset.Core.Context;
 
 namespace Rembrandt.Dataset.Core.Migrations
 {
     [DbContext(typeof(ObservationContext))]
-    partial class ObservationContextModelSnapshot : ModelSnapshot
+    [Migration("20200803182607_addViennaDataset")]
+    partial class addViennaDataset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
