@@ -8,10 +8,10 @@ namespace Rembrandt.DatasetStats.Core.Repository
     {
         Task UpdateDatabaseAsync(IEnumerable<ObservationStat> observations);
 
+        Task UpdateObservationAsync(int siteId, ObservationStat observationStat);
+
         Task<ObservationStat> GetObservationStatByIdAsync(int siteId);
 
         Task<IEnumerable<ObservationStat>> GetAllObservationsStatAsync();
-
-        Task UpdateObservationAsync(int siteId, ObservationStat observationStat);
     }
 }

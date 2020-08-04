@@ -28,12 +28,14 @@ namespace Rembrandt.Dataset.Core.Models.ViennaDataset
 
         public ViennaSubAttributes SubAttributes { get; protected set; }
 
+        public string Source { get; protected set; }
+
         protected ViennaObservation()
         {
             
         }
 
-        public ViennaObservation(string user, string photoPointUrl, string photoNorthUrl, string photoEastUrl, string photoSouthUrl, string photoWestUrl, Location location, ViennaAttributes attributes, ViennaSubAttributes subAttributes)
+        public ViennaObservation(string user, string photoPointUrl, string photoNorthUrl, string photoEastUrl, string photoSouthUrl, string photoWestUrl, Location location, ViennaAttributes attributes, ViennaSubAttributes subAttributes, string soruce)
         {
             User = user;
             PhotoPointUrl = photoPointUrl;
@@ -44,6 +46,7 @@ namespace Rembrandt.Dataset.Core.Models.ViennaDataset
             Location = location;
             Attributes = attributes;
             SubAttributes = subAttributes;
+            Source = Source;
         }
         
     }

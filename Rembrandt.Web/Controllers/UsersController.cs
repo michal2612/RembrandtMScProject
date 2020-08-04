@@ -1,6 +1,5 @@
 using System;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -15,8 +14,8 @@ namespace Rembrandt.Web.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly ILogger _logger;
-        private readonly HttpClient _httpClient;
+        readonly ILogger _logger;
+        readonly HttpClient _httpClient;
 
         public UsersController(ILogger<UsersController> logger)
         {

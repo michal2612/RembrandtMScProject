@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Rembrandt.Contracts.Classes.User;
 using Rembrandt.Users.Infrastructure.Services;
 
 namespace Rembrandt.Users.Api.Controllers
@@ -10,8 +9,8 @@ namespace Rembrandt.Users.Api.Controllers
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IUserService _userService;
-        private readonly IJwtHandler _jwtHandler;
+        readonly IUserService _userService;
+        readonly IJwtHandler _jwtHandler;
 
         public UsersController(IUserService userService, IJwtHandler jwtHandler)
         {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Contracts.Classes.Stats;
 using Rembrandt.DatasetStats.Core.Models;
 using Rembrandt.DatasetStats.Core.Repository;
@@ -10,8 +9,8 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
 {
     public class StatsService : IStatsService
     {
-        private readonly IStatsRepository _statsRepository;
-        private readonly IMapper _mapper;
+        readonly IStatsRepository _statsRepository;
+        readonly IMapper _mapper;
 
         public StatsService(IStatsRepository statsRepository, IMapper mapper)
         {

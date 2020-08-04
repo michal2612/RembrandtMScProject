@@ -12,7 +12,7 @@ namespace Rembrandt.Users.Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {
-        private readonly UserContext _userContext;
+        readonly UserContext _userContext;
 
         public UserRepository()
             => _userContext = new UserContext();

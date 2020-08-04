@@ -10,8 +10,8 @@ namespace Rembrandt.DatasetStats.Infrastructure
 {
     public class StatsRepository : IStatsRepository
     {
-        private readonly ObservationStatContext _observationStatContext;
-        private readonly List<ObservationStat> _observations = new List<ObservationStat>();
+        readonly ObservationStatContext _observationStatContext;
+        readonly List<ObservationStat> _observations = new List<ObservationStat>();
 
         public StatsRepository()
         {

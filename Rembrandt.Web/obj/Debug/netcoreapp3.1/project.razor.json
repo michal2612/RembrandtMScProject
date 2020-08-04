@@ -20551,6 +20551,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Vienna\\Data.cshtml",
+      "TargetPath": "Views\\Vienna\\Data.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"

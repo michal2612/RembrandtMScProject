@@ -74,7 +74,7 @@ namespace Rembrandt.Dataset.Core.Models.ViennaDataset
             Water = water;
         }
 
-        private static int? CheckIfInRange(int value)
+        static int? CheckIfInRange(int value)
         {
             var minValue = default(int);
             var maxValue = 101;

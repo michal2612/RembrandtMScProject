@@ -39,7 +39,7 @@ namespace Rembrandt.Users.Core.Models
             };
         }
 
-        private string SetEmail(string email)
+        string SetEmail(string email)
         {
             if(String.IsNullOrWhiteSpace(email))
                 throw new ArgumentNullException("Email should not be null!");
@@ -47,7 +47,7 @@ namespace Rembrandt.Users.Core.Models
             return email.ToLower();
         }
 
-        private string SetPassword(string password)
+        string SetPassword(string password)
         {
             if(String.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("Password should not be null!");
@@ -55,10 +55,10 @@ namespace Rembrandt.Users.Core.Models
             return password;
         }
 
-        private string GenerateKey()
+        string GenerateKey()
             => Guid.NewGuid().ToString();
 
-        private string SetRole()
+        string SetRole()
             => Roles.user.ToString();
     }
 }

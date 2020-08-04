@@ -10,8 +10,8 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
 {
     public class UpdateObservations : IUpdateObservations
     {
-        private readonly IStatsRepository _statsRepository;
-        private readonly IMapper _mapper;
+        readonly IStatsRepository _statsRepository;
+        readonly IMapper _mapper;
 
         public UpdateObservations(IStatsRepository statsRepository, IMapper mapper)
         {
@@ -43,7 +43,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             await _statsRepository.UpdateObservationAsync(siteId, observationStat);
         }
 
-        private ObservationStat MapValue(int sideId, IEnumerable<ObservationDto> dictionaryObservations)
+        ObservationStat MapValue(int sideId, IEnumerable<ObservationDto> dictionaryObservations)
         {
             var observationsStat = new ObservationStat() {SiteId = sideId};
 
@@ -58,7 +58,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             return observationsStat;
         }
 
-        private List<SkipReasons> ModifyReasons(IEnumerable<ObservationDto> observationsDto)
+        List<SkipReasons> ModifyReasons(IEnumerable<ObservationDto> observationsDto)
         {
             var resultDictionary = new List<SkipReasons>();
 
@@ -75,7 +75,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             return resultDictionary;
         }
 
-        private AttributesStat ModifyAttributes(IEnumerable<AttributesDto> attributes)
+        AttributesStat ModifyAttributes(IEnumerable<AttributesDto> attributes)
         {
             var propertyNames = attributes.First().GetType().GetProperties();
             var resultAttributesStat = new AttributesStat();
@@ -94,7 +94,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             return resultAttributesStat;
         }
 
-        private ActivitiesStat ModifyActivities(IEnumerable<ActivitiesDto> activities)
+        ActivitiesStat ModifyActivities(IEnumerable<ActivitiesDto> activities)
         {
             var propertyNames = activities.First().GetType().GetProperties();
             var resultAttributesStat = new ActivitiesStat();
@@ -113,7 +113,7 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
             return resultAttributesStat;
         }
 
-        private List<PhotoAddress> ModifyAdresses(IEnumerable<string> addresses)
+        List<PhotoAddress> ModifyAdresses(IEnumerable<string> addresses)
         {
             var addressesList = new List<PhotoAddress>();
 

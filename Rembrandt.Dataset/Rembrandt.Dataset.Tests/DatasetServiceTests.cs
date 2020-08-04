@@ -11,7 +11,7 @@ namespace Rembrandt.Dataset.Tests
 {
     public class DatasetServiceTests
     {
-        private ObservationDto ObservationDto = new ObservationDto()
+        ObservationDto ObservationDto = new ObservationDto()
         {
             SkipReason = "noskip",
             TimeSubmitted = DateTime.UtcNow,

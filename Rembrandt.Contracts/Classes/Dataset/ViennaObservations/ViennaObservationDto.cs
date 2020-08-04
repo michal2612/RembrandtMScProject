@@ -23,5 +23,7 @@ namespace Rembrandt.Contracts.Classes.Dataset.ViennaObservations
         public ViennaAttributesDto Attributes { get; set; }
 
         public ViennaSubAttributesDto SubAttributes { get; set; }
+
+        public string Source { get; set; }
     }
 }
