@@ -10,7 +10,7 @@ namespace Rembrandt.Users.Infrastructure.Services
 {
     public class JwtHandler : IJwtHandler
     {
-        private readonly Settings _settings;
+        readonly Settings _settings;
 
         public JwtHandler(Settings settings)
         {

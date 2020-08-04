@@ -13,20 +13,20 @@ namespace Rembrandt.Contracts.Database
 
         public static string Password { get { return GetPassword(); } }
 
-        private static readonly string jsonFile = File.ReadAllText("database.json");
+        static readonly string jsonFile = File.ReadAllText("database.json");
         
-        private static readonly JObject _databaseJson = JObject.Parse(jsonFile);
+        static readonly JObject _databaseJson = JObject.Parse(jsonFile);
 
-        private static string GetHost()
+        static string GetHost()
             => _databaseJson["Host"].ToString();
 
-        private static string GetPort()
+        static string GetPort()
             => _databaseJson["Port"].ToString();
 
-        private static string GetUser()
+        static string GetUser()
             => _databaseJson["User"].ToString();
 
-        private static string GetPassword()
+        static string GetPassword()
             => _databaseJson["Password"].ToString();
     }
 }

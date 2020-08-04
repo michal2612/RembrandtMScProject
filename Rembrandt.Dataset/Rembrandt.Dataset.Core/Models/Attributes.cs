@@ -78,7 +78,7 @@ namespace Rembrandt.Dataset.Core.Models
             CheckValues(this);
         }
 
-        private static void CheckValues(Attributes attributes)
+        static void CheckValues(Attributes attributes)
         {
             var exceptionProperties = new List<string>()
             {

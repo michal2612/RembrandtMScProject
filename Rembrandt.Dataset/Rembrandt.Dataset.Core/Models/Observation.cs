@@ -44,10 +44,10 @@ namespace Rembrandt.Dataset.Core.Models
             Contributor = CheckForNullable<Contributor>(contributor);
         }
 
-        private static T CheckForNullable<T>(T obj)
+        static T CheckForNullable<T>(T obj)
             => obj == null ? throw new ArgumentNullException($"Property '{typeof(T).Name}' can not be null!") : obj;
 
-        private static string SetSkipReason(string skipReason)
+        static string SetSkipReason(string skipReason)
             => String.IsNullOrWhiteSpace(skipReason) ? "noskip" : skipReason;
     }
 }

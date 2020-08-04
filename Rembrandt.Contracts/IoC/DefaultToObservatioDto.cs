@@ -123,20 +123,10 @@ namespace Rembrandt.Contracts.IoC
         }
 
         static bool? CheckIfNullForBool(string value)
-        {
-            if(bool.TryParse(value, out bool result))
-                return result;
-            else
-                return null;
-        }
+            => bool.TryParse(value, out bool result) ? result : (bool?)null;
 
         static int? CheckIfNUllForInt(string value)
-        {
-            if(Int32.TryParse(value, out int result))
-                return result;
-            else
-                return null;
-        }
+            => Int32.TryParse(value, out int result) ? result : (int?)null;
 
         static bool ConvertIntTobool(int? value)
             => value == null ? false : true;

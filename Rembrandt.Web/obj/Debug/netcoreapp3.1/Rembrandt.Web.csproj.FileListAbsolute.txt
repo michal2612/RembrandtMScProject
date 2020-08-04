@@ -134,3 +134,5 @@ C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Mic
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\database.json
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Vienna\Data.cshtml.g.cs

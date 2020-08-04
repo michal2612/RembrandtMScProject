@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
@@ -12,8 +11,8 @@ namespace Rembrandt.Users.Api.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        private readonly IMemoryCache _memoryCache;
-        private readonly ILoginService _loginService;
+        readonly IMemoryCache _memoryCache;
+        readonly ILoginService _loginService;
 
         public LoginController(IMemoryCache memoryCache, ILoginService loginService)
         {

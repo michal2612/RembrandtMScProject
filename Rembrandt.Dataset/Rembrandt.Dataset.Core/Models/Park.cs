@@ -21,7 +21,7 @@ namespace Rembrandt.Dataset.Core.Models
             ActualLocation = CheckForNullable(actualLocation);
         }
 
-        private static T CheckForNullable<T>(T obj)
+        static T CheckForNullable<T>(T obj)
             => obj == null ? throw new ArgumentNullException($"Property '{typeof(T).Name}' can not be null!") : obj;
     }
 }

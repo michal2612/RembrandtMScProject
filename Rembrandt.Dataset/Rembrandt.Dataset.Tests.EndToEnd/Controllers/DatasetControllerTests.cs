@@ -9,7 +9,7 @@ namespace Rembrandt.Dataset.Tests.EndToEnd
 {
     public class DatasetControllerTests
     {
-        private readonly WebApplicationFactory<Rembrandt.Dataset.Api.Startup> _factory;
+        readonly WebApplicationFactory<Rembrandt.Dataset.Api.Startup> _factory;
 
         public DatasetControllerTests()
             => _factory = new WebApplicationFactory<Api.Startup>();

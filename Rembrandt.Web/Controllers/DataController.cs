@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MassTransit;
@@ -8,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Contracts.Classes.Stats;
-using Rembrandt.Web.Services;
 using Rembrandt.Web.ViewModels;
 
 namespace Rembrandt.Web.Controllers
