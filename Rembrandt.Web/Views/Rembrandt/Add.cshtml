@@ -304,7 +304,6 @@
     <script>
         function datetime() {
             var today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
-            console.log(today);
             document.getElementById('datetime-input').value = today;
         }
 
@@ -375,7 +374,7 @@
             }
             observation[definedClass] = contributorDetails;
             console.log(observation);
-            $.post("@Url.Action("Submit", "Data")", observation, function(){ alert("OK!")});
+            $.post("@Url.Action("Submit", "Rembrandt")", observation, function(){ alert("OK!")});
         };
 
         //map

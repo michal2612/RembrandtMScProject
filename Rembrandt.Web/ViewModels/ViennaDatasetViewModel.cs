@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
@@ -10,32 +11,32 @@ namespace Rembrandt.Web.ViewModels
     {
         public ViennaObservationDto ViennaObservation { get; set; }
 
-        public List<string> AttributesNames { get; set; } = new List<string>();
+        public Dictionary<string, string> AttributesNames { get; set; }
+
+        public Dictionary<string, string> SubAttributesNames {get; set; }
+
+        public IEnumerable<SuitableArea> SuitableAreas { get; set; }
 
         public ViennaDatasetViewModel()
         {
-            AddAttributesNames();
+            AttributesNames = AddAttributesNames(new ViennaAttributesDto());
+            SubAttributesNames = AddAttributesNames(new ViennaSubAttributesDto());
         }
 
-        void AddAttributesNames()
+        Dictionary<string, string> AddAttributesNames(object obj)
         {
-            MemberInfo[] properties = new ViennaAttributesDto().GetType().GetProperties();
+            MemberInfo[] properties = obj.GetType().GetProperties();
+            var dictionary = new Dictionary<string, string>();
 
             foreach(var property in properties)
             {
-                try
-                {
-                    var propertyName = property.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
-                    if(propertyName != null)
-                        AttributesNames.Add(propertyName.GetName());
-                    else
-                        AttributesNames.Add(property.Name);
-                }
-                catch(Exception)
-                {
-                }
+                var propertyName = property.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
+                if(propertyName != null)
+                    dictionary.Add(property.Name, propertyName.GetName());
+                else
+                    dictionary.Add(property.Name, property.Name);
             }
-
+            return dictionary;
         }
     }
 }

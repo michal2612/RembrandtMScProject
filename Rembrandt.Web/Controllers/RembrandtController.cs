@@ -11,15 +11,15 @@ using Rembrandt.Web.ViewModels;
 
 namespace Rembrandt.Web.Controllers
 {
-    [Route("[action]")]
-    public class DataController : Controller
+    [Route("[controller]/[action]")]
+    public class RembrandtController : Controller
     {
         readonly HttpClient _httpClient;
         
         readonly IPublishEndpoint _publishEndpoint;
 
 
-        public DataController(IPublishEndpoint publishEndpoint)
+        public RembrandtController(IPublishEndpoint publishEndpoint)
         {
             _publishEndpoint = publishEndpoint;
 

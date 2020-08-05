@@ -5,14 +5,15 @@ using Rembrandt.Web.ViewModels;
 
 namespace Rembrandt.Web.Controllers
 {
-    [ApiController]
     [Route("[controller]/[action]")]
     public class viennaController : Controller
     {
         public IActionResult Data()
         {
             return View(new ViennaDatasetViewModel() {
-                ViennaObservation = new ViennaObservationDto()
+                ViennaObservation = new ViennaObservationDto() {
+                    SubAttributes = new ViennaSubAttributesDto()
+                }
             });
         }
     }
