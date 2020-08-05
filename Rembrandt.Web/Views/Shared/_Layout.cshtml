@@ -8,14 +8,14 @@
     <title>@ViewData["Title"] - Rembrandt Msc Project</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <img src="Images/logo.png" alt="logo" class="logo"/>
+                <img src="~/Images/logo.png" alt="logo" class="logo"/>
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Rembrandt MSc Project</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +30,7 @@
                             <a href="#" class="dropdown-toggle nav-link text-dark" data-toggle="dropdown" role="button" aria-expanded="false">Datasets<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Data" asp-action="Data">Rembrandt Dataset</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Rembrandt" asp-action="Data">Rembrandt Dataset</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Vienna" asp-action="Data">Vienna Dataset</a>
@@ -38,7 +38,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Data" asp-action="Add">Add new</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Rembrandt" asp-action="Add">Add new</a>
                         </li>
                             //}
                         }

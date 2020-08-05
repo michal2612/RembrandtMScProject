@@ -2,28 +2,66 @@
 @{
     ViewData["Title"] = "Data";
 }
-<div id="map">
-</div>
-<br />
-<div id="attributes">
-    <select class="browser-default custom-select">
-        @{
-            for(int i =0; i < Model.AttributesNames.Count; i++)
-            {
-                <option value="@i">@Model.AttributesNames[i]</option>
+<div>
+    <div id="map">
+    </div>
+    <br />
+    <div id="attributes">
+        <select class="browser-default custom-select">
+            <option>Select main category (optional)</option>
+            @{
+                foreach(var attributeName in Model.AttributesNames)
+                {
+                    <option value="@attributeName.Key">@attributeName.Value</option>
+                }
             }
-        }
-    </select>
-</div>
+        </select>
+    </div>
+    <h2>
+        Select your suitable activities
+    </h2>
+    <div class="subattributes-div">
+        <div class="form-group">
+            <select class="mul-select" multiple="true" style="width: 50% !important;">
+                @foreach(var subattribute in Model.SubAttributesNames)
+                {
+                    <option value="@subattribute.Key">@subattribute.Value</option>
+                }
+            </select>
+        </div> 
+        <button type="button" class="btn btn-primary">Find suitable locations!</button>
+    </div>
 
-<script>
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 48.2086649, lng: 16.3666573},
-            zoom: 13
-        });
+</div>
+@section scripts {
+    <script>
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 48.2086649, lng: 16.3666573},
+                zoom: 13
+            });
+              var marker = new google.maps.Marker({
+                position: {lat: 48.2086649, lng: 16.3666573},
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: 'Hello World!'
+  });
     }
-</script>
-<script async defer
+    </script>
+    <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgpHpnK2Fgy1xVldrfRrcZHds8Yrr-Kik&callback=initMap&libraries=&v=weekly">
-</script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>\    <script>
+        $(document).ready(function(){
+            $(".mul-select").select2({
+                    placeholder: "Select activities in areas", //placeholder
+                    tags: true,
+                    tokenSeparators: ['/',',',';'," "] 
+                });
+            })
+    </script>
+}

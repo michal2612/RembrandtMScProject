@@ -124,9 +124,6 @@ C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Rem
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Rembrandt.Web.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Login.cshtml.g.cs
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\LogIn\Register.cshtml.g.cs
-C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Data\Data.cshtml.g.cs
-C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Data\Location.cshtml.g.cs
-C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Data\Add.cshtml.g.cs
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Users\Settings.cshtml.g.cs
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\MassTransit.AspNetCoreIntegration.dll
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\MassTransit.ExtensionsDependencyInjectionIntegration.dll
@@ -136,3 +133,6 @@ C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Mic
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\bin\Debug\netcoreapp3.1\database.json
 C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Vienna\Data.cshtml.g.cs
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Rembrandt\Add.cshtml.g.cs
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Rembrandt\Data.cshtml.g.cs
+C:\Users\Michal\source\repos\Rembrandt\Rembrandt.Web\obj\Debug\netcoreapp3.1\Razor\Views\Rembrandt\Location.cshtml.g.cs
