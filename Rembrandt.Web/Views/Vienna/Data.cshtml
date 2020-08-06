@@ -7,8 +7,8 @@
     </div>
     <br />
     <div id="attributes">
-        <select class="browser-default custom-select">
-            <option>Select main category (optional)</option>
+        <select class="browser-default custom-select" id="main-category">
+            <option value="null">Select main category (optional)</option>
             @{
                 foreach(var attributeName in Model.AttributesNames)
                 {
@@ -22,14 +22,14 @@
     </h2>
     <div class="subattributes-div">
         <div class="form-group">
-            <select class="mul-select" multiple="true" style="width: 50% !important;">
+            <select class="mul-select" multiple="true" id="sub-categories">
                 @foreach(var subattribute in Model.SubAttributesNames)
                 {
                     <option value="@subattribute.Key">@subattribute.Value</option>
                 }
             </select>
         </div> 
-        <button type="button" class="btn btn-primary">Find suitable locations!</button>
+        <button type="button" class="btn btn-primary" onclick="submit()">Find suitable locations!</button>
     </div>
 
 </div>
@@ -63,5 +63,27 @@
                     tokenSeparators: ['/',',',';'," "] 
                 });
             })
+
+        function submit() {
+            var viennaSelect = new Object();
+
+            //main category
+            var main = document.getElementById('main-category').value;
+            viennaSelect['category'] = CheckForNull(main);
+
+            //sub categories
+            var subcategories = document.getElementById('sub-categories');
+            let selected = [];
+            for(var i = 0; i < subcategories.length; i++) {
+                if(subcategories[i].selected) selected.push(subcategories.options[i].value);
+            }
+            console.log(selected);
+            viennaSelect['subCategories'] = CheckForNull(selected);
+            console.log(viennaSelect);
+        }
+
+        function CheckForNull(value) {
+            return value == 'null' ? null : value;
+        }
     </script>
 }

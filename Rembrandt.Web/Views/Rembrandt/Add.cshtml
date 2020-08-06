@@ -301,6 +301,8 @@
 </div>
 
 @section scripts {
+    <script src="~/js/moment.min.js">
+    </script>
     <script>
         function datetime() {
             var today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
@@ -413,7 +415,5 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgpHpnK2Fgy1xVldrfRrcZHds8Yrr-Kik&callback=initMap&libraries=&v=weekly">
-    </script>
-    <script src="js/moment.min.js">
     </script>
 }

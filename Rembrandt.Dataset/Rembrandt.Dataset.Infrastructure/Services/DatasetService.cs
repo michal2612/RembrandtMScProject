@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Rembrandt.Contracts.Classes.Dataset;
@@ -22,36 +23,21 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 
         public async Task<IEnumerable<ObservationDto>> GetAllObservationsAsync()
         {
-            var observationsCore = await _observationRepository.GetAllObservationsAsync();
-            var observationsDto = new List<ObservationDto>();
-
-            foreach(var observation in observationsCore)
-                observationsDto.Add(_mapper.Map<Observation, ObservationDto>(observation));
-
-            return observationsDto;
+            return from Observation observation in await _observationRepository.GetAllObservationsAsync()
+                   select _mapper.Map<Observation, ObservationDto>(observation);
         }
 
         public async Task<IEnumerable<ObservationDto>> GetMultipleObservationsDtobySiteIdAsync(int siteId)
         {
-            var observationsCore = await _observationRepository.GetAllObservationsAsync();
-            var observationsDto = new List<ObservationDto>();
-
-            foreach(var observation in observationsCore)
-                if(observation.SiteId == siteId)
-                    observationsDto.Add(_mapper.Map<Observation, ObservationDto>(observation));
-
-            return observationsDto;
+            return from Observation observation in await _observationRepository.GetAllObservationsAsync()
+                   where observation.SiteId == siteId
+                   select _mapper.Map<Observation, ObservationDto>(observation);
         }
 
         public async Task<IEnumerable<ObservationDto>> GetObservationsAsync(string id)
         {
-            var observationsCore = await _observationRepository.GetObservationsAsync(id);
-            var observationsDto = new List<ObservationDto>();
-
-            foreach(var observation in observationsCore)
-                observationsDto.Add(_mapper.Map<Observation, ObservationDto>(observation));
-
-            return observationsDto;
+            return from Observation observation in await _observationRepository.GetObservationsAsync(id)
+                   select _mapper.Map<Observation, ObservationDto>(observation);
         }
     }
 }

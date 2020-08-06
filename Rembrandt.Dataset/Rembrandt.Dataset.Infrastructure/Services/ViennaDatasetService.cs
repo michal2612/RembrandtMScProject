@@ -22,25 +22,14 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 
         public async Task<IEnumerable<ViennaObservationDto>> GetAllObservationsAsync()
         {
-            var observationsDb = await _repository.GetAllObservationsAsync();
-            var observationsDto = new List<ViennaObservationDto>();
-
-            foreach(var observation in observationsDb)
-                observationsDto.Add(_mapper.Map<ViennaObservation, ViennaObservationDto>(observation));
-
-            return observationsDto;
+            return from ViennaObservation observation in await _repository.GetAllObservationsAsync()
+                   select _mapper.Map<ViennaObservation, ViennaObservationDto>(observation);
         }
 
         public async Task<IEnumerable<ViennaObservationDto>> GetObservationsByIdAsync(string userId)
         {
-            var observations = await _repository.GetObservationsAsync(userId);
-            var observationsDto = new List<ViennaObservationDto>();
-
-            observations.ToList()
-                        .ForEach(i => observationsDto.Add(_mapper.Map<ViennaObservation, ViennaObservationDto>(i)));
-
-
-            return observationsDto;
+            return from ViennaObservation observation in await _repository.GetObservationsAsync(userId)
+                   select _mapper.Map<ViennaObservation, ViennaObservationDto>(observation);
         }
     }
 }
