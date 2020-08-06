@@ -20536,13 +20536,18 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Data\\Location.cshtml",
-      "TargetPath": "Views\\Data\\Location.cshtml",
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Rembrandt\\Add.cshtml",
+      "TargetPath": "Views\\Rembrandt\\Add.cshtml",
       "FileKind": "mvc"
     },
     {
       "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Rembrandt\\Location.cshtml",
+      "TargetPath": "Views\\Rembrandt\\Location.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20571,13 +20576,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Data\\Data.cshtml",
-      "TargetPath": "Views\\Data\\Data.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Data\\Add.cshtml",
-      "TargetPath": "Views\\Data\\Add.cshtml",
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Rembrandt\\Data.cshtml",
+      "TargetPath": "Views\\Rembrandt\\Data.cshtml",
       "FileKind": "mvc"
     },
     {

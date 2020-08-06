@@ -9,7 +9,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
     {
         Task AddObservationAsync(ViennaObservationDto observation);
 
-        Task AddObservationsAsync(IEnumerable<ViennaObservationDto> observations);
+        void AddObservationsAsync(IEnumerable<ViennaObservationDto> observations);
 
         Task AddObservationsJsonAsync(JsonElement defaultMultipleList);
     }
