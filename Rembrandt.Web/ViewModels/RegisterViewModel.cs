@@ -1,4 +1,3 @@
-using System;
 using Rembrandt.Contracts.Classes.User;
 
 namespace Rembrandt.Web.ViewModels

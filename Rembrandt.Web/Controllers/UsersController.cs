@@ -12,18 +12,13 @@ using Rembrandt.Web.ViewModels;
 
 namespace Rembrandt.Web.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : BaseController
     {
         readonly ILogger _logger;
-        readonly HttpClient _httpClient;
 
         public UsersController(ILogger<UsersController> logger)
         {
             _logger = logger;
-            _httpClient = new HttpClient()
-            {
-                BaseAddress = new Uri("http://51.104.49.19:5000")
-            };
         }
 
         public async Task<IActionResult> Login(Login login)

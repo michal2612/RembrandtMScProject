@@ -12,21 +12,13 @@ using Rembrandt.Web.ViewModels;
 namespace Rembrandt.Web.Controllers
 {
     [Route("[controller]/[action]")]
-    public class RembrandtController : Controller
+    public class RembrandtController : BaseController
     {
-        readonly HttpClient _httpClient;
-        
         readonly IPublishEndpoint _publishEndpoint;
-
 
         public RembrandtController(IPublishEndpoint publishEndpoint)
         {
             _publishEndpoint = publishEndpoint;
-
-            _httpClient = new HttpClient()
-            {
-                BaseAddress = new Uri("http://51.104.49.19:5000")
-            };
         }
 
         public async Task<IActionResult> Data()

@@ -30,6 +30,7 @@ namespace Rembrandt.Dataset.Api
             services.AddScoped<IAddDataService, AddDataService>();
             services.AddScoped<IViennaDatasetService, ViennaDatasetService>();
             services.AddScoped<IAddViennaService, AddViennaService>();
+            services.AddScoped<IViennaRequestService, ViennaRequestService>();
 
             services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddControllers();

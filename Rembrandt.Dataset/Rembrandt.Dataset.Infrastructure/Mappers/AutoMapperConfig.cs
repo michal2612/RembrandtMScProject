@@ -30,7 +30,7 @@ namespace Rembrandt.Dataset.Infrastructure.Mappers
                 cfg.CreateMap<ParkDto, Park>();
 
                 cfg.CreateMap<ViennaObservationDto, ViennaObservation>();
-                cfg.CreateMap<ViennaObservation, ViennaAttributesDto>();
+                cfg.CreateMap<ViennaObservation, ViennaObservationDto>();
 
                 cfg.CreateMap<ViennaAttributesDto, ViennaAttributes>();
                 cfg.CreateMap<ViennaAttributes, ViennaAttributesDto>();

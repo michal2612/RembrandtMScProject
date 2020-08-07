@@ -26,6 +26,7 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
             var observation = await _observationContext.ViennaObservations
                 .Include(obs => obs.Location)
                 .Include(obs => obs.Attributes)
+                .Include(obs => obs.SubAttributes)
                 .Where(c => c.User == userId)
                 .ToListAsync();
             
@@ -36,6 +37,10 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
         }
 
         public async Task<IEnumerable<ViennaObservation>> GetAllObservationsAsync()
-            => await _observationContext.ViennaObservations.ToListAsync();
+            => await _observationContext.ViennaObservations
+                .Include(obs => obs.Location)
+                .Include(obs => obs.Attributes)
+                .Include(obs => obs.SubAttributes)
+                .ToListAsync();
     }
 }
