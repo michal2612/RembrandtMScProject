@@ -16,5 +16,10 @@ namespace Rembrandt.Web.Controllers
                 }
             });
         }
+
+        public IActionResult Result(IEnumerable<ViennaObservationDto> observationsDto)
+        {
+            return View();
+        }
     }
 }

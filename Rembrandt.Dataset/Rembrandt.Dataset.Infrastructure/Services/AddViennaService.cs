@@ -26,7 +26,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             => await  _repository.AddObservationAsync(_mapper.Map<ViennaObservationDto, ViennaObservation>(observation));
 
         public void AddObservationsAsync(IEnumerable<ViennaObservationDto> observations)
-            =>observations.ToList().ForEach(async (observation) => await AddObservationAsync(observation));
+            => observations.ToList().ForEach(async (observation) => await AddObservationAsync(observation));
 
         public async Task AddObservationsJsonAsync(JsonElement defaultMultipleList)
         {
@@ -38,6 +38,7 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 
             foreach(var objectJ in jObjects)
                 await AddObservationAsync(objectJ.ToObject<DefaultViennaObservation>().ViennaObservationDto());
+
         }
     }
 }
