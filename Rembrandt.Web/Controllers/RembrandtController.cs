@@ -14,7 +14,7 @@ namespace Rembrandt.Web.Controllers
     [Route("[controller]/[action]")]
     public class RembrandtController : BaseController
     {
-        readonly IPublishEndpoint _publishEndpoint;
+        private readonly IPublishEndpoint _publishEndpoint;
 
         public RembrandtController(IPublishEndpoint publishEndpoint)
         {

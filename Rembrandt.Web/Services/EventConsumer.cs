@@ -10,7 +10,7 @@ namespace Rembrandt.Web.Services
 {
     public class EventConsumer : IConsumer<ObservationDto>
     {
-        readonly HttpClient _client;
+        private readonly HttpClient _client;
         
         public EventConsumer()
         {

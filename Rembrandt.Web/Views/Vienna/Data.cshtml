@@ -31,8 +31,8 @@
         </div> 
         <button type="button" class="btn btn-primary" onclick="submit()">Find suitable locations!</button>
     </div>
-
 </div>
+
 @section scripts {
     <script>
         function initMap() {
@@ -77,9 +77,10 @@
             for(var i = 0; i < subcategories.length; i++) {
                 if(subcategories[i].selected) selected.push(subcategories.options[i].value);
             }
-            console.log(selected);
             viennaSelect['subCategories'] = CheckForNull(selected);
-            console.log(viennaSelect);
+            $.post("@Url.Action("Submit","Vienna")", viennaSelect).done(function(data) {
+                alert(data);
+            });
         }
 
         function CheckForNull(value) {
