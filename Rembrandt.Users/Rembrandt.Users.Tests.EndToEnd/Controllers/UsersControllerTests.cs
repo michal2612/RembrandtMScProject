@@ -10,7 +10,7 @@ namespace Rembrandt.Users.Tests.EndToEnd.Controllers
 {
     public class UsersControllerTests
     {
-        readonly WebApplicationFactory<Rembrandt.Users.Api.Startup> _factory;
+        private readonly WebApplicationFactory<Rembrandt.Users.Api.Startup> _factory;
         public UsersControllerTests()
             => _factory = new WebApplicationFactory<Rembrandt.Users.Api.Startup>();
 

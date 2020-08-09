@@ -10,9 +10,9 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 {
     public class ViennaDatasetService : IViennaDatasetService
     {
-        readonly IViennaObservationRepository _repository;
+        private readonly IViennaObservationRepository _repository;
 
-        readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public ViennaDatasetService(IMapper mapper, IViennaObservationRepository repository)
         {

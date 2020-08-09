@@ -13,9 +13,9 @@ namespace Rembrandt.Contracts.Database
 
         public static string Password { get { return GetPassword(); } }
 
-        static readonly string jsonFile = File.ReadAllText("database.json");
+        private static readonly string jsonFile = File.ReadAllText("database.json");
         
-        static readonly JObject _databaseJson = JObject.Parse(jsonFile);
+        private static readonly JObject _databaseJson = JObject.Parse(jsonFile);
 
         static string GetHost()
             => _databaseJson["Host"].ToString();

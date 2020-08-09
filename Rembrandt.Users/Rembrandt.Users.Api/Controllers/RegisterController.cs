@@ -11,8 +11,8 @@ namespace Rembrandt.Users.Api.Controllers
     [Route("[controller]")]
     public class RegisterController : ControllerBase
     {
-        readonly IMemoryCache _memoryCache;
-        readonly IRegisterService _registerService;
+        private readonly IMemoryCache _memoryCache;
+        private readonly IRegisterService _registerService;
 
         public RegisterController(IMemoryCache memoryCache, IRegisterService registerService)
         {

@@ -11,7 +11,7 @@ namespace Rembrandt.Dataset.Api.Controllers
     [Route("[controller]")]
     public class ViennaRequestController : ControllerBase
     {
-        readonly IViennaRequestService _requestService;
+        private readonly IViennaRequestService _requestService;
 
         public ViennaRequestController(IViennaRequestService requestService)
         {

@@ -9,8 +9,8 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
 {
     public class StatsService : IStatsService
     {
-        readonly IStatsRepository _statsRepository;
-        readonly IMapper _mapper;
+        private readonly IStatsRepository _statsRepository;
+        private readonly IMapper _mapper;
 
         public StatsService(IStatsRepository statsRepository, IMapper mapper)
         {

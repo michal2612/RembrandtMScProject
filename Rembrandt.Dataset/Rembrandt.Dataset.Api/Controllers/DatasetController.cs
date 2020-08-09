@@ -11,9 +11,9 @@ namespace Rembrandt.Dataset.Api.Controllers
     [Route("[controller]")]
     public class DatasetController : ControllerBase
     {
-        readonly IDatasetService _datasetService;
+        private readonly IDatasetService _datasetService;
         
-        readonly IAddDataService _addDataService;
+        private readonly IAddDataService _addDataService;
 
 
         public DatasetController(IDatasetService datasetService, IAddDataService addDataService)

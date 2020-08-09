@@ -32,7 +32,9 @@
         <button type="button" class="btn btn-primary" onclick="submit()">Find suitable locations!</button>
     </div>
 </div>
+<div id="rembrandt">
 
+</div>
 @section scripts {
     <script>
         function initMap() {
@@ -40,12 +42,6 @@
                 center: {lat: 48.2086649, lng: 16.3666573},
                 zoom: 13
             });
-              var marker = new google.maps.Marker({
-                position: {lat: 48.2086649, lng: 16.3666573},
-                map: map,
-                animation: google.maps.Animation.DROP,
-                title: 'Hello World!'
-  });
     }
     </script>
     <script async defer
@@ -64,12 +60,14 @@
                 });
             })
 
+        let markers = [];
+
         function submit() {
             var viennaSelect = new Object();
 
             //main category
             var main = document.getElementById('main-category').value;
-            viennaSelect['category'] = CheckForNull(main);
+            viennaSelect['MainCategory'] = CheckForNull(main);
 
             //sub categories
             var subcategories = document.getElementById('sub-categories');
@@ -77,9 +75,26 @@
             for(var i = 0; i < subcategories.length; i++) {
                 if(subcategories[i].selected) selected.push(subcategories.options[i].value);
             }
-            viennaSelect['subCategories'] = CheckForNull(selected);
-            $.post("@Url.Action("Submit","Vienna")", viennaSelect).done(function(data) {
-                alert(data);
+            viennaSelect['RequestedActivities'] = CheckForNull(selected);
+            $.post('@Url.Action("Submit","Vienna")', viennaSelect).done(function(response){
+            alert("success");
+            $("#rembrandt").html(response);
+
+            var jsonResponse = JSON.parse(response);
+            for(i = 0; i < jsonResponse.length; i++) {
+                AddMarker(jsonResponse[i].location.latitude, jsonResponse[i].location.longitude);
+            };
+
+            });
+        }
+
+
+        function AddMarker(lat, lng) {
+            var marker = new google.maps.Marker({
+            position: {lat: lat, lng: lng},
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: 'Hello World!'
             });
         }
 
