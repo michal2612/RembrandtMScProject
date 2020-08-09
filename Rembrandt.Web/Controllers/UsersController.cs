@@ -14,7 +14,7 @@ namespace Rembrandt.Web.Controllers
 {
     public class UsersController : BaseController
     {
-        readonly ILogger _logger;
+        private readonly ILogger _logger;
 
         public UsersController(ILogger<UsersController> logger)
         {

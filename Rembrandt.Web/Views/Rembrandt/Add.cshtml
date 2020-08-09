@@ -377,6 +377,7 @@
             observation[definedClass] = contributorDetails;
             console.log(observation);
             $.post("@Url.Action("Submit", "Rembrandt")", observation, function(){ alert("OK!")});
+            console.log("It worked!");
         };
 
         //map

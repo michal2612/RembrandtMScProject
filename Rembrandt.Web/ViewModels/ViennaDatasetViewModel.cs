@@ -15,10 +15,13 @@ namespace Rembrandt.Web.ViewModels
 
         public IEnumerable<SuitableArea> SuitableAreas { get; set; }
 
+        public List<string> RequestedActivities { get; set; }
+
         public ViennaDatasetViewModel()
         {
             AttributesNames = AddAttributesNames(new ViennaAttributesDto());
             SubAttributesNames = AddAttributesNames(new ViennaSubAttributesDto());
+            RequestedActivities = new List<string>();
         }
 
         Dictionary<string, string> AddAttributesNames(object obj)

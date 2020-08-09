@@ -6,7 +6,7 @@ namespace Rembrandt.Web.Controllers
     [Route("[action]")]
     public class LogInController : Controller
     {
-        readonly ILogger<LogInController> _logger;
+        private readonly ILogger<LogInController> _logger;
 
         public LogInController(ILogger<LogInController> logger)
         {
