@@ -11,9 +11,9 @@ namespace Rembrandt.DatasetStats.Api.Controllers
     [Route("[controller]")]
     public class StatsController : ControllerBase
     {
-        readonly IStatsService _statsService;
+        private readonly IStatsService _statsService;
 
-        readonly IUpdateObservations _updateObservationsService;
+        private readonly IUpdateObservations _updateObservationsService;
 
         public StatsController(IStatsService statsService, IUpdateObservations updateObservations)
         {

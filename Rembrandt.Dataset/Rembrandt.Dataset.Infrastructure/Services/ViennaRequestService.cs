@@ -11,9 +11,9 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 {
     public class ViennaRequestService : IViennaRequestService
     {
-        readonly IViennaObservationRepository _repository;
+        private readonly IViennaObservationRepository _repository;
 
-        readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public ViennaRequestService(IViennaObservationRepository repository, IMapper mapper)
         {

@@ -8,9 +8,9 @@ namespace Rembrandt.Users.Infrastructure.Services.Users
 {
     public class RegisterService : IRegisterService
     {
-        readonly IUserService _userService;
-        readonly IJwtHandler _jwtHandler;
-        readonly IMemoryCache _memoryCache;
+        private readonly IUserService _userService;
+        private readonly IJwtHandler _jwtHandler;
+        private readonly IMemoryCache _memoryCache;
 
         public RegisterService(IUserService userSerivce, IJwtHandler jwtHandler, IMemoryCache memoryCache)
         {

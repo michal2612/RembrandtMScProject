@@ -11,8 +11,8 @@ namespace Rembrandt.Users.Api.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        readonly IMemoryCache _memoryCache;
-        readonly ILoginService _loginService;
+        private readonly IMemoryCache _memoryCache;
+        private readonly ILoginService _loginService;
 
         public LoginController(IMemoryCache memoryCache, ILoginService loginService)
         {

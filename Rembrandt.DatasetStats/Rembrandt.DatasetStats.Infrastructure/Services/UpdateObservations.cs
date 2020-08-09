@@ -10,8 +10,9 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
 {
     public class UpdateObservations : IUpdateObservations
     {
-        readonly IStatsRepository _statsRepository;
-        readonly IMapper _mapper;
+        private readonly IStatsRepository _statsRepository;
+        
+        private readonly IMapper _mapper;
 
         public UpdateObservations(IStatsRepository statsRepository, IMapper mapper)
         {

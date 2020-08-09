@@ -13,9 +13,9 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 {
     public class AddDataService : IAddDataService
     {
-        readonly IObservationRepository _observationRepository;
+        private readonly IObservationRepository _observationRepository;
         
-        readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public AddDataService(IObservationRepository observationRepository, IMapper mapper)
         {

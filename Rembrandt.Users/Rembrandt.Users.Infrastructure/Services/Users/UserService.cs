@@ -10,9 +10,9 @@ namespace Rembrandt.Users.Infrastructure.Services
 {
     public class UserService : IUserService
     {
-        readonly IUserRepository _userRepository;
-        readonly IMapper _mapper;
-        readonly IEncrypter _encrypter;
+        private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
+        private readonly IEncrypter _encrypter;
 
         public UserService(IUserRepository userRepository, IMapper mapper, IEncrypter encrypter)
         {

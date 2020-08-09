@@ -5,8 +5,8 @@ namespace Rembrandt.Users.Infrastructure.Services
 {
     public class Encrypter : IEncrypter
     {
-        static readonly int DeriveBytesIterationsCount = 10000;
-        static readonly int SaltSize = 40;
+        private static readonly int DeriveBytesIterationsCount = 10000;
+        private static readonly int SaltSize = 40;
 
         public string GetHash(string value, string salt)
         {

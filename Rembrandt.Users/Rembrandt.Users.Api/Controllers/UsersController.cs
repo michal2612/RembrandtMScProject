@@ -9,8 +9,8 @@ namespace Rembrandt.Users.Api.Controllers
     [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        readonly IUserService _userService;
-        readonly IJwtHandler _jwtHandler;
+        private readonly IUserService _userService;
+        private readonly IJwtHandler _jwtHandler;
 
         public UsersController(IUserService userService, IJwtHandler jwtHandler)
         {
