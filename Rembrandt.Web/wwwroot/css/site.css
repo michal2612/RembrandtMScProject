@@ -124,5 +124,12 @@ body {
 
 .subattributes-div {
   width: 100%;
-  min-height: 25vh;
+  min-height: 15vh;
+}
+.vienna-table {
+  max-width: 100%;
+}
+#vienna-table > table, th, td {
+  word-break: break-word;
+  max-width: 5vw;
 }

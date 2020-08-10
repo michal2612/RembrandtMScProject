@@ -31,17 +31,35 @@
         </div> 
         <button type="button" class="btn btn-primary" onclick="submit()">Find suitable locations!</button>
     </div>
-</div>
-<div id="rembrandt">
-
+    <h2>
+        Observations list
+    </h2>
+    <div id="vienna-table-main-div">
+        <table class="table table-striped table-hover vienna-table" id="vienna-table">
+            <tr>
+                <th>No.</th>
+                <th>Time Submitted</th>
+                <th>Attributes</th>
+                <th>Subattributes</th>
+            </tr>
+        </table>
+    </div>
 </div>
 @section scripts {
     <script>
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 48.2086649, lng: 16.3666573},
-                zoom: 13
+                zoom: 13,
+                mapTypeId: "terrain"
             });
+
+        var marker = new google.maps.Marker({
+            position: {lat: 48.2086649, lng: 16.3666573},
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: 'Hello World!'
+        });
     }
     </script>
     <script async defer
@@ -60,9 +78,8 @@
                 });
             })
 
-        let markers = [];
-
         function submit() {
+            setMapOnAll(null);
             var viennaSelect = new Object();
 
             //main category
@@ -77,13 +94,44 @@
             }
             viennaSelect['RequestedActivities'] = CheckForNull(selected);
             $.post('@Url.Action("Submit","Vienna")', viennaSelect).done(function(response){
-            alert("success");
-            $("#rembrandt").html(response);
+                if(response != null) {
+                    var jsonResponse = JSON.parse(response);
+                    document.getElementById('vienna-table').style.visibility = "visible";
+                    $("#rembrandt").html(response);
 
-            var jsonResponse = JSON.parse(response);
-            for(i = 0; i < jsonResponse.length; i++) {
-                AddMarker(jsonResponse[i].location.latitude, jsonResponse[i].location.longitude);
-            };
+                    for(i = 0; i < jsonResponse.length; i++) {
+                        AddMarker(jsonResponse[i].location.latitude, jsonResponse[i].location.longitude);
+
+                        var table = document.getElementById('vienna-table');
+                        var row = table.insertRow(i + 1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+
+
+                        cell1.innerHTML = i + 1;
+                        cell2.innerHTML = jsonResponse[i].timeSubmitted;
+
+                        var attributesValues = [];
+
+                        for(const [key, value] of Object.entries(jsonResponse[i].attributes)) {
+                            if(Number.isInteger(value)) {
+                                if(value >= 50) attributesValues.push(key);
+                            }
+                            if(value == true) attributesValues.push(key);
+                        }
+                        cell3.innerHTML = attributesValues.join(', ');
+                        
+                        var subAttributesValues = [];
+
+                        for(const [key, value] of Object.entries(jsonResponse[i].subAttributes)) {
+                            if(value == true) subAttributesValues.push(key);
+                        }
+                        cell4.innerHTML = subAttributesValues.join(', ');
+                    };
+
+                }
 
             });
         }
@@ -94,12 +142,18 @@
             position: {lat: lat, lng: lng},
             map: map,
             animation: google.maps.Animation.DROP,
-            title: 'Hello World!'
             });
         }
 
         function CheckForNull(value) {
             return value == 'null' ? null : value;
+        }
+
+        function setMapOnAll(map) {
+            var markers = [];
+            for (let i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
         }
     </script>
 }
