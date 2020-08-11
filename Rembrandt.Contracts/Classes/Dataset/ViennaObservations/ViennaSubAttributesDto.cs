@@ -98,6 +98,7 @@ namespace Rembrandt.Contracts.Classes.Dataset.ViennaObservations
 
         public bool? Proposing { get; set; }
 
+        [Display(Name ="Riding a boat")]
         public bool? RidingABoat { get; set; }
 
         public bool? Romance { get; set; }
