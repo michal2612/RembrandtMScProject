@@ -1,34 +1,198 @@
+@model Rembrandt.Web.ViewModels.ViennaDatasetViewModel
 @{
-    ViewData["Title"] = "Add new Vienna";
+    ViewData["Title"] = "Add";
 }
-
+<h1>@ViewData["Title"]</h1>
+<p>Add new observation.</p>
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+    Fill all forms to add a new record to database!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <div class="row">
     <div class="col-3">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
             <a class="nav-link active" id="v-pills-general-tab" data-toggle="pill" href="#v-pills-general" role="tab" aria-controls="v-pills-general" aria-selected="true">General</a>
-            <a class="nav-link" id="v-pills-attributes-tab" data-toggle="pill" href="#v-pills-attributes" role="tab" aria-controls="v-pills-attributes" aria-selected="false">Attributes</a>
-            <a class="nav-link" id="v-pills-activities-tab" data-toggle="pill" href="#v-pills-activities" role="tab" aria-controls="v-pills-activities" aria-selected="false">Activities</a>
-            <a class="nav-link" id="v-pills-contributor-tab" data-toggle="pill" href="#v-pills-contributor" role="tab" aria-controls="v-pills-contributor" aria-selected="false">Contributor</a>
-            <a class="nav-link" id="v-pills-submit-tab" data-toggle="pill" href="#v-pills-submit" role="tab" aria-controls="v-pills-submit" aria-selected="false">Submit</a>
+                <a class="nav-link" id="v-pills-attributes-tab" data-toggle="pill" href="#v-pills-attributes" role="tab" aria-controls="v-pills-attributes" aria-selected="false">Main Attributes</a>
+                <a class="nav-link" id="v-pills-subattributes-tab" data-toggle="pill" href="#v-pills-subattributes" role="tab" aria-controls="v-pills-subattributes" aria-selected="false">Subattributes</a>
+                <a class="nav-link" id="v-pills-submit-tab" data-toggle="pill" href="#v-pills-submit" role="tab" aria-controls="v-pills-submit" aria-selected="false" onclick="datetime()">Submit</a>
         </div>
     </div>
     <div class="col-9">
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="v-pills-general" role="tabpanel" aria-labelledby="v-pills-general-tab">
-
+                <div id="general">
+                    <div class="form-group">
+                        <label for="PhotoAddress">Photo of location:</label>
+                        <input type="file" class="form-control-file" id="photoLocation">
+                        <label for="PhotoAddress">Photo of location North:</label>
+                        <input type="file" class="form-control-file" id="photoLocation">
+                        <label for="PhotoAddress">Photo of location West:</label>
+                        <input type="file" class="form-control-file" id="photoLocation">
+                        <label for="PhotoAddress">Photo of location South:</label>
+                        <input type="file" class="form-control-file" id="photoLocation">
+                        <label for="PhotoAddress">Photo of location East:</label>
+                        <input type="file" class="form-control-file" id="photoLocation">
+                    </div>
+                    <div id="map">
+                    </div>
+                    <div id="coordinates">
+                        <table class="table table-striped table-hover ">
+                            <tr>
+                                <td>Location:</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Latitude</td>
+                                <td id="latitude-value"></td>
+                            </tr>
+                            <tr>
+                                <td>Longitude</td>
+                                <td id="longitude-value"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
+
             <div class="tab-pane fade" id="v-pills-attributes" role="tabpanel" aria-labelledby="v-pills-attributes-tab">
-
+                @foreach(var mainProperty in Model.IntAttributesNames)
+                {
+                    <div class="form-group">
+                        <b>@mainProperty.Value</b>
+                        <input type="range" class="form-control-range main-attributes-vienna" id="@mainProperty.Key" min="0" max="100" value="50" name="attribute">
+                    </div>
+                }
+                @foreach(var subProperty in Model.BoolAttributesNames)
+                {
+                    <div class="sub-attribute-switcher d-flex">
+                        <label class="switch">
+                            <input type="checkbox" class="main-attributes-bool-vienna" id="@subProperty.Key">
+                            <span class="slider round"></span>
+                        </label>
+                        <h5 style="padding-left: 4vw;">@subProperty.Value</h5>
+                    </div>
+                }
             </div>
-            <div class="tab-pane fade" id="v-pills-activities" role="tabpanel" aria-labelledby="v-pills-activities-tab">
-
-            </div>
-            <div class="tab-pane fade" id="v-pills-contributor" role="tabpanel" aria-labelledby="v-pills-contributor-tab">
-
+            <div class="tab-pane fade" id="v-pills-subattributes" role="tabpanel" aria-labelledby="v-pills-subattributes-tab">
+                @foreach(var property in Model.SubAttributesNames)
+                {
+                    <div class="sub-attribute-switcher d-flex">
+                        <label class="switch">
+                            <input type="checkbox" class="sub-attributes-vienna" id="@property.Key">
+                            <span class="slider round"></span>
+                        </label>
+                        <h5 style="padding-left: 4vw;">@property.Value</h5>
+                    </div>
+                }
             </div>
             <div class="tab-pane fade" id="v-pills-submit" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-
+                <div class="form-group row">
+                    <label for="example-datetime-local-input" class="col-2 col-form-label">Observation date and time</label>
+                    <div class="col-10">
+                        <input class="form-control" type="datetime-local" id="datetime-input">
+                    </div>
+                </div>
+                <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" onclick="submit()">Submit</a>
             </div>
         </div>
     </div>
 </div>
+
+@section scripts {
+    <script src="~/js/moment.min.js">
+    </script>
+    <script>
+        function datetime() {
+            var today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
+            document.getElementById('datetime-input').value = today;
+        }
+
+        function submit() {
+
+            var observation = new Object();
+
+
+            //location
+            observation['Location'] = new Object();
+            var measuredLocation = new Object();
+
+            measuredLocation['Longitude'] = markers[0].position.lng();
+            measuredLocation['Latitude'] = markers[0].position.lat();
+
+            observation['Location']['MeasuredLocation'] = measuredLocation;
+            observation['Location']['ActualLocation'] = measuredLocation;
+
+            //attributes
+            observation['Attributes'] = new Object();
+
+            var mainAttributes = document.getElementsByClassName('main-attributes-vienna');
+            for(i = 0; i < mainAttributes.length; i++) {
+                observation['Attributes'][mainAttributes[i].id] = parseInt(mainAttributes[i].value); 
+            }
+
+            //attributes bool
+            var mainAttributesBool = document.getElementsByClassName('main-attributes-bool-vienna');
+            for(i = 0; i < mainAttributesBool.length; i++) {
+                if(mainAttributesBool[i].checked)
+                    observation['Attributes'][mainAttributesBool[i].id] = true;
+                else
+                    observation['Attributes'][mainAttributesBool[i].id] = false;
+            }
+
+            //subattributes
+            observation['SubAttributes'] = new Object();
+            var subAttributes = document.getElementsByClassName('sub-attributes-vienna');
+            for(i = 0; i < subAttributes.length; i++) {
+                if(subAttributes[i].checked)
+                    observation['SubAttributes'][subAttributes[i].id] = true;
+                else
+                    observation['SubAttributes'][subAttributes[i].id] = false;
+            }
+
+
+
+            //time
+            observation['TimeSubmitted'] = new Date(document.getElementById('datetime-input').value);
+            $.post("@Url.Action("AddNew", "Vienna")", observation, function(){ alert("OK!")});
+        };
+
+        //map
+        let map;
+        var markers = [];
+
+        function addMarker(latLng) {
+            let marker = new google.maps.Marker({
+                map: map,
+                position: latLng,
+                draggable: true
+            });
+            document.getElementById('latitude-value').innerHTML = marker.position.lat().toFixed(6);
+            document.getElementById('longitude-value').innerHTML = marker.position.lng().toFixed(6);
+            markers.push(marker);
+        };
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat:48.2086649, lng: 16.3666573},
+            zoom: 15
+        });
+
+        map.addListener('click', function(e) {
+            setMapOnAll(null)
+            addMarker(e.latLng);
+            });
+        }
+
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgpHpnK2Fgy1xVldrfRrcZHds8Yrr-Kik&callback=initMap&libraries=&v=weekly">
+    </script>
+}

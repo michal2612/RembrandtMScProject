@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Rembrandt.Contracts.Classes.Dataset.ViennaObservations;
@@ -12,8 +12,15 @@ using Rembrandt.Web.ViewModels;
 namespace Rembrandt.Web.Controllers
 {
     [Route("[controller]/[action]")]
-    public class viennaController : BaseController
+    public class ViennaController : BaseController
     {
+        private readonly IPublishEndpoint _publishEndpoint;
+
+        public ViennaController(IPublishEndpoint publishEndpoint)
+        {
+            _publishEndpoint = publishEndpoint;
+        }
+
         public IActionResult Data()
         {
             return View(new ViennaDatasetViewModel() {
@@ -41,7 +48,11 @@ namespace Rembrandt.Web.Controllers
 
         public IActionResult Add()
         {
-            return View();
+            return View(new ViennaDatasetViewModel());
         }
+
+        [HttpPost]
+        public async Task AddNew(ViennaObservationDto observationDto)
+            => await _publishEndpoint.Publish<ViennaObservationDto>(observationDto);
     }
 }
