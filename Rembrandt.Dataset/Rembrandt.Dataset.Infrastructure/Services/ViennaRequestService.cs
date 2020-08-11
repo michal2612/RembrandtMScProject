@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Rembrandt.Contracts.Classes.Dataset.ViennaObservations;
@@ -26,13 +25,12 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             var observations = new List<ViennaObservationDto>();
 
             foreach(var observation in await _repository.GetAllObservationsAsync())
-            {
                 foreach(var subAttribute in request.RequestedActivities)
-                {
-                        if((bool?)observation.SubAttributes.GetType().GetProperty(subAttribute).GetValue(observation.SubAttributes) == true)
-                            observations.Add(_mapper.Map<ViennaObservation, ViennaObservationDto>(observation));
-                }
-            }
+                    if((bool?)observation.SubAttributes.GetType().GetProperty(subAttribute).GetValue(observation.SubAttributes) == true)
+                    {
+                        observations.Add(_mapper.Map<ViennaObservation, ViennaObservationDto>(observation));
+                        break;
+                    }
             return observations;
         }
     }

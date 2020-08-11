@@ -38,5 +38,10 @@ namespace Rembrandt.Web.Controllers
         {
             return View();
         }
+
+        public IActionResult Add()
+        {
+            return View();
+        }
     }
 }

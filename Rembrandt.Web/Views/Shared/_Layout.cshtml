@@ -27,7 +27,7 @@
                             //if(isLogged)
                             //{
                         <li class="nav-item dropdown">
-                            <a href="#" class="dropdown-toggle nav-link text-dark" data-toggle="dropdown" role="button" aria-expanded="false">Datasets<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle nav-link text-dark" data-toggle="dropdown" role="button" aria-expanded="false">Available datasets<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Rembrandt" asp-action="Data">Rembrandt Dataset</a>
@@ -37,8 +37,16 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Rembrandt" asp-action="Add">Add new</a>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown-toggle nav-link text-dark" data-toggle="dropdown" role="button" aria-expanded="false">Add to dataset<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Rembrandt" asp-action="Add">Add to Rembrandt</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Vienna" asp-action="Add">Add to Vienna</a>
+                                </li>
+                            </ul>
                         </li>
                             //}
                         }
