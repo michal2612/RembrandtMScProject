@@ -26,6 +26,10 @@ namespace Rembrandt.Web
             {
                 x.AddConsumer<EventConsumer>();
                 x.UsingRabbitMq((context, cfg) => {
+                    cfg.Host(new Uri("rabbitmq://rembrandt-project.ukwest.cloudapp.azure.com"), host => {
+                        host.Username("guest");
+                        host.Password("guest");
+                    });
                     cfg.ReceiveEndpoint("event-listener", e => {
                         e.ConfigureConsumer<EventConsumer>(context);
                     });
@@ -39,7 +43,6 @@ namespace Rembrandt.Web
             });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
 
             services.AddRouting(options => options.LowercaseUrls = true);
 

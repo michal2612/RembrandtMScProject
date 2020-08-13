@@ -1,4 +1,5 @@
 using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http;
 using System.Threading.Tasks;
 using MassTransit;
@@ -57,7 +58,6 @@ namespace Rembrandt.Web.Controllers
                 throw new ArgumentNullException("Observation can't be null!");
 
             observationDto.Source = "http://rembrandt-project.ukwest.cloudapp.azure.com/" + HttpContext.Session.GetString(cookie);
-
             await _publishEndpoint.Publish<ObservationDto>(observationDto);
 
             return Ok();

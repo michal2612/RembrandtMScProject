@@ -110,10 +110,8 @@
         }
 
         function submit() {
-
             var observation = new Object();
-
-
+            
             //location
             observation['Location'] = new Object();
             var measuredLocation = new Object();
@@ -150,8 +148,6 @@
                 else
                     observation['SubAttributes'][subAttributes[i].id] = false;
             }
-
-
 
             //time
             observation['TimeSubmitted'] = new Date(document.getElementById('datetime-input').value);
