@@ -24,10 +24,10 @@ namespace Rembrandt.Web.Services
             await _client.PostAsync("/dataset-gateway/single", ReturnStringContent(context.Message));
         }
 
+
         public async Task Consume(ConsumeContext<ViennaObservationDto> context)
-        {
-            await _client.PostAsync("/vienna-dataset-gateway", ReturnStringContent(context.Message));
-        }
+            => await _client.PostAsync("/vienna-dataset-gateway", ReturnStringContent(context.Message));
+
 
         StringContent ReturnStringContent(object context)
             => new StringContent(JsonConvert.SerializeObject(context), Encoding.UTF8, "application/json");
