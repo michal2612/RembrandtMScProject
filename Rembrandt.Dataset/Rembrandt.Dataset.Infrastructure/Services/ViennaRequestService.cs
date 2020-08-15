@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -22,6 +23,9 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 
         public async Task<IEnumerable<ViennaObservationDto>> GetMatchingObservationsDtoAsync(ViennaRequest request)
         {
+            if(request == null)
+                throw new ArgumentNullException();
+                
             var observations = new List<ViennaObservationDto>();
 
             foreach(var observation in await _repository.GetAllObservationsAsync())

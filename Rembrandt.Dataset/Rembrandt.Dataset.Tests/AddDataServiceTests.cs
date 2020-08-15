@@ -139,5 +139,18 @@ namespace Rembrandt.Dataset.Tests
 
             observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Never);
         }
+
+        [Fact]
+        public async Task add_one_observation_should_invoke_add_async()
+        {
+            var observationRepositoryMock = new Mock<IObservationRepository>();
+            var mapperMock = new Mock<IMapper>();
+            var addDataService = new AddDataService(observationRepositoryMock.Object, mapperMock.Object);
+
+            var observationList = JsonDocument.Parse(File.ReadAllText(Path.Combine(Environment.CurrentDirectory, @"..\..\..\.\observation.json")));
+            await addDataService.AddMultipleDefaultListAsync(observationList.RootElement);
+
+            observationRepositoryMock.Verify(x => x.AddObservationAsync(It.IsAny<Observation>()), Times.Once);
+        }
     }
 }

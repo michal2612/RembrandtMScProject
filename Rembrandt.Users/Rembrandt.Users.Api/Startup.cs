@@ -39,7 +39,6 @@ namespace Rembrandt.Users.Api
 
             services.AddScoped<ILoginService, LoginService>();
             services.AddScoped<IRegisterService, RegisterService>();
-            
             services.AddScoped<IJwtHandler, JwtHandler>();
 
             var Settings = new Settings();
