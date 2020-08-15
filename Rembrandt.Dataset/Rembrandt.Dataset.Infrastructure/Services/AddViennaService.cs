@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -23,13 +24,19 @@ namespace Rembrandt.Dataset.Infrastructure.Services
         }
 
         public async Task AddObservationAsync(ViennaObservationDto observation)
-            => await  _repository.AddObservationAsync(_mapper.Map<ViennaObservationDto, ViennaObservation>(observation));
+        {
+            if(observation == null)
+                throw new ArgumentNullException("Observation can't be null!");
+
+            await  _repository.AddObservationAsync(_mapper.Map<ViennaObservationDto, ViennaObservation>(observation));
+        }
 
         public void AddObservationsAsync(IEnumerable<ViennaObservationDto> observations)
             => observations.ToList().ForEach(async (observation) => await AddObservationAsync(observation));
 
         public async Task AddObservationsJsonAsync(JsonElement defaultMultipleList)
         {
+
             var jObject = (JArray)JObject.Parse(defaultMultipleList.ToString())["features"];
             var jObjects = new List<JToken>();
 

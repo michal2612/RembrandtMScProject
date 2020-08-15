@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,6 +29,9 @@ namespace Rembrandt.Dataset.Infrastructure.Services
 
         public async Task<IEnumerable<ViennaObservationDto>> GetObservationsByIdAsync(string userId)
         {
+            if(userId == null || string.IsNullOrWhiteSpace(userId))
+                throw new ArgumentException("User Id should have a value!");
+
             return from ViennaObservation observation in await _repository.GetObservationsAsync(userId)
                    select _mapper.Map<ViennaObservation, ViennaObservationDto>(observation);
         }
