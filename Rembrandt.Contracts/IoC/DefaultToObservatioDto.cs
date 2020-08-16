@@ -129,7 +129,7 @@ namespace Rembrandt.Contracts.IoC
             => Int32.TryParse(value, out int result) ? result : (int?)null;
 
         static bool ConvertIntTobool(int? value)
-            => value == null ? false : true;
+            => value == null;
 
         static ViennaSubAttributesDto GetViennaSubAttributesDto(DefaultViennaObservation defaultViennaObservation)
         {
