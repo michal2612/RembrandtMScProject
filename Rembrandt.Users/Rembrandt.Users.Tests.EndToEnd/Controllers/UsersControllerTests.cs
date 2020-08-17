@@ -29,7 +29,7 @@ namespace Rembrandt.Users.Tests.EndToEnd.Controllers
         }
 
         [Fact]
-        public async Task give_invalid_email_should_exist()
+        public async Task give_invalid_email_should_not_exist()
         {
             var email = "incorrect_email";
             var response = await _factory.CreateClient().GetAsync($"users/{email}");

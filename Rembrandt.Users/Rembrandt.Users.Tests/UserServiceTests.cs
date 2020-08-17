@@ -6,9 +6,6 @@ using Xunit;
 using Rembrandt.Users.Infrastructure.Services;
 using Rembrandt.Users.Core.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using Rembrandt.Users.Infrastructure.Repositories;
 
 namespace Rembrandt.Users.Tests
 {
