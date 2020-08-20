@@ -17,16 +17,16 @@ namespace Rembrandt.Contracts.Database
         
         private static readonly JObject _databaseJson = JObject.Parse(jsonFile);
 
-        static string GetHost()
+        private static string GetHost()
             => _databaseJson["Host"].ToString();
 
-        static string GetPort()
+        private static string GetPort()
             => _databaseJson["Port"].ToString();
 
-        static string GetUser()
+        private static string GetUser()
             => _databaseJson["User"].ToString();
 
-        static string GetPassword()
+        private static string GetPassword()
             => _databaseJson["Password"].ToString();
     }
 }
