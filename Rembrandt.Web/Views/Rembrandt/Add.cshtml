@@ -375,7 +375,9 @@
                 }
             }
             observation[definedClass] = contributorDetails;
-            $.post("@Url.Action("Submit", "Rembrandt")", observation, function(){ alert("OK!")});
+            $.post("@Url.Action("Submit", "Rembrandt")", observation, function() {
+                alert("The observation has been added to database!"
+                )});
         };
 
         //map
