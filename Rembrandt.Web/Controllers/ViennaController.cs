@@ -38,7 +38,7 @@ namespace Rembrandt.Web.Controllers
             if(responseMessage.IsSuccessStatusCode)
                 return Content(responseMessage.Content.ReadAsStringAsync().Result);
 
-            return Content(null);
+            return StatusCode(500);
         }
 
         public IActionResult Result(IEnumerable<ViennaObservationDto> observationsDto)

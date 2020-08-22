@@ -5,7 +5,7 @@ using Rembrandt.Contracts.Classes.Stats;
 
 namespace Rembrandt.Web.ViewModels
 {
-    public class LocationViewModel 
+    public class LocationViewModel : GeneralViewModel
     {
         public ObservationStatDto ObservationStatDto { get; set; }
         public IEnumerable<ObservationDto> ObservationsDto { get; set; }

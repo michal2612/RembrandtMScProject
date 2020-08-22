@@ -37,13 +37,13 @@ namespace Rembrandt.Users.Infrastructure.Services
 
             var user = await _userRepository.GetUserAsync(email);
             if(user == null)
-                throw new ArgumentNullException($"Invalid credentials!");
+                throw new ArgumentNullException("Invalid credentials!");
 
             var hash = _encrypter.GetHash(password, user.Details.Salt);
             if(user.Password == hash && email.ToLower() == user.Email)
                 return;
             else
-                throw new ArgumentNullException($"Invalid credentials Email!");
+                throw new ArgumentNullException("Invalid credentials Email!");
         }
 
         public async Task RegisterAsync(string email, string password)
