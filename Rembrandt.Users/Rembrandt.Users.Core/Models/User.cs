@@ -1,7 +1,6 @@
 using System;
-using System.ComponentModel.DataAnnotations;
-using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Users.Core.Helpers;
+using System.ComponentModel.DataAnnotations;
 
 namespace Rembrandt.Users.Core.Models
 {
@@ -39,7 +38,7 @@ namespace Rembrandt.Users.Core.Models
             };
         }
 
-        string SetEmail(string email)
+        private string SetEmail(string email)
         {
             if(String.IsNullOrWhiteSpace(email))
                 throw new ArgumentNullException("Email should not be null!");
@@ -47,7 +46,7 @@ namespace Rembrandt.Users.Core.Models
             return email.ToLower();
         }
 
-        string SetPassword(string password)
+        private string SetPassword(string password)
         {
             if(String.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("Password should not be null!");
@@ -55,10 +54,10 @@ namespace Rembrandt.Users.Core.Models
             return password;
         }
 
-        string GenerateKey()
+        private string GenerateKey()
             => Guid.NewGuid().ToString();
 
-        string SetRole()
+        private string SetRole()
             => Roles.user.ToString();
     }
 }

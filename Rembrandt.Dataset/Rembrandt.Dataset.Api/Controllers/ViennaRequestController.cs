@@ -20,8 +20,6 @@ namespace Rembrandt.Dataset.Api.Controllers
 
         [HttpPost]
         public async Task<IEnumerable<ViennaObservationDto>> ReturnObservations(ViennaRequest request)
-        {
-            return await _requestService.GetMatchingObservationsDtoAsync(request);
-        }
+            => await _requestService.GetMatchingObservationsDtoAsync(request);
     }
 }

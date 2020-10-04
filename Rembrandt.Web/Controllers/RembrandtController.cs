@@ -1,14 +1,14 @@
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Net.Http;
-using System.Threading.Tasks;
 using MassTransit;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using Rembrandt.Contracts.Classes.Dataset;
 using Rembrandt.Contracts.Classes.Stats;
 using Rembrandt.Web.ViewModels;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Rembrandt.Web.Controllers
 {

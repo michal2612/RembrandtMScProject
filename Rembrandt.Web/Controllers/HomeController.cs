@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
+using Rembrandt.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Rembrandt.Web.Models;
 
 namespace Rembrandt.Web.Controllers
 {

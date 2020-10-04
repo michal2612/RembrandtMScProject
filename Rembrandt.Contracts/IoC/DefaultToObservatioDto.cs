@@ -122,13 +122,13 @@ namespace Rembrandt.Contracts.IoC
             return viennaObservation;
         }
 
-        static bool? CheckIfNullForBool(string value)
+        private static bool? CheckIfNullForBool(string value)
             => bool.TryParse(value, out bool result) ? result : (bool?)null;
 
-        static int? CheckIfNUllForInt(string value)
-            => Int32.TryParse(value, out int result) ? result : (int?)null;
+        private static int? CheckIfNUllForInt(string value)
+            => int.TryParse(value, out int result) ? result : (int?)null;
 
-        static bool ConvertIntTobool(int? value)
+        private static bool ConvertIntTobool(int? value)
             => value == null;
 
         static ViennaSubAttributesDto GetViennaSubAttributesDto(DefaultViennaObservation defaultViennaObservation)
@@ -139,9 +139,13 @@ namespace Rembrandt.Contracts.IoC
             {
                 var currentAttribute = defaultViennaObservation.GetType().GetProperty(attribute.Name);
                 if(currentAttribute != null)
-                    subAttributes.GetType().GetProperty(currentAttribute.Name).SetValue(subAttributes, ConvertIntTobool((int?)defaultViennaObservation.GetType().GetProperty(currentAttribute.Name).GetValue(defaultViennaObservation)));
+                    subAttributes.GetType()
+                        .GetProperty(currentAttribute.Name)
+                        .SetValue(subAttributes,
+                            ConvertIntTobool((int?)defaultViennaObservation.GetType()
+                                .GetProperty(currentAttribute.Name)
+                                .GetValue(defaultViennaObservation)));
             }
-
             return subAttributes;
         }
     }
