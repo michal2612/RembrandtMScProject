@@ -37,7 +37,9 @@ namespace Rembrandt.DatasetStats.Infrastructure
         public async Task UpdateDatabaseAsync(IEnumerable<ObservationStat> observations)
         {
             foreach(var observation in observations)
+            {
                 await _observationStatContext.ObservationsStat.AddAsync(observation);
+            }
             await _observationStatContext.SaveChangesAsync();
         }
 
@@ -46,7 +48,9 @@ namespace Rembrandt.DatasetStats.Infrastructure
             var observation = await _observationStatContext.ObservationsStat.Where(c => c.SiteId == siteId).SingleOrDefaultAsync();
 
             if(observation == null)
+            {
                 return;
+            }
 
             observation = observationStat;
             await _observationStatContext.SaveChangesAsync();

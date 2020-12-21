@@ -23,29 +23,26 @@ namespace Rembrandt.Dataset.Infrastructure.Services
             _mapper = mapper;
         }
 
-        public async Task AddObservationAsync(ViennaObservationDto observation)
-        {
-            if(observation == null)
-                throw new ArgumentNullException("Observation can't be null!");
-
-            await  _repository.AddObservationAsync(_mapper.Map<ViennaObservationDto, ViennaObservation>(observation));
-        }
-
         public void AddObservationsAsync(IEnumerable<ViennaObservationDto> observations)
             => observations.ToList().ForEach(async (observation) => await AddObservationAsync(observation));
 
+        public async Task AddObservationAsync(ViennaObservationDto observation)
+        {
+            if(observation == null)
+            {
+                throw new ArgumentNullException("Observation can't be null!");
+            }
+            await _repository.AddObservationAsync(_mapper.Map<ViennaObservationDto, ViennaObservation>(observation));
+        }
+
         public async Task AddObservationsJsonAsync(JsonElement defaultMultipleList)
         {
-
-            var jObject = (JArray)JObject.Parse(defaultMultipleList.ToString())["features"];
-            var jObjects = new List<JToken>();
-
-            foreach(var objectJ in jObject)
-                jObjects.Add(objectJ["properties"]);
+            var jObjects = (JArray)JObject.Parse(defaultMultipleList.ToString())["features"];
 
             foreach(var objectJ in jObjects)
-                await AddObservationAsync(objectJ.ToObject<DefaultViennaObservation>().ViennaObservationDto());
-
+            {
+                await AddObservationAsync(objectJ["properties"].ToObject<DefaultViennaObservation>().ViennaObservationDto());
+            }
         }
     }
 }

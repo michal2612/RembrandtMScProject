@@ -48,7 +48,6 @@ namespace Rembrandt.Dataset.Core.Models.ViennaDataset
 
         public ViennaAttributes()
         {
-
         }
 
         public ViennaAttributes(int feelingWell, int attractive, int clean, int facilities, int quiet, int secure, int animalsNature, int playing, int romance, int exerciseSport, int sittingLayingDown, int winter, int creativity, int summer, bool? coolingGreen, bool? coolingWind, bool? drikingWater, bool? shadow, bool? water)
@@ -80,8 +79,9 @@ namespace Rembrandt.Dataset.Core.Models.ViennaDataset
             var maxValue = 101;
 
             if(Enumerable.Range(minValue, maxValue).Contains(value))
+            {
                 return value;
-            
+            }
             throw new ArgumentOutOfRangeException($"Value should be between {minValue} and {maxValue}.");
         }
     }

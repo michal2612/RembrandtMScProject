@@ -33,8 +33,7 @@ namespace Rembrandt.Dataset.Tests
             var requestService = new ViennaRequestService(repositoryMock.Object, mapper.Object);
 
             await Assert.ThrowsAsync<ArgumentNullException>(
-                async () => await requestService.GetMatchingObservationsDtoAsync(null)
-                );
+                async () => await requestService.GetMatchingObservationsDtoAsync(null));
         }
     }
 }

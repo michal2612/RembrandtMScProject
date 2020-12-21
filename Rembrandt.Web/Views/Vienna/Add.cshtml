@@ -105,16 +105,16 @@
     </script>
     <script>
         function datetime() {
-            var today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
+            const today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
             document.getElementById('datetime-input').value = today;
         }
 
         function submit() {
-            var observation = new Object();
+            const observation = new Object();
             
             //location
             observation['Location'] = new Object();
-            var measuredLocation = new Object();
+            const measuredLocation = new Object();
 
             measuredLocation['Longitude'] = markers[0].position.lng();
             measuredLocation['Latitude'] = markers[0].position.lat();
@@ -125,13 +125,13 @@
             //attributes
             observation['Attributes'] = new Object();
 
-            var mainAttributes = document.getElementsByClassName('main-attributes-vienna');
+            const mainAttributes = document.getElementsByClassName('main-attributes-vienna');
             for(i = 0; i < mainAttributes.length; i++) {
                 observation['Attributes'][mainAttributes[i].id] = parseInt(mainAttributes[i].value); 
             }
 
             //attributes bool
-            var mainAttributesBool = document.getElementsByClassName('main-attributes-bool-vienna');
+            const mainAttributesBool = document.getElementsByClassName('main-attributes-bool-vienna');
             for(i = 0; i < mainAttributesBool.length; i++) {
                 if(mainAttributesBool[i].checked)
                     observation['Attributes'][mainAttributesBool[i].id] = true;
@@ -141,7 +141,7 @@
 
             //subattributes
             observation['SubAttributes'] = new Object();
-            var subAttributes = document.getElementsByClassName('sub-attributes-vienna');
+            vaconstr subAttributes = document.getElementsByClassName('sub-attributes-vienna');
             for(i = 0; i < subAttributes.length; i++) {
                 if(subAttributes[i].checked)
                     observation['SubAttributes'][subAttributes[i].id] = true;
@@ -155,8 +155,8 @@
         };
 
         //map
-        let map;
-        var markers = [];
+        const map;
+        const markers = [];
 
         function addMarker(latLng) {
             let marker = new google.maps.Marker({
@@ -182,7 +182,7 @@
         }
 
         function setMapOnAll(map) {
-            for (var i = 0; i < markers.length; i++) {
+            for (let i = 0; i < markers.length; i++) {
                 markers[i].setMap(map);
             }
         }

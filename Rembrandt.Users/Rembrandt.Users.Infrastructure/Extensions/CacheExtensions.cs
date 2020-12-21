@@ -12,7 +12,7 @@ namespace Rembrandt.Users.Infrastructure.Extensions
         public static JwtDto GetJwt(this IMemoryCache cache, Guid tokenId)
             => cache.Get<JwtDto>(GetJwtKey(tokenId));
 
-        static string GetJwtKey(Guid tokenId)
+        private static string GetJwtKey(Guid tokenId)
             => $"jwt-{tokenId}";
     }
 }

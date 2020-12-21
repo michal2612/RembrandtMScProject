@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Rembrandt.Web.csproj",
+  "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Rembrandt.Web.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14387,83 +14387,83 @@
         }
       }
     ],
-    "CSharpLanguageVersion": 800
+    "CSharpLanguageVersion": 900
   },
   "RootNamespace": "Rembrandt.Web",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Vienna\\Add.cshtml",
-      "TargetPath": "Views\\Vienna\\Add.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Shared\\_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Rembrandt\\Add.cshtml",
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Rembrandt\\Add.cshtml",
       "TargetPath": "Views\\Rembrandt\\Add.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Rembrandt\\Location.cshtml",
-      "TargetPath": "Views\\Rembrandt\\Location.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Vienna\\Data.cshtml",
-      "TargetPath": "Views\\Vienna\\Data.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\LogIn\\Register.cshtml",
-      "TargetPath": "Views\\LogIn\\Register.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Rembrandt\\Data.cshtml",
-      "TargetPath": "Views\\Rembrandt\\Data.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\LogIn\\Login.cshtml",
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\LogIn\\Login.cshtml",
       "TargetPath": "Views\\LogIn\\Login.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Michal\\source\\repos\\Rembrandt\\Rembrandt.Web\\Views\\Users\\Settings.cshtml",
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Vienna\\Add.cshtml",
+      "TargetPath": "Views\\Vienna\\Add.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Rembrandt\\Location.cshtml",
+      "TargetPath": "Views\\Rembrandt\\Location.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Users\\Settings.cshtml",
       "TargetPath": "Views\\Users\\Settings.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Shared\\_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Rembrandt\\Data.cshtml",
+      "TargetPath": "Views\\Rembrandt\\Data.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\LogIn\\Register.cshtml",
+      "TargetPath": "Views\\LogIn\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Michal\\source\\repos\\RembrandtMScProject\\Rembrandt.Web\\Views\\Vienna\\Data.cshtml",
+      "TargetPath": "Views\\Vienna\\Data.cshtml",
       "FileKind": "mvc"
     }
   ],

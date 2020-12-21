@@ -22,9 +22,10 @@ namespace Rembrandt.DatasetStats.Infrastructure.Services
         {
             var result = new List<ObservationStatDto>();
 
-            foreach(var element in await _statsRepository.GetAllObservationsStatAsync())
-                result.Add(_mapper.Map<ObservationStat, ObservationStatDto>(element));
-
+            foreach(var observation in await _statsRepository.GetAllObservationsStatAsync())
+            {
+                result.Add(_mapper.Map<ObservationStat, ObservationStatDto>(observation));
+            }
             return await Task.FromResult(result);
         }
 

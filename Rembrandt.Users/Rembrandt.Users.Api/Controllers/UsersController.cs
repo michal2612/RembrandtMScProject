@@ -22,11 +22,8 @@ namespace Rembrandt.Users.Api.Controllers
         [Authorize]
         public async Task<IActionResult> Get(string email)
         {
-            var user =  await _userService.GetUserAsync(email);
-            if(user == null)
-                return NotFound();
-
-            return Ok(user);
+            var user = await _userService.GetUserAsync(email);
+            return user == null ? NotFound() : Ok(user);
         }
     }
 }

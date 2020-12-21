@@ -41,16 +41,18 @@ namespace Rembrandt.Users.Core.Models
         private string SetEmail(string email)
         {
             if(String.IsNullOrWhiteSpace(email))
+            {
                 throw new ArgumentNullException("Email should not be null!");
-
+            }
             return email.ToLower();
         }
 
         private string SetPassword(string password)
         {
             if(String.IsNullOrWhiteSpace(password))
+            {
                 throw new ArgumentNullException("Password should not be null!");
-
+            }
             return password;
         }
 

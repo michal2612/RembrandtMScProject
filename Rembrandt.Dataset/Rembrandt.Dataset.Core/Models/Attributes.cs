@@ -51,8 +51,8 @@ namespace Rembrandt.Dataset.Core.Models
         
         protected Attributes()
         {
-            
         }
+
         public Attributes(int lively, int relaxing, int tranquil, int noisy, int crowded, int safe, int beauty, int biodiversity, int trees, int shrubs, int lawns, int flowers, int natveg, int benches, int play, int sports, int garbage, int veget, int paths, int facilities)
         {
             Lively = lively;
@@ -78,7 +78,7 @@ namespace Rembrandt.Dataset.Core.Models
             CheckValues(this);
         }
 
-        static void CheckValues(Attributes attributes)
+        private static void CheckValues(Attributes attributes)
         {
             var exceptionProperties = new List<string>()
             {
@@ -92,15 +92,28 @@ namespace Rembrandt.Dataset.Core.Models
             const int maxValueException = 10;
 
             foreach (var prop in props)
+            {
                 if(prop.Name == "AttributesId")
+                {
                     return;
+                }
                 else if(!exceptionProperties.Contains(prop.Name))
+                {
                     if((int)prop.GetValue(attributes) < minValueException || (int)prop.GetValue(attributes) > maxValueException)
-                        throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValueException} and {maxValueException}!");
-                else 
+                    {
+                        throw new ArgumentOutOfRangeException
+                            ($"Value of property '{prop.Name}' should be between {minValueException} and {maxValueException}!");
+                    }
+                }
+                else
+                {
                     if((int)prop.GetValue(attributes) < minValue || (int)prop.GetValue(attributes) > maxValue)
-                        throw new ArgumentOutOfRangeException($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
-
+                    {
+                        throw new ArgumentOutOfRangeException
+                            ($"Value of property '{prop.Name}' should be between {minValue} and {maxValue}!");
+                    }
+                }
+            }
         }
     }
 }

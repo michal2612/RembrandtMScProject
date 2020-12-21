@@ -23,9 +23,7 @@ namespace Rembrandt.Web.Controllers
         }
 
         public async Task<IActionResult> Data()
-        {
-            return await Task.FromResult(View());
-        }
+            => await Task.FromResult(View());
 
         [Route("{siteId}")]
         public async Task<IActionResult> Location(int siteId)
@@ -34,7 +32,9 @@ namespace Rembrandt.Web.Controllers
             var resultObservations = await _httpClient.GetAsync($"/sites-gateway/{siteId}");
 
             if(!result.IsSuccessStatusCode)
+            {
                 return Content("Something went wrong!");
+            }
 
             var locationViewModel = new LocationViewModel()
             {
@@ -45,9 +45,7 @@ namespace Rembrandt.Web.Controllers
         }
 
         public async Task<IActionResult> Add()
-        {
-            return await Task.FromResult(View(new ObservationDto() {Activities = new ActivitiesDto(), Attributes = new AttributesDto()}));
-        }
+            => await Task.FromResult(View(new ObservationDto() {Activities = new ActivitiesDto(), Attributes = new AttributesDto()}));
 
         [HttpPost]
         public async Task<IActionResult> Submit(ObservationDto observationDto)
@@ -55,7 +53,9 @@ namespace Rembrandt.Web.Controllers
             var cookie = Request.Cookies["jwtToken"];
 
             if(observationDto == null)
+            {
                 throw new ArgumentNullException("Observation can't be null!");
+            }
 
             observationDto.Source = "http://rembrandt-project.ukwest.cloudapp.azure.com/" + HttpContext.Session.GetString(cookie);
             await _publishEndpoint.Publish<ObservationDto>(observationDto);

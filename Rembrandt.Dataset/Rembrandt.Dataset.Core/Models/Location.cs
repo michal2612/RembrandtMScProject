@@ -14,7 +14,6 @@ namespace Rembrandt.Dataset.Core.Models
 
         protected Location()
         {
-            
         }
 
         public Location(float longitude, float latitude)
@@ -30,10 +29,9 @@ namespace Rembrandt.Dataset.Core.Models
             Latitude = SetCoordinates(latitude);
         }
 
-        int SetGpsAccuracy(int gpsAccuracy)
+        private int SetGpsAccuracy(int gpsAccuracy)
             => gpsAccuracy < 0 ? throw new ArgumentException("GPS Accuracy should not be below 0!") : gpsAccuracy;
 
-        float SetCoordinates(float coordinate)
-            => coordinate;
+        private float SetCoordinates(float coordinate) => coordinate;
     }
 }

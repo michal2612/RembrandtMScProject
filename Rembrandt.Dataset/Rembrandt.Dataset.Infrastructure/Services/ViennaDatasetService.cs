@@ -22,15 +22,15 @@ namespace Rembrandt.Dataset.Infrastructure.Services
         }
 
         public async Task<IEnumerable<ViennaObservationDto>> GetAllObservationsAsync()
-        {
-            return from ViennaObservation observation in await _repository.GetAllObservationsAsync()
-                   select _mapper.Map<ViennaObservation, ViennaObservationDto>(observation);
-        }
+            => from ViennaObservation observation in await _repository.GetAllObservationsAsync()
+               select _mapper.Map<ViennaObservation, ViennaObservationDto>(observation);
 
         public async Task<IEnumerable<ViennaObservationDto>> GetObservationsByIdAsync(string userId)
         {
             if(userId == null || string.IsNullOrWhiteSpace(userId))
+            {
                 throw new ArgumentException("User Id should have a value!");
+            }
 
             return from ViennaObservation observation in await _repository.GetObservationsAsync(userId)
                    select _mapper.Map<ViennaObservation, ViennaObservationDto>(observation);

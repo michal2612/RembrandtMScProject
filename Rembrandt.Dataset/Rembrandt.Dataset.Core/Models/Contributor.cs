@@ -35,7 +35,6 @@ namespace Rembrandt.Dataset.Core.Models
 
         protected Contributor()
         {
-            
         }
 
         public Contributor(string id, int? age, int? gender, bool? dutchNationality, int? education, bool? visitDaily, int? visitFrequency, bool? visitAlone, int? visitOtherParks, bool? moreInvoled, int? natureOriented, bool? withChildren)
@@ -54,34 +53,35 @@ namespace Rembrandt.Dataset.Core.Models
             WithChildren = withChildren;
         }
 
-        static int? SetAge(int? age)
+        private static int? SetAge(int? age)
             => CheckForEnum(typeof(Age), age);
         
-        static int? SetGender(int? gender)
+        private static int? SetGender(int? gender)
             => CheckForEnum(typeof(Gender), gender);
 
-        static int? SetEducation(int? education)
+        private static int? SetEducation(int? education)
             => CheckForEnum(typeof(Education), education);
 
-        static int? SetNatureOriented(int? natureOriented)
+        private static int? SetNatureOriented(int? natureOriented)
             => CheckForEnum(typeof(NatureOriented), natureOriented);
 
-        static int? SetVisitFrequency(int? visitFrequency)
+        private static int? SetVisitFrequency(int? visitFrequency)
             => CheckForEnum(typeof(VisitFrequency), visitFrequency);
 
-        static int? SetVisitOtherParks(int? visitOtherParks)
+        private static int? SetVisitOtherParks(int? visitOtherParks)
             => CheckForEnum(typeof(VisitOtherParks), visitOtherParks);
 
-        static int? CheckForEnum(Type enumType, int? value)
+        private static int? CheckForEnum(Type enumType, int? value)
         {
             if(value == null)
+            {
                 return (int)Enum.Parse(enumType, "Undefined");
+            }
 
-            bool exists = Enum.IsDefined(enumType, value);
-            
-            if(exists == false)
+            if(!Enum.IsDefined(enumType, value))
+            {
                 throw new ArgumentException($"Can't find a definition for {enumType.Name} value!");
-
+            }
             return value;
         }
     }

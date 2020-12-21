@@ -25,32 +25,39 @@ namespace Rembrandt.Users.Infrastructure.Services
             var user = await _userRepository.GetUserAsync(email);
 
             if(user == null)
+            {
                 throw new Exception("No user in database with this email address!");
-
+            }
             return _mapper.Map<User, UserDto>(user);
         }
 
         public async Task LoginAsync(string email, string password)
         {
             if(String.IsNullOrWhiteSpace(email) || String.IsNullOrWhiteSpace(password))
+            {
                 throw new ArgumentNullException("One of username or login should not be null!");
+            }
 
             var user = await _userRepository.GetUserAsync(email);
             if(user == null)
+            {
                 throw new ArgumentNullException("Invalid credentials!");
+            }
 
             var hash = _encrypter.GetHash(password, user.Details.Salt);
-            if(user.Password == hash && email.ToLower() == user.Email)
-                return;
-            else
+            if(!user.Password == hash && email.ToLower() == user.Email)
+            {
                 throw new ArgumentNullException("Invalid credentials Email!");
+            }
+            return;
         }
 
         public async Task RegisterAsync(string email, string password)
         {
             if(await _userRepository.GetUserAsync(email) != null)
+            {
                 throw new Exception("User already exists!");
-
+            }
             var salt = _encrypter.GetSalt();
             var hashPassowrd = _encrypter.GetHash(password, salt);
 

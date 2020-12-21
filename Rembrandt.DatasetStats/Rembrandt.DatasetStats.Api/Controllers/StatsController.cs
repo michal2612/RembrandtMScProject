@@ -23,15 +23,11 @@ namespace Rembrandt.DatasetStats.Api.Controllers
 
         [HttpGet("{siteId}")]
         public async Task<ObservationStatDto> ReturnStatOfLocation(int siteId)
-        {
-            return await _statsService.GetObservationStatAsync(siteId);
-        }
+            => await _statsService.GetObservationStatAsync(siteId);
 
         [HttpPost]
         public async Task ReturnStatOfAllLocations(IEnumerable<ObservationDto> observations)
-        {
-            await _updateObservationsService.UpdateObservationsAsync(observations);
-        }
+            => await _updateObservationsService.UpdateObservationsAsync(observations);
 
         [HttpGet]
         public async Task<IEnumerable<ObservationStatDto>> ReturnStatOfAllLocations()

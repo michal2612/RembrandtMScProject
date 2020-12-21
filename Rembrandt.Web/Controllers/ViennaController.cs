@@ -36,8 +36,9 @@ namespace Rembrandt.Web.Controllers
             var responseMessage = await _httpClient.PostAsync("/vienna-request-gateway",convertedRequest);
             
             if(responseMessage.IsSuccessStatusCode)
+            {
                 return Content(responseMessage.Content.ReadAsStringAsync().Result);
-
+            }
             return StatusCode(500);
         }
 

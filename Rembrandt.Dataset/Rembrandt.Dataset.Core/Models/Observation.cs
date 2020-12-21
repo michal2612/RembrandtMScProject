@@ -29,8 +29,8 @@ namespace Rembrandt.Dataset.Core.Models
 
         protected Observation()
         {
-            
         }
+
         public Observation(string skipReason, DateTime timeSubmitted, int siteId, string photoAddress, int photoTowardsPointCompass, Attributes attributes, Park park, Activities activities, Contributor contributor)
         {
             SkipReason = SetSkipReason(skipReason);
@@ -44,10 +44,10 @@ namespace Rembrandt.Dataset.Core.Models
             Contributor = CheckForNullable<Contributor>(contributor);
         }
 
-        static T CheckForNullable<T>(T obj)
+        private static T CheckForNullable<T>(T obj)
             => obj == null ? throw new ArgumentNullException($"Property '{typeof(T).Name}' can not be null!") : obj;
 
-        static string SetSkipReason(string skipReason)
+        private static string SetSkipReason(string skipReason)
             => String.IsNullOrWhiteSpace(skipReason) ? "noskip" : skipReason;
     }
 }

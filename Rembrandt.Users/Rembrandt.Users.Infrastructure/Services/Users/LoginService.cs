@@ -10,7 +10,9 @@ namespace Rembrandt.Users.Infrastructure.Commands
     public class LoginService : ILoginService
     {
         private readonly IUserService _userService;
+
         private readonly IJwtHandler _jwtHandler;
+        
         private readonly IMemoryCache _memoryCache;
 
         public LoginService(IUserService userService, IJwtHandler jwtHandler, IMemoryCache memoryCache)

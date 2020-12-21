@@ -54,7 +54,7 @@
                 mapTypeId: "terrain"
             });
 
-        var marker = new google.maps.Marker({
+        let marker = new google.maps.Marker({
             position: {lat: 48.2086649, lng: 16.3666573},
             map: map,
             animation: google.maps.Animation.DROP,
@@ -80,40 +80,40 @@
 
         function submit() {
             setMapOnAll(null);
-            var viennaSelect = new Object();
+            const viennaSelect = new Object();
 
             //main category
-            var main = document.getElementById('main-category').value;
+            const main = document.getElementById('main-category').value;
             viennaSelect['MainCategory'] = CheckForNull(main);
 
             //sub categories
-            var subcategories = document.getElementById('sub-categories');
+            const subcategories = document.getElementById('sub-categories');
             let selected = [];
-            for(var i = 0; i < subcategories.length; i++) {
+            for(let i = 0; i < subcategories.length; i++) {
                 if(subcategories[i].selected) selected.push(subcategories.options[i].value);
             }
             viennaSelect['RequestedActivities'] = CheckForNull(selected);
             $.post('@Url.Action("Submit","Vienna")', viennaSelect).done(function(response){
                 if(response != null) {
-                    var jsonResponse = JSON.parse(response);
+                    let jsonResponse = JSON.parse(response);
                     document.getElementById('vienna-table').style.visibility = "visible";
                     $("#rembrandt").html(response);
 
                     for(i = 0; i < jsonResponse.length; i++) {
                         AddMarker(jsonResponse[i].location.latitude, jsonResponse[i].location.longitude);
 
-                        var table = document.getElementById('vienna-table');
-                        var row = table.insertRow(i + 1);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-                        var cell4 = row.insertCell(3);
+                        let table = document.getElementById('vienna-table');
+                        let row = table.insertRow(i + 1);
+                        let cell1 = row.insertCell(0);
+                        let cell2 = row.insertCell(1);
+                        let cell3 = row.insertCell(2);
+                        let cell4 = row.insertCell(3);
 
 
                         cell1.innerHTML = i + 1;
                         cell2.innerHTML = jsonResponse[i].timeSubmitted;
 
-                        var attributesValues = [];
+                        let attributesValues = [];
 
                         for(const [key, value] of Object.entries(jsonResponse[i].attributes)) {
                             if(Number.isInteger(value)) {
@@ -123,7 +123,7 @@
                         }
                         cell3.innerHTML = attributesValues.join(', ');
                         
-                        var subAttributesValues = [];
+                        let subAttributesValues = [];
 
                         for(const [key, value] of Object.entries(jsonResponse[i].subAttributes)) {
                             if(value == true) subAttributesValues.push(key);
@@ -138,7 +138,7 @@
 
 
         function AddMarker(lat, lng) {
-            var marker = new google.maps.Marker({
+            const marker = new google.maps.Marker({
             position: {lat: lat, lng: lng},
             map: map,
             animation: google.maps.Animation.DROP,
@@ -150,7 +150,7 @@
         }
 
         function setMapOnAll(map) {
-            var markers = [];
+            const markers = [];
             for (let i = 0; i < markers.length; i++) {
                 markers[i].setMap(map);
             }

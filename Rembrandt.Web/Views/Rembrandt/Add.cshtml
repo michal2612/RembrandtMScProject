@@ -305,20 +305,20 @@
     </script>
     <script>
         function datetime() {
-            var today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
+            let today = moment().format("YYYY-MM-DD[T]hh:mm:ss");
             document.getElementById('datetime-input').value = today;
         }
 
         function submit() {
 
-            var observation = new Object();
+            const observation = new Object();
 
             //side id
             observation["siteId"] = parseInt(document.getElementById("siteId").value);
 
             //location
             observation['Park'] = new Object();
-            var measuredLocation = new Object();
+            const measuredLocation = new Object();
 
             measuredLocation['Longitude'] = markers[0].position.lng();
             measuredLocation['Latitude'] = markers[0].position.lat();
@@ -326,16 +326,16 @@
             observation['Park']['MeasuredLocation'] = measuredLocation;
             observation['Park']['ActualLocation'] = measuredLocation;
             //attributes
-            var attributesValues = document.getElementsByName('attribute');
-            var attributes = new Object();
-            for(var item of attributesValues) {
+            let attributesValues = document.getElementsByName('attribute');
+            let attributes = new Object();
+            for(let item of attributesValues) {
                 attributes[item.id] = parseInt(item.value);
             }
             observation['Attributes'] = attributes;
 
             //activities
-            var activitiesValues = document.getElementsByTagName('input');
-            var activities = new Object();
+            let activitiesValues = document.getElementsByTagName('input');
+            let activities = new Object();
             for(i=0; i < activitiesValues.length; i++) {
                 if(activitiesValues[i].type == 'radio' && activitiesValues[i].checked && (!activitiesValues[i].classList.contains('contributor-radios'))) {
                     if(activitiesValues[i].value == '') {
@@ -352,11 +352,11 @@
             observation['TimeSubmitted'] = new Date(document.getElementById('datetime-input').value);
 
             //contributor
-            var contributorDetails = new Object();
-            var definedClass = 'Contributor';
+            const contributorDetails = new Object();
+            const definedClass = 'Contributor';
             let containers = document.getElementsByClassName(definedClass.toLowerCase());
 
-            for(var item of containers) {
+            for(let item of containers) {
                 if(item.value != '') {
                     contributorDetails[item.id.substring(definedClass.length + 1)] = parseInt(item.value);
                 }
@@ -366,8 +366,8 @@
             }
 
             // radios 
-            var radios = document.getElementsByTagName('input')
-            for(var radio of radios) {
+            const radios = document.getElementsByTagName('input')
+            for(let radio of radios) {
                 if(radio.type == 'radio' && radio.classList.contains('contributor-radios')) {
                     if(radio.checked) {
                         contributorDetails[radio.name] = radio.value == "" ? null : (radio.value == 'true');
@@ -381,8 +381,8 @@
         };
 
         //map
-        let map;
-        var markers = [];
+        const map;
+        const markers = [];
 
         function addMarker(latLng) {
             let marker = new google.maps.Marker({
@@ -408,7 +408,7 @@
         }
 
         function setMapOnAll(map) {
-            for (var i = 0; i < markers.length; i++) {
+            for (let i = 0; i < markers.length; i++) {
                 markers[i].setMap(map);
             }
         }

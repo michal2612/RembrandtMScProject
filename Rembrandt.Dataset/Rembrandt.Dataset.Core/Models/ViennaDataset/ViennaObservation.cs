@@ -32,7 +32,6 @@ namespace Rembrandt.Dataset.Core.Models.ViennaDataset
 
         protected ViennaObservation()
         {
-            
         }
 
         public ViennaObservation(string user, string photoPointUrl, string photoNorthUrl, string photoEastUrl, string photoSouthUrl, string photoWestUrl, Location location, ViennaAttributes attributes, ViennaSubAttributes subAttributes, string soruce)

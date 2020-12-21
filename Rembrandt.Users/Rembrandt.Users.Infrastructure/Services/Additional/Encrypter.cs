@@ -31,7 +31,7 @@ namespace Rembrandt.Users.Infrastructure.Services
             return Convert.ToBase64String(saltBytes);
         }
 
-        static byte[] GetBytes(string value)
+        private static byte[] GetBytes(string value)
         {
             var bytes = new byte[value.Length*sizeof(char)];
             Buffer.BlockCopy(value.ToCharArray(), 0, bytes, 0, bytes.Length);

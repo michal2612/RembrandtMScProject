@@ -24,17 +24,28 @@ namespace Rembrandt.Dataset.Infrastructure.Services
         public async Task<IEnumerable<ViennaObservationDto>> GetMatchingObservationsDtoAsync(ViennaRequest request)
         {
             if(request == null)
+            {
                 throw new ArgumentNullException();
+            }
                 
             var observations = new List<ViennaObservationDto>();
 
             foreach(var observation in await _repository.GetAllObservationsAsync())
+            {
                 foreach(var subAttribute in request.RequestedActivities)
-                    if((bool?)observation.SubAttributes.GetType().GetProperty(subAttribute).GetValue(observation.SubAttributes) == true)
+                {
+                    bool? checkValue = (bool?)observation.SubAttributes
+                        .GetType()
+                        .GetProperty(subAttribute)
+                        .GetValue(observation.SubAttributes);
+
+                    if((bool)checkValue)
                     {
                         observations.Add(_mapper.Map<ViennaObservation, ViennaObservationDto>(observation));
                         break;
                     }
+                }
+            }
             return observations;
         }
     }

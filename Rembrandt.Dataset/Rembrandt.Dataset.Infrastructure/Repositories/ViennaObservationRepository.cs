@@ -30,10 +30,7 @@ namespace Rembrandt.Dataset.Infrastructure.Repositories
                 .Where(c => c.User == userId)
                 .ToListAsync();
             
-            if(observation == null)
-                return null;
-
-            return observation;
+            return observation == null ? null : observation;
         }
 
         public async Task<IEnumerable<ViennaObservation>> GetAllObservationsAsync()

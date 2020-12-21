@@ -125,7 +125,6 @@ namespace Rembrandt.Dataset.Core.Models.ViennaDataset
 
         public ViennaSubAttributes()
         {
-            
         }
     }
 }

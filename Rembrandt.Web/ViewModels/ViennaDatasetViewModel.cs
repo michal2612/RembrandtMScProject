@@ -38,10 +38,7 @@ namespace Rembrandt.Web.ViewModels
             foreach(var property in obj.GetType().GetProperties())
             {
                 var propertyName = property.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
-                if(propertyName != null)
-                    dictionary.Add(property.Name, propertyName.GetName());
-                else
-                    dictionary.Add(property.Name, property.Name);
+                dictionary.Add(property.Name, property == null ? propertyName.GetName() : property.Name);
             }
             return dictionary;
         }
@@ -55,10 +52,7 @@ namespace Rembrandt.Web.ViewModels
                 if(type == property.PropertyType)
                 {
                     var propertyName = property.GetCustomAttribute(typeof(DisplayAttribute)) as DisplayAttribute;
-                    if(propertyName != null)
-                        dictionary.Add(property.Name, propertyName.GetName());
-                    else
-                        dictionary.Add(property.Name, property.Name);
+                    dictionary.Add(property.Name, property == null ? propertyName.GetName() : property.Name);
                 }
             }
             return dictionary;

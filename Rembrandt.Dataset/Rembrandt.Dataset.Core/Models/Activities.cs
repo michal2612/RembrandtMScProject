@@ -16,7 +16,6 @@ namespace Rembrandt.Dataset.Core.Models
 
         protected Activities()
         {
-            
         }
         
         public Activities(bool? walking, bool? jogging, bool? biking, bool? relaxing, bool? socialising)

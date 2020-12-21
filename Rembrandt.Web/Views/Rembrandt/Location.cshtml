@@ -90,7 +90,7 @@
 
     <script>
     function initMap() {
-        var raw = @Html.Raw(Json.Serialize(Model.ObservationsDto.Select(c => c.Park.ActualLocation)));
+        const raw = @Html.Raw(Json.Serialize(Model.ObservationsDto.Select(c => c.Park.ActualLocation)));
 
         map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: raw[0].latitude, lng: raw[0].longitude},
@@ -98,8 +98,8 @@
     });
         
 
-        for(var location of raw) {
-              var marker = new google.maps.Marker({
+        for(let location of raw) {
+              let marker = new google.maps.Marker({
               position: {'lat': location.latitude, 'lng': location.longitude},
               map: map,
               animation: google.maps.Animation.DROP,
